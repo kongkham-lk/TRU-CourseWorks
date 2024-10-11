@@ -1,0 +1,1 @@
+These are all the text which will be written to a file. I can make a new line by the slash n! This is a third line in this file, but I better close it? then I will grab my coffee on the table

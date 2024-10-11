@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_margin="0dp"
+    android:background="@drawable/gradient_background"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/txtInput_num1"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/txtInput_num1"
+        android:inputType="numberSigned|numberDecimal"
+        android:minHeight="48dp"
+        android:layout_margin="0dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/lightGrey"
+        />
+
+    <EditText
+        android:id="@+id/txtInput_num2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50sp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/txtInput_num2"
+        android:inputType="numberSigned|numberDecimal"
+        android:minHeight="48dp"
+        android:layout_margin="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/lightGrey"
+        />
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="0dp">
+
+        <Button
+            android:id="@+id/btn_clear"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="64dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="5dp"
+            android:padding="0sp"
+            android:text="@string/btn_clear"
+            android:textSize="16sp"
+            app:cornerRadius="15dp"
+            android:backgroundTint="@color/button_background"
+            android:textColor="@color/button_text"
+            />
+
+        <Button
+            android:id="@+id/btn_add"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="5dp"
+            android:padding="0sp"
+            android:text="@string/btn_add"
+            android:textSize="16sp"
+            app:cornerRadius="15dp"
+            android:backgroundTint="@color/darkGrey"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/btn_minus"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="5dp"
+            android:padding="0dp"
+            android:text="@string/btn_minus"
+            android:textSize="16sp"
+            app:cornerRadius="15dp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/darkGrey"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/btn_multiply"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="0dp"
+            android:layout_marginStart="5dp"
+            android:text="@string/btn_multiply"
+            android:textSize="16sp"
+            app:cornerRadius="15dp"
+            android:backgroundTint="@color/darkGrey"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/btn_divide"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="5dp"
+            android:padding="0sp"
+            android:text="@string/btn_divide"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            app:cornerRadius="15dp"
+            android:backgroundTint="@color/darkGrey"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:hint="@string/txt_result"
+        android:textSize="16sp"
+        android:layout_margin="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/lightGrey"
+        />
+
+</LinearLayout>
