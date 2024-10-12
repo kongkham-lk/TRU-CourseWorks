@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 intentEmail.putExtra(Intent.EXTRA_EMAIL, email); // need to pass in as string of array
                 intentEmail.putExtra(Intent.EXTRA_SUBJECT, subject);
                 intentEmail.putExtra(Intent.EXTRA_TEXT, content); // Not sure why this display on sharing text on app option display page
-                // intentEmail.setData(Uri.parse("mailto:")); // this seems not to work on filter out and won't show any option without setType()
+//                 intentEmail.setData(Uri.parse("mailto:")); // this seems not to work on filter out and won't show any option without setType()
                 intentEmail.setType("message/rfc822"); // require this for showing different app option on share screen
 
                 try {
