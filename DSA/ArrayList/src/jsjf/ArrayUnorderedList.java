@@ -36,7 +36,16 @@ implements UnorderedListADT<T>
 	 */
 	public void addToFront(T element)
 	{
-		// To be completed as a Programming Project
+        if (size() == list.length)
+            expandCapacity();
+
+        // Shift every element to one step behind
+		for (int scan = rear; scan > 0; scan--)
+            list[scan] = list[scan - 1];
+        
+        list[0] = element;
+        rear++;
+        modCount++;
 	}
 
 	/**
@@ -46,7 +55,12 @@ implements UnorderedListADT<T>
 	 */
 	public void addToRear(T element)
 	{
-		// To be completed as a Programming Project
+        if (size() == list.length)
+            expandCapacity();
+        
+        list[rear] = element;
+        rear++;
+        modCount++;
 	}
 
 	/**

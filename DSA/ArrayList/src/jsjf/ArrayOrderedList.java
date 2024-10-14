@@ -1,5 +1,7 @@
 package jsjf;
 
+import static jsjf.ArrayList.NOT_FOUND;
+
 import jsjf.exceptions.*;
 
 /**
@@ -59,5 +61,38 @@ implements OrderedListADT<T>
 		list[scan] = element;
 		rear++;
 		modCount++;
+	}
+
+	/**
+	 * Returns the array index of the specified element, or the
+	 * constant NOT_FOUND if it is not found.
+	 *
+	 * @param target the target element
+	 * @return the index of the target element, or the 
+	 *         NOT_FOUND constant
+	 */
+	private int find(T target)
+	{
+		if (!(target instanceof Comparable))
+			throw new NonComparableElementException("OrderedList");
+
+		Comparable<T> comparableElement = (Comparable<T>)target;
+
+        if (comparableElement.compareTo(list[0]) > 0) {
+            int l = 0;
+            int r = rear - 1;
+            while (l >= r) {
+                int mid = (r - l) / 2;
+                if (comparableElement.compareTo(list[mid]) == 0)
+                    return mid;
+                else if (comparableElement.compareTo(list[mid]) < 0) {
+                    r = mid;
+                } else {
+                    l = mid;
+                }
+            }
+        }
+
+		return NOT_FOUND;
 	}
 }
