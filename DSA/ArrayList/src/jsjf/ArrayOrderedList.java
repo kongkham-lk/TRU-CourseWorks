@@ -10,8 +10,7 @@ import jsjf.exceptions.*;
  * @author Java Foundations
  * @version 4.0
  */
-public class ArrayOrderedList<T> extends ArrayList<T>
-implements OrderedListADT<T>
+public class ArrayOrderedList<T> extends ArrayList<T> implements OrderedListADT<T>
 {
 	/**
 	 * Creates an empty list using the default capacity.
