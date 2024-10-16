@@ -70,25 +70,24 @@ public class ArrayOrderedList<T> extends ArrayList<T> implements OrderedListADT<
 	 * @return the index of the target element, or the 
 	 *         NOT_FOUND constant
 	 */
-	private int find(T target)
+	public int find(T target)
 	{
 		if (!(target instanceof Comparable))
 			throw new NonComparableElementException("OrderedList");
 
 		Comparable<T> comparableElement = (Comparable<T>)target;
 
-        if (comparableElement.compareTo(list[0]) > 0) {
+        if (comparableElement.compareTo(list[0]) >= 0) {
             int l = 0;
             int r = rear - 1;
-            while (l >= r) {
-                int mid = (r - l) / 2;
+            while (l <= r) {
+                int mid = l + (r - l) / 2;
                 if (comparableElement.compareTo(list[mid]) == 0)
                     return mid;
-                else if (comparableElement.compareTo(list[mid]) < 0) {
-                    r = mid;
-                } else {
-                    l = mid;
-                }
+                else if (comparableElement.compareTo(list[mid]) < 0)
+                    r = mid - 1;
+                else
+                    l = mid + 1;
             }
         }
 
