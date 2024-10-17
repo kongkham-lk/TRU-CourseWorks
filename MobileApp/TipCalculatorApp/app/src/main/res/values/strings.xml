@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tip Calculator App</string>
+    <string name="app_name">TipCalculatorApp</string>
     <string name="title">Tip Calculator</string>
     <string name="baseAmountLabel">Base Amount</string>
     <string name="baseAmountInput">Enter the amount</string>
@@ -16,6 +16,7 @@
         <item>Amazing</item>
     </string-array>
     <string name="missingAmountError">Base Amount Cannot Be Empty!</string>
-    <string name="fomatDecimal">0.00</string>
+    <string name="defaultTip">15</string>
     <string name="percentUnit"> %</string>
+    <string name="defaultVal">0</string>
 </resources>

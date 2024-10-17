@@ -13,13 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
-    private final DecimalFormat df = new DecimalFormat(getResources().getString(R.string.fomatDecimal));
-    private int tipPercent = 15;
+    private final DecimalFormat df = new DecimalFormat("0.00");
+    private int tipPercent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         EditText baseInput = findViewById(R.id.baseAmount_input);
@@ -28,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tipComment = findViewById(R.id.tipComment);
         TextView totalTipDisplay = findViewById(R.id.tipAmount_display);
         TextView totalChargeDisplay = findViewById(R.id.totalAmount_display);
+        tipPercent = Integer.parseInt(getResources().getString(R.string.defaultTip));
 
         slideBar.setProgress(tipPercent);
         tipPercentDisplay.setText(getTipPercentDisplay(tipPercent));
