@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="poor">#F44336</color>
+    <color name="acceptable">#E2AE00</color>
+    <color name="good">#6AC500</color>
+    <color name="amazing">#008106</color>
+</resources>

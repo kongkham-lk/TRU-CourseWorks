@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Tip Calculator App</string>
+    <string name="title">Tip Calculator</string>
+    <string name="baseAmountLabel">Base Amount</string>
+    <string name="baseAmountInput">Enter the amount</string>
+    <string name="percentTipLabel">% Tip</string>
+    <string name="percentTipCheck">Percent Tip Check</string>
+    <string name="tipTotalLabel">Tip Charge</string>
+    <string name="tipTotalDisplay">Total Tip Amount</string>
+    <string name="totalChargeLabel">Total Charge</string>
+    <string name="totalChargeDisplay">Total Charge Amount</string>
+    <string-array name="tipCommentList">
+        <item>Poor</item>
+        <item>Acceptable</item>
+        <item>Good</item>
+        <item>Amazing</item>
+    </string-array>
+    <string name="missingAmountError">Base Amount Cannot Be Empty!</string>
+    <string name="fomatDecimal">0.00</string>
+    <string name="percentUnit"> %</string>
+</resources>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35" />
+
+    <TextView
+        android:id="@+id/baseAmount_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/baseAmountLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appTitle" />
+
+    <EditText
+        android:id="@+id/baseAmount_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:autofillHints=""
+        android:minHeight="48dp"
+        android:ems="10"
+        android:hint="@string/baseAmountInput"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="@+id/baseAmount_label"
+        app:layout_constraintStart_toEndOf="@+id/baseAmount_label"
+        app:layout_constraintTop_toTopOf="@+id/baseAmount_label" />
+
+    <TextView
+        android:id="@+id/tipPercent_display"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="@string/percentTipLabel"
+        app:layout_constraintStart_toStartOf="@+id/baseAmount_label"
+        app:layout_constraintTop_toBottomOf="@+id/baseAmount_label"/>
+
+    <SeekBar
+        android:id="@+id/sliderBar"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tipPercent_display"
+        app:layout_constraintStart_toStartOf="@+id/baseAmount_input"
+        app:layout_constraintTop_toTopOf="@+id/tipPercent_display" />
+
+    <TextView
+        android:id="@+id/tipComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:hint="@string/percentTipCheck"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/sliderBar"
+        app:layout_constraintStart_toStartOf="@+id/sliderBar"
+        app:layout_constraintTop_toBottomOf="@+id/sliderBar" />
+
+    <TextView
+        android:id="@+id/tipAmount_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/tipTotalLabel"
+        app:layout_constraintStart_toStartOf="@+id/tipPercent_display"
+        app:layout_constraintTop_toBottomOf="@+id/tipPercent_display" />
+
+    <TextView
+        android:id="@+id/tipAmount_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/tipTotalDisplay"
+        app:layout_constraintBottom_toBottomOf="@+id/tipAmount_label"
+        app:layout_constraintStart_toStartOf="@+id/sliderBar"
+        app:layout_constraintTop_toTopOf="@+id/tipAmount_label"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/totalAmount_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/totalChargeLabel"
+        app:layout_constraintStart_toStartOf="@+id/tipAmount_label"
+        app:layout_constraintTop_toBottomOf="@+id/tipAmount_label" />
+
+    <TextView
+        android:id="@+id/totalAmount_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/totalChargeDisplay"
+        app:layout_constraintBottom_toBottomOf="@+id/totalAmount_label"
+        app:layout_constraintStart_toStartOf="@+id/tipAmount_display"
+        app:layout_constraintTop_toTopOf="@+id/totalAmount_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
