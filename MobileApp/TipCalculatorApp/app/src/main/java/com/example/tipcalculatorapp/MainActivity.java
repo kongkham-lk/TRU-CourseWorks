@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         slideBar.setProgress(tipPercent);
         tipPercentDisplay.setText(getTipPercentDisplay(tipPercent));
         String[] tipCommentList = getResources().getStringArray(R.array.tipCommentList);
+        determinedTipAmount(tipPercent, tipComment, tipCommentList);
 
         baseInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -60,29 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 double inputAmount = Double.parseDouble(baseInput.getText().toString());
                 tipPercent = slideBar.getProgress();
                 tipPercentDisplay.setText(getTipPercentDisplay(tipPercent));
-
-                if (tipPercent < 10) {
-                    tipComment.setText(tipCommentList[0]);
-                    tipComment.setTextColor(getResources().getColor(R.color.poor));
-                }
-                else if (tipPercent >= 10 && tipPercent <= 15) {
-                    tipComment.setText(tipCommentList[1]);
-                    tipComment.setTextColor(getResources().getColor(R.color.acceptable));
-                }
-                else if (tipPercent > 15 && tipPercent <= 20) {
-                    tipComment.setText(tipCommentList[2]);
-                    tipComment.setTextColor(getResources().getColor(R.color.good));
-                }
-                else {
-                    tipComment.setText(tipCommentList[3]);
-                    tipComment.setTextColor(getResources().getColor(R.color.amazing));
-                }
-
-                double totalTip = inputAmount / 100 * (tipPercent == 0 ? 1 : tipPercent);
-                double totalCharge = inputAmount + totalTip;
-
-                totalTipDisplay.setText(df.format(totalTip));
-                totalChargeDisplay.setText(df.format(totalCharge));
+                determinedTipAmount(tipPercent, tipComment, tipCommentList);
+                computeFee(inputAmount, totalTipDisplay, totalChargeDisplay);
             }
 
             @Override
@@ -102,6 +82,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String getTipPercentDisplay(double tip) {
-        return tipPercent + getResources().getString(R.string.percentUnit);
+        return tip + getResources().getString(R.string.percentUnit);
+    }
+
+    private void determinedTipAmount(int tipPercent, TextView tipComment, String[] tipCommentList) {
+        if (tipPercent < 10) {
+            tipComment.setText(tipCommentList[0]);
+            tipComment.setTextColor(getResources().getColor(R.color.poor));
+        }
+        else if (tipPercent <= 15) {
+            tipComment.setText(tipCommentList[1]);
+            tipComment.setTextColor(getResources().getColor(R.color.acceptable));
+        }
+        else if (tipPercent <= 20) {
+            tipComment.setText(tipCommentList[2]);
+            tipComment.setTextColor(getResources().getColor(R.color.good));
+        }
+        else {
+            tipComment.setText(tipCommentList[3]);
+            tipComment.setTextColor(getResources().getColor(R.color.amazing));
+        }
+    }
+
+    private void computeFee(double inputAmount, TextView totalTipDisplay, TextView totalChargeDisplay) {
+        double totalTip = inputAmount / 100 * (tipPercent == 0 ? 1 : tipPercent);
+        double totalCharge = inputAmount + totalTip;
+
+        totalTipDisplay.setText(df.format(totalTip));
+        totalChargeDisplay.setText(df.format(totalCharge));
     }
 }
