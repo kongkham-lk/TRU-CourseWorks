@@ -47,11 +47,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                String input = baseInput.getText().toString();
-                if (input.isEmpty())
+                if (baseInput.getText().toString().isEmpty())
                     slideBar.setEnabled(false);
-                else
+                else {
+                    double inputAmount = Double.parseDouble(baseInput.getText().toString());
+                    computeFee(inputAmount, totalTipDisplay, totalChargeDisplay);
                     slideBar.setEnabled(true);
+                }
             }
         });
 
