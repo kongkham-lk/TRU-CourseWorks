@@ -31,7 +31,7 @@ def countSentence(fileTxt):
 
     # replace all the potential symbol to fullstop
     for symbol in symbols:
-        sentenceList = fileTxt.replace(symbol, ".").replace("?", ".").strip("\n").split(".")
+        sentenceList = fileTxt.replace(symbol, ".")
 
     sentenceList = fileTxt.strip("\n").split(".") # split sentence into different element
     print("sentence >>" ,sentenceList)
