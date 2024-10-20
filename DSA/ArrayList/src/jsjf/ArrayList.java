@@ -14,7 +14,7 @@ import java.util.*;
 public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 {
 	private final static int DEFAULT_CAPACITY = 100;
-	public final static int NOT_FOUND = -1;
+	protected final static int NOT_FOUND = -1;
 
 	protected int rear;
 	protected T[] list; 
