@@ -19,4 +19,5 @@
     <string name="defaultTip">15</string>
     <string name="percentUnit"> %</string>
     <string name="defaultVal">0</string>
+    <string name="madeBy">by.\nKongkham Luangkhot</string>
 </resources>
