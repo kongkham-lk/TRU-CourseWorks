@@ -9,15 +9,18 @@ public class OrderedLinkedList<T> {
 
     public OrderedLinkedList() {
         head = null;
-        rear = null;
+        // rear = null;
     }
 
     public void add(T element) {
         LinearNode<T> newNode = new LinearNode<>(element);
 
         // add for the very first time
-        if (head == null)
+        if (head == null) {
             head = newNode;
+            return;
+        }
+
             
         if (!(element instanceof Comparable))
             throw new NonComparableElementException("OrderedLinkedList");
@@ -35,8 +38,7 @@ public class OrderedLinkedList<T> {
             if (curr.getNext() != null) {
                 newNode.setNext(curr.getNext());
                 curr.setNext(newNode);
-            }
-            else { // add to the back
+            } else { // add to the back
                 newNode.setNext(curr.getNext());
                 curr.setNext(newNode);
             }
@@ -53,18 +55,26 @@ public class OrderedLinkedList<T> {
         LinearNode<T> curr = head;
         Comparable<T> compareElement = (Comparable<T>)element;
 
-        while (compareElement.compareTo(curr.getNext().getElement()) != 0 && curr.getNext() != null)
+        // get the next targer node that want to remove
+        while (curr.getNext() != null && compareElement.compareTo(curr.getNext().getElement()) != 0)
             curr = curr.getNext();
 
+        // the target element to remove is not in the list
         if (curr == null)
             throw new ElementNotFoundException("OrderedLinkedList");
         
-        // curr
+        LinearNode<T> targetNode = curr.getNext();
+        curr.setNext(targetNode.getNext());
+    }
+
+    public String toString() {
+        String result = "";
+        LinearNode<T> curr = head;
+
+        while (curr != null) {
+            result += curr.getElement() + " ";
+            curr = curr.getNext();
+        }
+        return result;
     }
 }
-/*
--	constructor
--	add
--	toString
--	delete
- */
