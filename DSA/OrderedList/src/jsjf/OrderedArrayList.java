@@ -32,7 +32,7 @@ public class OrderedArrayList<T> {
         int targetIndex = 0;
 
         // Finding the right index order of the element
-        while (targetIndex <= pushElementsCount && comparableElement.compareTo(list[targetIndex]) <= 0)
+        while (targetIndex < pushElementsCount && comparableElement.compareTo(list[targetIndex]) > 0)
             targetIndex++;
 
         // if all the element is filled and trying to add larget value element to the list, 
@@ -47,7 +47,8 @@ public class OrderedArrayList<T> {
                     list[i] = list[i-1];
                 list[targetIndex] = element;
             }
-            pushElementsCount++;
+            if (pushElementsCount < maxSize-1)
+                pushElementsCount++;
         }
     }
 
@@ -66,7 +67,7 @@ public class OrderedArrayList<T> {
         while (targetIndex <= pushElementsCount && comparableElement.compareTo(list[targetIndex]) != 0)
             targetIndex++;
 
-        if (targetIndex == pushElementsCount)
+        if (targetIndex >= pushElementsCount)
             throw new ElementNotFoundException("OrderedArrayList");
         else {
             while (targetIndex < pushElementsCount) {
