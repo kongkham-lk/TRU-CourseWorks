@@ -38,7 +38,7 @@ int main() {
 
     // Check if result is not NULL and print the result
     if (returnSize > 0 && result != NULL) {
-        printf("[%d, %d]\n", result[0], result[1]);
+        printf("\nIndice: [%d, %d]\n\n", result[0], result[1]);
         free(result);  // Free the allocated memory
     } else {
         printf("No solution found.\n");
