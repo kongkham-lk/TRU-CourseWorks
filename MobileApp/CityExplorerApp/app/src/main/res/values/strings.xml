@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">CitySelectorApp</string>
+    <string-array name="citiesName">
+        <item>Select a city</item>
+        <item>Toronto</item>
+        <item>Vancouver</item>
+        <item>Montreal</item>
+        <item>Calgary</item>
+        <item>Ottawa</item>
+    </string-array>
+    <string-array name="citiesDescription">
+        <item>Toronto is Canada\'s largest city and a major global hub for finance, culture, and entertainment. Known for its iconic CN Tower, Toronto is a diverse metropolis with vibrant neighborhoods, world-class museums, and a thriving arts scene. It\'s a gateway to Niagara Falls and home to numerous festivals and events.</item>
+        <item>Nestled between the Pacific Ocean and the Coast Mountains, Vancouver is renowned for its stunning natural beauty. It\'s a major seaport city known for outdoor activities like skiing, hiking, and water sports. Vancouver is also a cultural hub with a rich food scene, Stanley Park, and a strong film industry presence.</item>
+        <item>Montreal is the cultural heart of French-speaking Canada, known for its blend of European and North American influences. The city is famous for its historic architecture, festivals (like the Montreal Jazz Festival), and a rich food culture, especially for poutine and bagels. It\'s also a key center for arts, education, and technology.</item>
+        <item>Calgary is a booming city in Western Canada, known for its proximity to the Rocky Mountains and the world-famous Calgary Stampede, a rodeo and cultural festival. It has a strong economy driven by oil and energy industries and is a gateway to outdoor activities in nearby Banff and Jasper National Parks.</item>
+        <item>As the capital of Canada, Ottawa is home to the country\'s federal government, including Parliament Hill. The city is known for its historic landmarks, museums, and cultural institutions like the National Gallery of Canada. It\'s also famous for the Rideau Canal, which becomes the world\'s largest skating rink in winter.</item>
+    </string-array>
+    <string name="citySelectorLabel">Canadian City</string>
+    <string name="labelCityName">City Name</string>
+    <string name="labelCityImage">City Image</string>
+    <string name="labelCityInfo">City Info.</string>
+    <string name="backBtnDescription">Back Arrow</string>
+    <string name="backBtnlabel">Back</string>
+    <string name="cityNameKey">cityNameKey</string>
+    <string name="cityImgKey">cityImgKey</string>
+    <string name="cityInfoKey">cityInfoKey</string>
+    <string name="toastMessage">Please Select Any City!</string>
+</resources>
