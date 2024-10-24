@@ -10,12 +10,12 @@ import jsjf.exceptions.NonComparableElementException;
  * @author Kongkham Luangkhot
  * @version 5.0
  */
-public class OrderedArrayList<T> {
+public class ArrayOrderedList<T> {
     private int maxSize = 10;
     private T[] list;
     private int pushElementsCount;
 
-    public OrderedArrayList() {
+    public ArrayOrderedList() {
         list = (T[]) new Object[maxSize];
         pushElementsCount = 0;
     }

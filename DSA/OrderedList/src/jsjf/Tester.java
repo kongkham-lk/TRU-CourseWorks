@@ -26,7 +26,7 @@ public class Tester {
         System.out.println("remain el:                  " + orderedLinkedList);
 
         System.out.println("\n------------- Test OrderedArrayList's method!!! -------------\n");
-        OrderedArrayList<Integer> orderedArrayList = new OrderedArrayList<>();
+        ArrayOrderedList<Integer> orderedArrayList = new ArrayOrderedList<>();
         System.out.println("Initial node has el:            " + orderedArrayList + "\n");
         for (int i = 0; i < initialInputs.length - 2 ; i++) {
             orderedArrayList.add(initialInputs[i]);
