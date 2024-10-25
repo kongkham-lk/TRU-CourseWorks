@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">BookStoreApp</string>
+    <string-array name="bookTitle">
+        <item>River Bones</item>
+        <item>Russian Brides</item>
+        <item>Back-Up Bridge in Time</item>
+        <item>Remember</item>
+        <item>The Curse</item>
+    </string-array>
+    <string-array name="bookAuthors">
+        <item>Mary Deal</item>
+        <item>Hugh Macnab</item>
+        <item>Holtes &amp; Sietsma</item>
+        <item>Marnie Cate</item>
+        <item>A.G.ZoderoT</item>
+    </string-array>
+    <string-array name="bookDescriptions">
+        <item>A serial killer is on the loose in Sacramento River Delta.\n\nWhen Sara Mason returns to her hometown to start a new life,
+            she learns that a murderer is terrorizing its residents. Despite battling difficult childhood memories, Sara is determined to make
+            peace with her past.\n\nBut she soon learns that the elusive psychopath is now stalking her. Sara\'s attempt to rebuild her life is
+            hindered even more by the discovery of skeletal remains on her property. As the investigation focuses on several suspects, Sara discovers
+            critical clues and bravely volunteers to be a decoy for the sheriff\'s department.\n\nSara\'s destiny has brought her back home, but will
+            her decision lead her down a path lined with danger… and straight into the arms of a madman?</item>
+        <item>An internet service connects wealthy Floridian retirees to beautiful Russian women. Everyone is happy — until the retirees start dying.\n\nA
+            mass grave is excavated in Collier State Park, revealing the remains of newborn babies - each unspeakably mutilated.\n\nDetective Sammy Grey fox
+            from the Sheriff\'s office in Naples, FLA, becomes involved in both investigations as she unravels a deadly tangled web of chilling evil that will
+            haunt her forever.\n\nIn her confused personal life, Sammy has to fight her own menacing demons. Demons who may want her to take a life.\n\nIn the end,
+            she will face a race against time to prevent another child\'s death. But will she be in time? And will she survive the consequences?</item>
+        <item>The continuation of an exciting thriller, with the necessary action, plot twists and many surprises.\n\nHow an encounter put everything in
+            motion …\n\nIn the Peace Palace in The Hague Hakon Torstein Eriksson bumps into a mysterious woman.\n\nFrom the moment he tumbles down the stairs of
+            the Peace Palace with her in his arms, he finds mysterious events taking place.\n\nDeeply hidden secrets that cause an avalanche of questions come to
+            the surface.\n\nDo we know everything about the past?\n\nWhat do Hakon and that woman have to do with it?\n\nWill this have consequences for humanity?</item>
+        <item>Mara Stone has always sensed an elusive emptiness within herself, a void she couldn\'t quite grasp.Raised by a nurturing and devoted grandmother
+            and harboring an intense love for a boy with captivating blue eyes,Mara remained unaware of the missing pieces of her existence.\n\nBut when the
+            secrets of her great-grandmother, Genevieve Silver, are revealed, Mara\'s world shatters.The once-hidden secrets of her ancestry, bound by the
+            ancient role of Protector of the Elemental Magic,burst forth into the light. As unseen realms are laid bare and forgotten memories flood her mind,
+            Mara must confront a reality both wondrous and terrifying.\n\nIn an extraordinary twist of fate, the revelations reshape Mara\'s life, forever
+            altering not only her own destiny, but the entire world she thought she knew. Embracing her newfound knowledge, Mara embarks on a transformative
+            journey filled with enchantment and peril. As she grapples with her own powers and unravels the mysteries that surround her,Mara becomes a beacon
+            of hope in a world teetering on the brink of chaos.</item>
+        <item>Descend into "The Path of None: The Curse", a 286-page grim dark gothic graphic ballad steeped in horror and spirituality.A.G. Zoderot unveils
+            Drakko\'s journey into darkness.\n\nAfter meeting the sinister One, his reality becomes a nightmare.As cursed worlds merge, relentless trials break his
+            soul. Witness his agonizing transformation and the doom awaiting those who pursue the elusive Truth.</item>
+    </string-array>
+    <string-array name="bookRatings">
+        <item>3</item>
+        <item>2</item>
+        <item>5</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string name="keyCoverImg">targetCoverImg</string>
+    <string name="keyTitle">targetTitle</string>
+    <string name="keyAuthor">targetAuthor</string>
+    <string name="keyDescription">targetDescription</string>
+</resources>
