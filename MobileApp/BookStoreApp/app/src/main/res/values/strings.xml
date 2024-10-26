@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">BookStoreApp</string>
+    <string name="mainTitleTrending">Trending</string>
+    <string name="bookCoverDescription">Book Cover Image</string>
+    <string name="bookTitle">Book Title</string>
+    <string name="bookAuthor">by Author Name</string>
+    <string name="starDescription">Start Rating Image</string>
+    <string name="bookTotalReview">(Total Reviewers)</string>
+    <string name="bookPrice">$ Price</string>
+    <string name="bookDescription">Book Description and Detail</string>
+    <string name="btnMoreDetail">More Detail</string>
+    <string name="btnBack">Back</string>
     <string-array name="bookTitle">
         <item>River Bones</item>
         <item>Russian Brides</item>
@@ -8,11 +18,18 @@
         <item>The Curse</item>
     </string-array>
     <string-array name="bookAuthors">
-        <item>Mary Deal</item>
-        <item>Hugh Macnab</item>
-        <item>Holtes &amp; Sietsma</item>
-        <item>Marnie Cate</item>
-        <item>A.G.ZoderoT</item>
+        <item>by. Mary Deal</item>
+        <item>by. Hugh Macnab</item>
+        <item>by. Holtes &amp; Sietsma</item>
+        <item>by. Marnie Cate</item>
+        <item>by. A.G.ZoderoT</item>
+    </string-array>
+    <string-array name="bookPrices">
+        <item>$ 2.99</item>
+        <item>$ 0.99</item>
+        <item>$ 2.50</item>
+        <item>$ 3.50</item>
+        <item>$ 2.99</item>
     </string-array>
     <string-array name="bookDescriptions">
         <item>A serial killer is on the loose in Sacramento River Delta.\n\nWhen Sara Mason returns to her hometown to start a new life,
@@ -48,6 +65,13 @@
         <item>5</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="bookTotalReview">
+        <item>46</item>
+        <item>23</item>
+        <item>10</item>
+        <item>216</item>
+        <item>38</item>
     </string-array>
     <string name="keyCoverImg">targetCoverImg</string>
     <string name="keyTitle">targetTitle</string>

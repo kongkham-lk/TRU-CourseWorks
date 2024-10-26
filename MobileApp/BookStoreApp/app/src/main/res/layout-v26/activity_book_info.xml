@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:forceDarkAllowed="true"
     tools:context=".BookInfoActivity">
 
 
@@ -26,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Book Title"
+        android:text="@string/bookTitle"
         android:textStyle="bold"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/bookCover"
@@ -38,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/bookAuthor"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="@+id/bookCover"
         app:layout_constraintStart_toStartOf="@+id/bookCover"
@@ -50,7 +49,7 @@
         android:layout_height="300dp"
         android:maxWidth="360dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/bookDescription"
         android:justificationMode="inter_word"
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="@+id/bookCover"

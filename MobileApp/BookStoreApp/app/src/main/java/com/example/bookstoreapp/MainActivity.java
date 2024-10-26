@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        // Get all the necessary data from Resource file - String
         int[] bookCovers = {
             R.drawable.cov_1,
             R.drawable.cov_2,
@@ -30,16 +31,20 @@ public class MainActivity extends AppCompatActivity {
         String[] bookTitles = getResources().getStringArray(R.array.bookTitle);
         String[] bookAuthors = getResources().getStringArray(R.array.bookAuthors);
         String[] bookDescription = getResources().getStringArray(R.array.bookDescriptions);
+        String[] bookPrices = getResources().getStringArray(R.array.bookPrices);
+        String[] bookRatings = getResources().getStringArray(R.array.bookRatings);
+        String[] bookTotalReview = getResources().getStringArray(R.array.bookTotalReview);
 
+        // create an array of BookModel instance for binding to activity (UI) component
         for (int i = 0; i < bookTitles.length; i++)
-            bookLists.add(new BookModel(bookCovers[i], bookTitles[i], bookAuthors[i], bookDescription[i]));
+            bookLists.add(new BookModel(bookCovers[i], bookTitles[i], bookAuthors[i], bookDescription[i], bookPrices[i], Integer.parseInt(bookRatings[i]), Integer.parseInt(bookTotalReview[i])));
 
-        BookAdaptor bookAdaptor = new BookAdaptor(this, bookLists);
-        RecyclerView bookRecyclerView = findViewById(R.id.bookListRecycle);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        BookAdaptor bookAdaptor = new BookAdaptor(this, bookLists); // Iitialized data binder that bind data with each activity (UI) component
+        RecyclerView bookRecyclerView = findViewById(R.id.bookListRecycle); // Get the customized recycle view that will be display each binded data activity component in it
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false); // initialized recycle view's layout
 
-        bookRecyclerView.setAdapter(bookAdaptor);
-        bookRecyclerView.setLayoutManager(linearLayoutManager);
+        bookRecyclerView.setAdapter(bookAdaptor); // pass the whole binded data activity component list to the customized recycle view
+        bookRecyclerView.setLayoutManager(linearLayoutManager); // set the layout of recycle view
     }
 
 }

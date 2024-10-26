@@ -5,12 +5,18 @@ public class BookModel {
     private String title;
     private String author;
     private String description;
+    private String price;
+    private int rating;
+    private int totalReview;
 
-    public BookModel(int coverImg, String title, String author, String description) {
+    public BookModel(int coverImg, String title, String author, String description, String price, int rating, int totalRating) {
         this.coverImg = coverImg;
         this.title = title;
         this.author = author;
         this.description = description;
+        this.price = price;
+        this.rating = rating;
+        this.totalReview = totalRating;
     }
 
     public String getTitle() {
@@ -43,5 +49,29 @@ public class BookModel {
 
     public void setCoverImg(int coverImg) {
         this.coverImg = coverImg;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public int getTotalReview() {
+        return totalReview;
+    }
+
+    public void setTotalReview(int totalRating) {
+        this.totalReview = totalRating;
     }
 }

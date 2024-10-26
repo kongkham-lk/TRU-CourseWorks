@@ -3,6 +3,7 @@ package com.example.bookstoreapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -27,6 +29,7 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Getting the specific component that will be repeated display on the custom recycle view
         View view = LayoutInflater.from(context).inflate(R.layout.book_item_list, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
@@ -34,16 +37,24 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        // Get all the string array from resource String file
         BookModel targetBookItem = bookLists.get(position);
         int targetCoverImg = targetBookItem.getCoverImg();
         String targetTitle = targetBookItem.getTitle();
         String targetAuthor = targetBookItem.getAuthor();
         String targetDescription = targetBookItem.getDescription();
+        int rating = targetBookItem.getRating();
+        int totalReview = targetBookItem.getTotalReview();
 
+        // binding data to each row of activity component as well as the onclick listener
         holder.coverImg.setImageResource(targetCoverImg);
         holder.title.setText(targetTitle);
         holder.author.setText(targetAuthor);
-        holder.description.setText(targetDescription);
+        for(int i = 0; i < rating; i++) // dynamically update star rating
+            // turn rating star to yellow base on the rating number
+            holder.rating[i].setColorFilter(ContextCompat.getColor(context, R.color.yellow), PorterDuff.Mode.SRC_IN);
+
+        holder.totalReview.setText("(" + totalReview + ")");
 
         holder.btnSeeMore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,17 +80,28 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.ViewHolder> {
         ImageView coverImg;
         TextView title;
         TextView author;
-        TextView description;
+        ImageView[] rating;
+        TextView totalReview;
+        TextView price;
         Button btnSeeMore;
 
+        // getting the repeated section of activity component
         public ViewHolder(View itemView) {
             super(itemView);
 
             coverImg = itemView.findViewById(R.id.bookCover);
             title = itemView.findViewById(R.id.bookTitle);
             author = itemView.findViewById(R.id.bookAuthor);
-            description = itemView.findViewById(R.id.bookDescription);
+            price = itemView.findViewById(R.id.bookPrice);
             btnSeeMore = itemView.findViewById(R.id.btnSeeMore);
+            rating = new ImageView[]{
+                    itemView.findViewById(R.id.star_01),
+                    itemView.findViewById(R.id.star_02),
+                    itemView.findViewById(R.id.star_03),
+                    itemView.findViewById(R.id.star_04),
+                    itemView.findViewById(R.id.star_05),
+            };
+            totalReview = itemView.findViewById(R.id.totalReview);
         }
     }
 }
