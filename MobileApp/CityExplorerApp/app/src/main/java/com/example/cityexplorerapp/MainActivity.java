@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     boolean isInitialLoad = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,25 +38,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private AdapterView.OnItemSelectedListener setOnSelector(Spinner spinner_cities, String[] cityNames, int[] cityImages, String[] cityInfos) {
-            return new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    int targetPos = spinner_cities.getSelectedItemPosition();
-                    if (targetPos == 0) {
-                        return;
+
+        return new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                int targetPos = spinner_cities.getSelectedItemPosition();
+                if (targetPos == 0) {
+                    if (!isInitialLoad) {
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.toastMessage), Toast.LENGTH_SHORT).show();
                     }
-
-                    Intent temp = new Intent(getApplicationContext(), CityDetail.class);
-                    temp.putExtra(getResources().getString(R.string.cityNameKey), cityNames[targetPos]);
-                    temp.putExtra(getResources().getString(R.string.cityImgKey), cityImages[targetPos-1]);
-                    temp.putExtra(getResources().getString(R.string.cityInfoKey), cityInfos[targetPos-1]);
-                    startActivity(temp);
+                    isInitialLoad = false;
+                    return;
                 }
 
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
+                Intent temp = new Intent(getApplicationContext(), CityDetail.class);
+                temp.putExtra(getResources().getString(R.string.cityNameKey), cityNames[targetPos]);
+                temp.putExtra(getResources().getString(R.string.cityImgKey), cityImages[targetPos-1]);
+                temp.putExtra(getResources().getString(R.string.cityInfoKey), cityInfos[targetPos-1]);
+                startActivity(temp);
+            }
 
-                }
-            };
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        };
     }
 }
