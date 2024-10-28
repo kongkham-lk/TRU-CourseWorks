@@ -8,8 +8,10 @@
     <string name="bookTotalReview">(Total Reviewers)</string>
     <string name="bookPrice">$ Price</string>
     <string name="bookDescription">Book Description and Detail</string>
-    <string name="btnMoreDetail">More Detail</string>
+    <string name="bookAvail">Available:</string>
+    <string name="btnMoreDetail">More Details</string>
     <string name="btnBack">Back</string>
+    <string name="thankYouMessage">Thank You For Your Purchase!</string>
     <string-array name="bookTitle">
         <item>River Bones</item>
         <item>Russian Brides</item>
@@ -25,11 +27,18 @@
         <item>by. A.G.ZoderoT</item>
     </string-array>
     <string-array name="bookPrices">
-        <item>$ 2.99</item>
-        <item>$ 0.99</item>
-        <item>$ 2.50</item>
-        <item>$ 3.50</item>
-        <item>$ 2.99</item>
+        <item>$ 10.49</item>
+        <item>$ 9.49</item>
+        <item>$ 9.49</item>
+        <item>$ 11.49</item>
+        <item>$ 7.49</item>
+    </string-array>
+    <string-array name="bookAvail">
+        <item>300</item>
+        <item>150</item>
+        <item>18</item>
+        <item>200</item>
+        <item>24</item>
     </string-array>
     <string-array name="bookDescriptions">
         <item>A serial killer is on the loose in Sacramento River Delta.\n\nWhen Sara Mason returns to her hometown to start a new life,
@@ -76,5 +85,8 @@
     <string name="keyCoverImg">targetCoverImg</string>
     <string name="keyTitle">targetTitle</string>
     <string name="keyAuthor">targetAuthor</string>
+    <string name="keyAvailNum">targetAvailNum</string>
     <string name="keyDescription">targetDescription</string>
+    <string name="keyPrice">targetPrice</string>
+    <string name="keyPurchaseFlag">keyPurchaseProduct</string>
 </resources>

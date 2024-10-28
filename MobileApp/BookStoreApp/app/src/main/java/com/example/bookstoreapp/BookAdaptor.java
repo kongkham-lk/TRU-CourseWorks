@@ -43,19 +43,24 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.ViewHolder> {
         String targetTitle = targetBookItem.getTitle();
         String targetAuthor = targetBookItem.getAuthor();
         String targetDescription = targetBookItem.getDescription();
-        int rating = targetBookItem.getRating();
-        int totalReview = targetBookItem.getTotalReview();
+        int targetRating = targetBookItem.getRating();
+        int targetTotalReview = targetBookItem.getTotalReview();
+        String targetPrice = targetBookItem.getPrice();
+        int targetAvailNum = targetBookItem.getAvailability();
 
-        // binding data to each row of activity component as well as the onclick listener
+        // binding data to each row of activity component
         holder.coverImg.setImageResource(targetCoverImg);
         holder.title.setText(targetTitle);
         holder.author.setText(targetAuthor);
-        for(int i = 0; i < rating; i++) // dynamically update star rating
+        for(int i = 0; i < targetRating; i++) // dynamically update star rating
             // turn rating star to yellow base on the rating number
+            // use ContextCompat's get color to get the actual color code instead of Resource id
             holder.rating[i].setColorFilter(ContextCompat.getColor(context, R.color.yellow), PorterDuff.Mode.SRC_IN);
 
-        holder.totalReview.setText("(" + totalReview + ")");
+        holder.totalReview.setText("(" + targetTotalReview + ")");
+        holder.price.setText(targetPrice);
 
+        // set click listener to each row's More Detail btn to send specific row's data and then navigate to Book detail page
         holder.btnSeeMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +70,8 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.ViewHolder> {
                 temp.putExtra(resource.getString(R.string.keyTitle), targetTitle);
                 temp.putExtra(resource.getString(R.string.keyAuthor), targetAuthor);
                 temp.putExtra(resource.getString(R.string.keyDescription), targetDescription);
+                temp.putExtra(resource.getString(R.string.keyAvailNum), targetAvailNum);
+                temp.putExtra(resource.getString(R.string.keyPrice), targetPrice);
                 context.startActivity(temp);
             }
         });
@@ -92,8 +99,6 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.ViewHolder> {
             coverImg = itemView.findViewById(R.id.bookCover);
             title = itemView.findViewById(R.id.bookTitle);
             author = itemView.findViewById(R.id.bookAuthor);
-            price = itemView.findViewById(R.id.bookPrice);
-            btnSeeMore = itemView.findViewById(R.id.btnSeeMore);
             rating = new ImageView[]{
                     itemView.findViewById(R.id.star_01),
                     itemView.findViewById(R.id.star_02),
@@ -102,6 +107,8 @@ public class BookAdaptor extends RecyclerView.Adapter<BookAdaptor.ViewHolder> {
                     itemView.findViewById(R.id.star_05),
             };
             totalReview = itemView.findViewById(R.id.totalReview);
+            price = itemView.findViewById(R.id.bookPrice);
+            btnSeeMore = itemView.findViewById(R.id.btnSeeMore);
         }
     }
 }

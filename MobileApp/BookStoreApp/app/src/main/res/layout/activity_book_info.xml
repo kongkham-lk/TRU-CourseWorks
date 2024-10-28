@@ -7,6 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".BookInfoActivity">
 
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
+        android:contentDescription="@string/btnBack"
+        android:src="@drawable/icon_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/btbBackLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnBack"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintStart_toEndOf="@+id/btnBack"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
 
     <ImageView
         android:id="@+id/bookCover"
@@ -47,27 +67,40 @@
     <TextView
         android:id="@+id/bookDescription"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:maxWidth="360dp"
+        android:layout_height="260dp"
         android:layout_marginTop="16dp"
-        android:text="@string/bookDescription"
         android:justificationMode="inter_word"
+        android:maxWidth="360dp"
         android:scrollbars="vertical"
+        android:text="@string/bookDescription"
         app:layout_constraintEnd_toEndOf="@+id/bookCover"
         app:layout_constraintStart_toStartOf="@+id/bookCover"
         app:layout_constraintTop_toBottomOf="@+id/bookAuthor" />
 
     <Button
-        android:id="@+id/btnBack"
+        android:id="@+id/btnBuy"
         android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/blue"
-        android:text="@string/btnBack"
+        android:drawableLeft="@drawable/icon_shopping_cart"
+        android:drawableTint="@color/white"
+        android:text="@string/bookPrice"
         android:textColor="@color/white"
-        android:textSize="11sp"
-        app:layout_constraintEnd_toEndOf="@+id/bookCover"
-        app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toStartOf="@+id/bookCover"
+        app:layout_constraintEnd_toEndOf="@+id/bookDescription"
+        app:layout_constraintStart_toStartOf="@+id/bookDescription"
+        app:layout_constraintTop_toBottomOf="@+id/bookAvail" />
+
+    <TextView
+        android:id="@+id/bookAvail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Available: 00+"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@+id/bookAuthor"
+        app:layout_constraintStart_toStartOf="@+id/bookAuthor"
         app:layout_constraintTop_toBottomOf="@+id/bookDescription" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,15 +6,17 @@ public class BookModel {
     private String author;
     private String description;
     private String price;
+    private int availability;
     private int rating;
     private int totalReview;
 
-    public BookModel(int coverImg, String title, String author, String description, String price, int rating, int totalRating) {
+    public BookModel(int coverImg, String title, String author, String description, String price, int availability, int rating, int totalRating) {
         this.coverImg = coverImg;
         this.title = title;
         this.author = author;
         this.description = description;
         this.price = price;
+        this.availability = availability;
         this.rating = rating;
         this.totalReview = totalRating;
     }
@@ -57,6 +59,14 @@ public class BookModel {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public int getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(int availability) {
+        this.availability = availability;
     }
 
     public int getRating() {
