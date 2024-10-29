@@ -64,7 +64,8 @@ public class BookInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent temp = new Intent(getApplicationContext(), MainActivity.class);
-                temp.putExtra(getResources().getString(R.string.keyPurchaseFlag), true);
+                if (isPurchased)
+                    temp.putExtra(getResources().getString(R.string.keyPurchaseFlag), true);
                 startActivity(temp);
             }
         };
