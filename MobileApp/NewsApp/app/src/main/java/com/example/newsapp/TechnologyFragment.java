@@ -40,7 +40,7 @@ public class TechnologyFragment extends Fragment {
     private void populateNewsData() {
         // Mock data for example
         for (int i = 1; i <= 20; i++)
-            newsList.add(new NewsModel("News Title " + i, "Just Now", "BBC", "www.google.com", R.drawable.cov_1));
+            newsList.add(new NewsModel("Tech News Title " + i, "Just Now", "BBC", "www.google.com", R.drawable.tech));
         // Add more items as needed
     }
 }
