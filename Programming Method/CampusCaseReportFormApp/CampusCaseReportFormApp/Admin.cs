@@ -1,14 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CampusCaseReportFormApp
@@ -99,8 +93,14 @@ namespace CampusCaseReportFormApp
                     return new Form1();
                 case "form2.txt":
                     return new Form2();
+                case "form3.txt":
+                    return new Form3();
+                case "form4.txt":
+                    return new Form4();
+                case "form5.txt":
+                    return new Form5();
                 default:
-                    return null;
+                    throw new Exception("No Match Form!!!");
             }
         }
 
@@ -112,8 +112,7 @@ namespace CampusCaseReportFormApp
                 fileName += ".txt";
 
             string targetPath = directory + fileName;
-
-
+            
             StreamWriter streamWriter = new StreamWriter(directory + fileName, false);
             streamWriter.Write(json);
             streamWriter.Close();
@@ -142,6 +141,8 @@ namespace CampusCaseReportFormApp
                 {
                     //Get the path of specified file
                     string filePath = openFileDialog.FileName;
+                    string fileName = Path.GetFileName(filePath);
+                    Form targetForm = getTargetForm(fileName);
 
                     //Read the contents of the file into a stream
                     var fileStream = openFileDialog.OpenFile();
@@ -149,31 +150,19 @@ namespace CampusCaseReportFormApp
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
                         string fileContent = reader.ReadToEnd();
-                        Models.Form1 targetSavedForm = JsonConvert.DeserializeObject<Models.Form1>(fileContent);
-                        string fileName = Path.GetFileName(filePath);
-                        RichTextBox[] targetFormTxtBoxes = getAllRichTxtBox(getTargetForm(fileName));
+                        
+                        RichTextBox[] targetFormTxtBoxes = getAllRichTxtBox(targetForm);
+                        Dictionary<string, string> targetSavedForm = JsonConvert.DeserializeObject<Dictionary<string, string>>(fileContent);
 
+                        foreach (KeyValuePair<string, string> entry in targetSavedForm)
+                        {
+                            if (targetForm.Controls[entry.Key] != null) // it equal to null when the key not match with any form's component's name
+                                targetForm.Controls[entry.Key].Text = entry.Value;
+                        }
                     }
+                    targetForm.ShowDialog();
                 }
             }
         }
-
-        //private void BindDataToRichTextBoxes(Models.Form1 targetFormModel, Form targetForm)
-        //{
-        //    // Retrieve all RichTextBox controls from the target form
-        //    var richTextBoxes = targetForm.Controls.OfType<RichTextBox>().ToArray();
-
-        //    // Get properties of the User class
-        //    var forModelProperty = typeof(Models.Form1).GetProperties();
-
-        //    // Ensure the number of properties does not exceed the number of textboxes
-        //    int count = Math.Min(richTextBoxes.Length, forModelProperty.Length);
-
-        //    for (int i = 0; i < count; i++)
-        //    {
-        //        var propertyValue = forModelProperty[i].GetValue(targetFormModel, null);
-        //        richTextBoxes[i].Text = propertyValue?.ToString(); // Assign value to RichTextBox
-        //    }
-        //}
     }
 }

@@ -1,18 +1,27 @@
 ﻿<Properties StartupConfiguration="{51F2B719-9D09-4D93-8DDA-AD0AB10051F1}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CampusCaseReportFormApp/Admin.cs">
+    <Files>
+      <File FileName="CampusCaseReportFormApp/Admin.cs" Line="166" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CampusCaseReportFormApp" expanded="True" selected="True" />
+          <Node name="CampusCaseReportFormApp" expanded="True">
+            <Node name="CampusCaseReportFormApp" expanded="True">
+              <Node name="Admin.cs" expanded="True" selected="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/mjlk/Library/CloudStorage/OneDrive-ThompsonRiversUniversity/Desktop/FormApp/CampusCaseReportFormApp/CampusCaseReportFormApp/Admin.cs" relfile="CampusCaseReportFormApp/Admin.cs" line="171" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.CampusCaseReportFormApp PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
