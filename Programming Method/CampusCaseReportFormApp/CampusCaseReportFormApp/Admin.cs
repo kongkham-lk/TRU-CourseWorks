@@ -9,14 +9,12 @@ namespace CampusCaseReportFormApp
 {
     public partial class Admin : Form
     {
-        Form[] forms = new Form[5];
-        //Form1 form1;
-        //Form2 form2;
-        //Form3 form3;
-        //Form4 form4;
-        //Form5 form5;
-        String[] formInputList = new String[5]; // storing each form's into the array
-        int savedFormCount = 0;
+        Form1 form1;
+        Form2 form2;
+        Form3 form3;
+        Form4 form4;
+        Form5 form5;
+        String[] formInputs = new String[5];
 
         public Admin()
         {
@@ -29,11 +27,11 @@ namespace CampusCaseReportFormApp
             int targetFormIndex = 0;
             if (forms[targetFormIndex].ShowDialog() == DialogResult.OK)
             {
-                btnFill1.Enabled = false;
                 btnFill2.Enabled = true;
                 btnView1.Enabled = true;
-                btnSave.Enabled = true;
-                SaveFormInputsToList(forms[targetFormIndex]);
+                Dictionary<String, String> inputs = retrieveInputsAsKeyValuePair(form1);
+                var json = JsonConvert.SerializeObject(inputs);
+                ExportInputsToFile(json, "form1.txt");
             }
             else
                 forms[targetFormIndex] = GetTargetForm(targetFormIndex);
