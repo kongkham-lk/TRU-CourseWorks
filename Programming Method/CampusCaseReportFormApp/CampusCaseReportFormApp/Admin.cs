@@ -14,39 +14,41 @@ namespace CampusCaseReportFormApp
         Form3 form3;
         Form4 form4;
         Form5 form5;
+        String[] formInputs = new String[5];
 
         public Admin()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnFill1_Click(object sender, EventArgs e)
         {
             if (form1.ShowDialog() == DialogResult.OK)
             {
-                btnStep2.Enabled = true;
+                btnFill2.Enabled = true;
+                btnView1.Enabled = true;
                 Dictionary<String, String> inputs = retrieveInputsAsKeyValuePair(form1);
                 var json = JsonConvert.SerializeObject(inputs);
                 ExportInputsToFile(json, "form1.txt");
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnFill2_Click(object sender, EventArgs e)
         {
             form2.ShowDialog();
         }
 
-        private void btnStep3_Click(object sender, EventArgs e)
+        private void btnFill3_Click(object sender, EventArgs e)
         {
             form3.ShowDialog();
         }
 
-        private void btnStep4_Click(object sender, EventArgs e)
+        private void btnFill4_Click(object sender, EventArgs e)
         {
             form4.ShowDialog();
         }
 
-        private void btnStep5_Click(object sender, EventArgs e)
+        private void btnFill5_Click(object sender, EventArgs e)
         {
             form5.ShowDialog();
         }
@@ -54,7 +56,7 @@ namespace CampusCaseReportFormApp
         private void btnNew_Click(object sender, EventArgs e)
         {
             createNewForm();
-            btnStep1.Enabled = true;
+            btnFill1.Enabled = true;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
