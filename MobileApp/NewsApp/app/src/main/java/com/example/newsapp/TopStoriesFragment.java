@@ -40,7 +40,7 @@ public class TopStoriesFragment extends Fragment {
     private void populateNewsData() {
         // Mock data for example
         for (int i = 1; i <= 20; i++)
-            newsList.add(new NewsModel("Top Story News Title " + i, "Just Now", "BBC", "www.google.com", R.drawable.top_story));
+            newsList.add(new NewsModel("Top Story News Title " + i, "Just Now", "BBC", "www.google.com", String.valueOf(R.drawable.top_story), null));
         // Add more items as needed
     }
 }

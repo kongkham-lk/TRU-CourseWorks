@@ -1,18 +1,20 @@
 package com.example.newsapp;
 
 public class NewsModel {
-    private int Img;
+    private String urlToImage;
     private String title;
     private String author;
-    private String publishedTime;
-    private String sourceLink;
+    private String description;
+    private String publishedAt;
+    private String url;
 
-    public NewsModel(String title, String publishedTime, String author, String sourceLink, int Img) {
+    public NewsModel(String title, String publishedAt, String author, String url, String urlToImage, String description) {
         this.title = title;
-        this.publishedTime = publishedTime;
+        this.publishedAt = publishedAt;
         this.author = author;
-        this.sourceLink = sourceLink;
-        this.Img = Img;
+        this.url = url;
+        this.urlToImage = urlToImage;
+        this.description = description;
     }
 
     public String getTitle() {
@@ -31,27 +33,35 @@ public class NewsModel {
         this.author = author;
     }
 
-    public String getSourceLink() {
-        return sourceLink;
+    public String getUrl() {
+        return url;
     }
 
-    public void setSourceLink(String sourceLink) {
-        this.sourceLink = sourceLink;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public int getImg() {
-        return Img;
+    public String getUrlToImage() {
+        return urlToImage;
     }
 
-    public void setImg(int img) {
-        this.Img = img;
+    public void setUrlToImage(String urlToImage) {
+        this.urlToImage = urlToImage;
     }
 
-    public String getPublishedTime() {
-        return publishedTime;
+    public String getPublishedAt() {
+        return publishedAt;
     }
 
-    public void setPublishedTime(String publishedTime) {
-        this.publishedTime = publishedTime;
+    public void setPublishedAt(String publishedAt) {
+        this.publishedAt = publishedAt;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

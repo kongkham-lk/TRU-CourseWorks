@@ -35,7 +35,7 @@ public class NewsItemAdapter extends RecyclerView.Adapter<NewsItemAdapter.ViewHo
         holder.newsImg.setImageResource(targetNews.getImg());
         holder.newsTitle.setText(targetNews.getTitle());
         holder.newsAuthor.setText(targetNews.getAuthor());
-        holder.newsPublishedTime.setText(targetNews.getPublishedTime());
+        holder.newsPublishedTime.setText(targetNews.getPublishedAt());
     }
 
     @Override

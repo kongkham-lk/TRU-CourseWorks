@@ -40,7 +40,7 @@ public class SportsFragment extends Fragment {
     private void populateNewsData() {
         // Mock data for example
         for (int i = 1; i <= 20; i++)
-            newsList.add(new NewsModel("Sport News Title " + i, "Just Now", "BBC", "www.google.com", R.drawable.sport));
+            newsList.add(new NewsModel("Sport News Title " + i, "Just Now", "BBC", "www.google.com", String.valueOf(R.drawable.sport), null));
         // Add more items as needed
     }
 }
