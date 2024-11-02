@@ -49,7 +49,7 @@
             this.rbtNo.Location = new System.Drawing.Point(203, 301);
             this.rbtNo.Name = "rbtNo";
             this.rbtNo.Size = new System.Drawing.Size(39, 17);
-            this.rbtNo.TabIndex = 42;
+            this.rbtNo.TabIndex = 1;
             this.rbtNo.TabStop = true;
             this.rbtNo.Text = "No";
             this.rbtNo.UseVisualStyleBackColor = false;
@@ -61,7 +61,7 @@
             this.rbtYes.Location = new System.Drawing.Point(203, 278);
             this.rbtYes.Name = "rbtYes";
             this.rbtYes.Size = new System.Drawing.Size(43, 17);
-            this.rbtYes.TabIndex = 41;
+            this.rbtYes.TabIndex = 0;
             this.rbtYes.TabStop = true;
             this.rbtYes.Text = "Yes";
             this.rbtYes.UseVisualStyleBackColor = false;
@@ -74,7 +74,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(257, 293);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(526, 30);
-            this.richTextBox1.TabIndex = 43;
+            this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // richTextBox2
@@ -85,7 +85,7 @@
             this.richTextBox2.Location = new System.Drawing.Point(36, 344);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(747, 63);
-            this.richTextBox2.TabIndex = 44;
+            this.richTextBox2.TabIndex = 3;
             this.richTextBox2.Text = "";
             // 
             // dateTimePicker3
@@ -95,7 +95,7 @@
             this.dateTimePicker3.Location = new System.Drawing.Point(611, 454);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(173, 20);
-            this.dateTimePicker3.TabIndex = 48;
+            this.dateTimePicker3.TabIndex = 6;
             // 
             // button1
             // 
@@ -103,7 +103,7 @@
             this.button1.Location = new System.Drawing.Point(368, 487);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 47;
+            this.button1.TabIndex = 7;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -115,7 +115,7 @@
             this.richTextBox12.Location = new System.Drawing.Point(277, 441);
             this.richTextBox12.Name = "richTextBox12";
             this.richTextBox12.Size = new System.Drawing.Size(328, 33);
-            this.richTextBox12.TabIndex = 46;
+            this.richTextBox12.TabIndex = 5;
             this.richTextBox12.Text = "";
             // 
             // richTextBox11
@@ -126,7 +126,7 @@
             this.richTextBox11.Location = new System.Drawing.Point(36, 441);
             this.richTextBox11.Name = "richTextBox11";
             this.richTextBox11.Size = new System.Drawing.Size(235, 33);
-            this.richTextBox11.TabIndex = 45;
+            this.richTextBox11.TabIndex = 4;
             this.richTextBox11.Text = "";
             // 
             // pictureBox2
@@ -139,6 +139,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::CampusCaseReportFormApp.Properties.Resources.form04;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(820, 520);

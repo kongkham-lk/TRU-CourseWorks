@@ -63,7 +63,7 @@
             this.OSAUseOnly.Location = new System.Drawing.Point(35, 43);
             this.OSAUseOnly.Name = "OSAUseOnly";
             this.OSAUseOnly.Size = new System.Drawing.Size(746, 43);
-            this.OSAUseOnly.TabIndex = 9;
+            this.OSAUseOnly.TabIndex = 0;
             this.OSAUseOnly.Text = "";
             // 
             // StudentID
@@ -74,7 +74,7 @@
             this.StudentID.Location = new System.Drawing.Point(357, 464);
             this.StudentID.Name = "StudentID";
             this.StudentID.Size = new System.Drawing.Size(169, 27);
-            this.StudentID.TabIndex = 13;
+            this.StudentID.TabIndex = 2;
             this.StudentID.Text = "";
             // 
             // Date
@@ -84,7 +84,7 @@
             this.Date.Location = new System.Drawing.Point(357, 519);
             this.Date.Name = "Date";
             this.Date.Size = new System.Drawing.Size(169, 20);
-            this.Date.TabIndex = 14;
+            this.Date.TabIndex = 5;
             // 
             // FacultyMemberName
             // 
@@ -94,7 +94,7 @@
             this.FacultyMemberName.Location = new System.Drawing.Point(35, 512);
             this.FacultyMemberName.Name = "FacultyMemberName";
             this.FacultyMemberName.Size = new System.Drawing.Size(318, 27);
-            this.FacultyMemberName.TabIndex = 15;
+            this.FacultyMemberName.TabIndex = 4;
             this.FacultyMemberName.Text = "";
             // 
             // StudentEmail
@@ -105,7 +105,7 @@
             this.StudentEmail.Location = new System.Drawing.Point(531, 464);
             this.StudentEmail.Name = "StudentEmail";
             this.StudentEmail.Size = new System.Drawing.Size(251, 27);
-            this.StudentEmail.TabIndex = 16;
+            this.StudentEmail.TabIndex = 3;
             this.StudentEmail.Text = "";
             // 
             // Course
@@ -116,7 +116,7 @@
             this.Course.Location = new System.Drawing.Point(531, 512);
             this.Course.Name = "Course";
             this.Course.Size = new System.Drawing.Size(251, 27);
-            this.Course.TabIndex = 17;
+            this.Course.TabIndex = 6;
             this.Course.Text = "";
             // 
             // Term
@@ -127,7 +127,7 @@
             this.Term.Location = new System.Drawing.Point(583, 558);
             this.Term.Name = "Term";
             this.Term.Size = new System.Drawing.Size(199, 27);
-            this.Term.TabIndex = 19;
+            this.Term.TabIndex = 9;
             this.Term.Text = "";
             // 
             // Assignment
@@ -138,7 +138,7 @@
             this.Assignment.Location = new System.Drawing.Point(35, 558);
             this.Assignment.Name = "Assignment";
             this.Assignment.Size = new System.Drawing.Size(203, 27);
-            this.Assignment.TabIndex = 18;
+            this.Assignment.TabIndex = 7;
             this.Assignment.Text = "";
             // 
             // Department
@@ -149,7 +149,7 @@
             this.Department.Location = new System.Drawing.Point(242, 558);
             this.Department.Name = "Department";
             this.Department.Size = new System.Drawing.Size(336, 27);
-            this.Department.TabIndex = 20;
+            this.Department.TabIndex = 8;
             this.Department.Text = "";
             // 
             // ViolatedDescription
@@ -160,7 +160,7 @@
             this.ViolatedDescription.Location = new System.Drawing.Point(35, 635);
             this.ViolatedDescription.Name = "ViolatedDescription";
             this.ViolatedDescription.Size = new System.Drawing.Size(747, 67);
-            this.ViolatedDescription.TabIndex = 21;
+            this.ViolatedDescription.TabIndex = 10;
             this.ViolatedDescription.Text = "";
             // 
             // IsWritenStatementChecked
@@ -169,7 +169,7 @@
             this.IsWritenStatementChecked.Location = new System.Drawing.Point(741, 912);
             this.IsWritenStatementChecked.Name = "IsWritenStatementChecked";
             this.IsWritenStatementChecked.Size = new System.Drawing.Size(15, 14);
-            this.IsWritenStatementChecked.TabIndex = 26;
+            this.IsWritenStatementChecked.TabIndex = 12;
             this.IsWritenStatementChecked.UseVisualStyleBackColor = true;
             // 
             // IsSupportPersonChecked
@@ -178,7 +178,7 @@
             this.IsSupportPersonChecked.Location = new System.Drawing.Point(740, 872);
             this.IsSupportPersonChecked.Name = "IsSupportPersonChecked";
             this.IsSupportPersonChecked.Size = new System.Drawing.Size(15, 14);
-            this.IsSupportPersonChecked.TabIndex = 25;
+            this.IsSupportPersonChecked.TabIndex = 11;
             this.IsSupportPersonChecked.UseVisualStyleBackColor = true;
             // 
             // Signature
@@ -189,7 +189,7 @@
             this.Signature.Location = new System.Drawing.Point(35, 991);
             this.Signature.Name = "Signature";
             this.Signature.Size = new System.Drawing.Size(290, 33);
-            this.Signature.TabIndex = 27;
+            this.Signature.TabIndex = 13;
             this.Signature.Text = "";
             // 
             // SignName
@@ -200,7 +200,7 @@
             this.SignName.Location = new System.Drawing.Point(331, 991);
             this.SignName.Name = "SignName";
             this.SignName.Size = new System.Drawing.Size(274, 33);
-            this.SignName.TabIndex = 28;
+            this.SignName.TabIndex = 14;
             this.SignName.Text = "";
             // 
             // SignDate
@@ -210,7 +210,7 @@
             this.SignDate.Location = new System.Drawing.Point(610, 1004);
             this.SignDate.Name = "SignDate";
             this.SignDate.Size = new System.Drawing.Size(172, 20);
-            this.SignDate.TabIndex = 29;
+            this.SignDate.TabIndex = 15;
             // 
             // btnSubmit
             // 
@@ -218,7 +218,7 @@
             this.btnSubmit.Location = new System.Drawing.Point(373, 1036);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 30;
+            this.btnSubmit.TabIndex = 16;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -231,7 +231,7 @@
             this.StudentName.Location = new System.Drawing.Point(35, 464);
             this.StudentName.Name = "StudentName";
             this.StudentName.Size = new System.Drawing.Size(318, 27);
-            this.StudentName.TabIndex = 11;
+            this.StudentName.TabIndex = 1;
             this.StudentName.Text = "";
             // 
             // imgHidden2
@@ -299,7 +299,6 @@
             this.Controls.Add(this.imgHidden3);
             this.Controls.Add(this.imgFormStep1);
             this.Name = "Form1";
-            this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.imgHidden2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgHidden1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgHidden3)).EndInit();
@@ -312,26 +311,26 @@
         #endregion
 
         private System.Windows.Forms.PictureBox imgFormStep1;
+        private System.Windows.Forms.PictureBox imgHidden1;
+        private System.Windows.Forms.PictureBox imgHidden2;
+        private System.Windows.Forms.PictureBox imgHidden3;
         private System.Windows.Forms.RichTextBox OSAUseOnly;
+        private System.Windows.Forms.RichTextBox StudentName;
         private System.Windows.Forms.RichTextBox StudentID;
-        private System.Windows.Forms.DateTimePicker Date;
-        private System.Windows.Forms.RichTextBox FacultyMemberName;
         private System.Windows.Forms.RichTextBox StudentEmail;
+        private System.Windows.Forms.RichTextBox FacultyMemberName;
+        private System.Windows.Forms.DateTimePicker Date;
         private System.Windows.Forms.RichTextBox Course;
-        private System.Windows.Forms.RichTextBox Term;
         private System.Windows.Forms.RichTextBox Assignment;
         private System.Windows.Forms.RichTextBox Department;
+        private System.Windows.Forms.RichTextBox Term;
         private System.Windows.Forms.RichTextBox ViolatedDescription;
-        private System.Windows.Forms.PictureBox imgHidden1;
-        private System.Windows.Forms.CheckBox IsWritenStatementChecked;
         private System.Windows.Forms.CheckBox IsSupportPersonChecked;
+        private System.Windows.Forms.CheckBox IsWritenStatementChecked;
         private System.Windows.Forms.RichTextBox Signature;
         private System.Windows.Forms.RichTextBox SignName;
         private System.Windows.Forms.DateTimePicker SignDate;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.PictureBox imgHidden3;
-        private System.Windows.Forms.PictureBox imgHidden2;
-        private System.Windows.Forms.RichTextBox StudentName;
     }
 }
 

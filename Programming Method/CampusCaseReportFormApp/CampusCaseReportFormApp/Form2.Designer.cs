@@ -48,7 +48,7 @@
             this.rbtYes.Location = new System.Drawing.Point(278, 499);
             this.rbtYes.Name = "rbtYes";
             this.rbtYes.Size = new System.Drawing.Size(43, 17);
-            this.rbtYes.TabIndex = 3;
+            this.rbtYes.TabIndex = 1;
             this.rbtYes.TabStop = true;
             this.rbtYes.Text = "Yes";
             this.rbtYes.UseVisualStyleBackColor = false;
@@ -61,7 +61,7 @@
             this.rbtNo.Location = new System.Drawing.Point(340, 499);
             this.rbtNo.Name = "rbtNo";
             this.rbtNo.Size = new System.Drawing.Size(39, 17);
-            this.rbtNo.TabIndex = 4;
+            this.rbtNo.TabIndex = 2;
             this.rbtNo.TabStop = true;
             this.rbtNo.Text = "No";
             this.rbtNo.UseVisualStyleBackColor = false;
@@ -75,7 +75,7 @@
             this.txtStudentName.Location = new System.Drawing.Point(45, 260);
             this.txtStudentName.Name = "txtStudentName";
             this.txtStudentName.Size = new System.Drawing.Size(314, 22);
-            this.txtStudentName.TabIndex = 12;
+            this.txtStudentName.TabIndex = 0;
             this.txtStudentName.Text = "";
             this.txtStudentName.TextChanged += new System.EventHandler(this.txtStudentName_TextChanged);
             // 
@@ -87,7 +87,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(35, 553);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(453, 30);
-            this.richTextBox1.TabIndex = 13;
+            this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
             // richTextBox3
@@ -98,7 +98,7 @@
             this.richTextBox3.Location = new System.Drawing.Point(35, 621);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(573, 30);
-            this.richTextBox3.TabIndex = 14;
+            this.richTextBox3.TabIndex = 4;
             this.richTextBox3.Text = "";
             // 
             // dateTimePicker1
@@ -108,7 +108,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(612, 631);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(173, 20);
-            this.dateTimePicker1.TabIndex = 15;
+            this.dateTimePicker1.TabIndex = 5;
             // 
             // button1
             // 
@@ -116,7 +116,7 @@
             this.button1.Location = new System.Drawing.Point(377, 683);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 23);
-            this.button1.TabIndex = 33;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -131,6 +131,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::CampusCaseReportFormApp.Properties.Resources.form02;
             this.pictureBox1.Location = new System.Drawing.Point(0, -1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(813, 715);
