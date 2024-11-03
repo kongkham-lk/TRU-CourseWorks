@@ -1,5 +1,7 @@
 package com.example.newsapp;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -7,8 +9,14 @@ import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class NewsAdapter extends FragmentStateAdapter {
+    Context mainContext;
+
     public NewsAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
+    }
+
+    public void setContext(Context context) {
+        mainContext = context;
     }
 
     @NonNull
@@ -20,7 +28,7 @@ public class NewsAdapter extends FragmentStateAdapter {
             } case 1: {
                 return new SportsFragment();
             } case 2: {
-                return new TechnologyFragment();
+                return new TechnologyFragment(mainContext);
             } default: {
                 return null;
             }

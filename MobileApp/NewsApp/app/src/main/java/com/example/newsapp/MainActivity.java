@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(techTab);
 
         NewsAdapter newsAdapter = new NewsAdapter(getSupportFragmentManager(), getLifecycle());
+        // this -> Activity Context
+        // getApplicationContext() -> Application Context
+        newsAdapter.setContext(this);
         viewPager2.setAdapter(newsAdapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
