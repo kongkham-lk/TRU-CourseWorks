@@ -64,7 +64,9 @@ public class TechnologyFragment extends Fragment {
 //        requestQueue = VolleySingleton.getVolleyInstance(mainActivityContext).getRequestQueue();
 //        fetchNewsList();
 //        fetchNews();
-        String url = "https://newsapi.org/v2/everything?q=Apple&from=2024-11-01?country=us&sortBy=popularity&apiKey=191ed1d038f44e3ab9313c7aec710768";
+//        String apiKey = BuildConfig;
+        String apiKey = BuildConfig.API_KEY;
+        String url = "https://newsapi.org/v2/everything?q=Apple&from=2024-11-01?country=us&sortBy=popularity&apiKey=" + apiKey;
 
         StringRequest stringRequest = new StringRequest(
             Request.Method.GET,
