@@ -1,1 +1,2 @@
-{"SignName":"sig name\n","Signature":"sig","ViolatedDescription":"vio des","Department":"dep","Term":"term","Assignment":"assm","Course":"course","StudentEmail":"stu email","FacultyMemberName":"mem name","StudentID":"stu id","StudentName":"student name","OSAUseOnly":"OSA"}
+[
+{"SignName":"fdas","Signature":"fdsa","ViolatedDescription":"fdas","Department":"fdas","Term":"fads","Assignment":"fdas","Course":"fdsa","StudentEmail":"fds","FacultyMemberName":"fdas","StudentID":"fdsa","StudentName":"fdas","OSAUseOnly":"dasffdsa","SignDate":"2024-11-30","Date":"2024-10-30","IsWritenStatementChecked":"true","IsSupportPersonChecked":"true"}]

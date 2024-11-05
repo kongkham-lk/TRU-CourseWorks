@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace CampusCaseReportFormApp
 {
@@ -25,8 +27,10 @@ namespace CampusCaseReportFormApp
             //    txtDepartment, txtTerm, txtDescription,txtSign, txtSignName 
             //}) && Helper.checkIfAllCheckboxIsChecked(new CheckBox[] { checkBox3 , checkBox4}))
             //{
-            this.DialogResult = DialogResult.OK;
+
+            this.DialogResult = Helper.ConfirmMessage();
             this.Close();
+
             //}
             //else
             //    MessageBox.Show("Please fill up all the text field");
