@@ -68,7 +68,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Menu;
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.richTextBox1.Location = new System.Drawing.Point(257, 293);
@@ -79,7 +79,7 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.BackColor = System.Drawing.SystemColors.Menu;
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox2.ForeColor = System.Drawing.SystemColors.WindowText;
             this.richTextBox2.Location = new System.Drawing.Point(36, 344);
@@ -99,7 +99,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Menu;
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button1.Location = new System.Drawing.Point(368, 487);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -109,7 +109,7 @@
             // 
             // richTextBox12
             // 
-            this.richTextBox12.BackColor = System.Drawing.SystemColors.Menu;
+            this.richTextBox12.BackColor = System.Drawing.SystemColors.ControlLight;
             this.richTextBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox12.ForeColor = System.Drawing.SystemColors.WindowText;
             this.richTextBox12.Location = new System.Drawing.Point(277, 441);
@@ -120,7 +120,7 @@
             // 
             // richTextBox11
             // 
-            this.richTextBox11.BackColor = System.Drawing.SystemColors.Menu;
+            this.richTextBox11.BackColor = System.Drawing.SystemColors.ControlLight;
             this.richTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox11.ForeColor = System.Drawing.SystemColors.WindowText;
             this.richTextBox11.Location = new System.Drawing.Point(36, 441);

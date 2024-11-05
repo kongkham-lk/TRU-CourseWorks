@@ -31,5 +31,15 @@ namespace CampusCaseReportFormApp
             }
             return true;
         }
+
+        public static DialogResult ConfirmMessage()
+        {
+            DialogResult result = MessageBox.Show("Are You Sure to Submit the Form?", "Error Detected in Input", MessageBoxButtons.OKCancel);
+
+            if (result == DialogResult.OK)
+                return DialogResult.OK; // use for sending back message to trigger button enabling
+            else
+                return DialogResult.Cancel;
+        }
     }
 }

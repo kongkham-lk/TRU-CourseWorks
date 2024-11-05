@@ -57,7 +57,7 @@
             // 
             // OSAUseOnly
             // 
-            this.OSAUseOnly.BackColor = System.Drawing.SystemColors.Menu;
+            this.OSAUseOnly.BackColor = System.Drawing.SystemColors.ControlLight;
             this.OSAUseOnly.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OSAUseOnly.ForeColor = System.Drawing.SystemColors.WindowText;
             this.OSAUseOnly.Location = new System.Drawing.Point(35, 43);
@@ -68,12 +68,12 @@
             // 
             // StudentID
             // 
-            this.StudentID.BackColor = System.Drawing.SystemColors.Menu;
+            this.StudentID.BackColor = System.Drawing.SystemColors.ControlLight;
             this.StudentID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.StudentID.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.StudentID.Location = new System.Drawing.Point(357, 464);
+            this.StudentID.Location = new System.Drawing.Point(357, 467);
             this.StudentID.Name = "StudentID";
-            this.StudentID.Size = new System.Drawing.Size(169, 27);
+            this.StudentID.Size = new System.Drawing.Size(169, 24);
             this.StudentID.TabIndex = 2;
             this.StudentID.Text = "";
             // 
@@ -88,7 +88,7 @@
             // 
             // FacultyMemberName
             // 
-            this.FacultyMemberName.BackColor = System.Drawing.SystemColors.Menu;
+            this.FacultyMemberName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.FacultyMemberName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FacultyMemberName.ForeColor = System.Drawing.SystemColors.WindowText;
             this.FacultyMemberName.Location = new System.Drawing.Point(35, 512);
@@ -99,18 +99,18 @@
             // 
             // StudentEmail
             // 
-            this.StudentEmail.BackColor = System.Drawing.SystemColors.Menu;
+            this.StudentEmail.BackColor = System.Drawing.SystemColors.ControlLight;
             this.StudentEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.StudentEmail.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.StudentEmail.Location = new System.Drawing.Point(531, 464);
+            this.StudentEmail.Location = new System.Drawing.Point(531, 467);
             this.StudentEmail.Name = "StudentEmail";
-            this.StudentEmail.Size = new System.Drawing.Size(251, 27);
+            this.StudentEmail.Size = new System.Drawing.Size(251, 24);
             this.StudentEmail.TabIndex = 3;
             this.StudentEmail.Text = "";
             // 
             // Course
             // 
-            this.Course.BackColor = System.Drawing.SystemColors.Menu;
+            this.Course.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Course.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Course.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Course.Location = new System.Drawing.Point(531, 512);
@@ -121,7 +121,7 @@
             // 
             // Term
             // 
-            this.Term.BackColor = System.Drawing.SystemColors.Menu;
+            this.Term.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Term.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Term.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Term.Location = new System.Drawing.Point(583, 558);
@@ -132,7 +132,7 @@
             // 
             // Assignment
             // 
-            this.Assignment.BackColor = System.Drawing.SystemColors.Menu;
+            this.Assignment.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Assignment.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Assignment.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Assignment.Location = new System.Drawing.Point(35, 558);
@@ -143,7 +143,7 @@
             // 
             // Department
             // 
-            this.Department.BackColor = System.Drawing.SystemColors.Menu;
+            this.Department.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Department.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Department.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Department.Location = new System.Drawing.Point(242, 558);
@@ -154,7 +154,7 @@
             // 
             // ViolatedDescription
             // 
-            this.ViolatedDescription.BackColor = System.Drawing.SystemColors.Menu;
+            this.ViolatedDescription.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ViolatedDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ViolatedDescription.ForeColor = System.Drawing.SystemColors.WindowText;
             this.ViolatedDescription.Location = new System.Drawing.Point(35, 635);
@@ -183,7 +183,7 @@
             // 
             // Signature
             // 
-            this.Signature.BackColor = System.Drawing.SystemColors.Menu;
+            this.Signature.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Signature.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Signature.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Signature.Location = new System.Drawing.Point(35, 991);
@@ -194,7 +194,7 @@
             // 
             // SignName
             // 
-            this.SignName.BackColor = System.Drawing.SystemColors.Menu;
+            this.SignName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.SignName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SignName.ForeColor = System.Drawing.SystemColors.WindowText;
             this.SignName.Location = new System.Drawing.Point(331, 991);
@@ -214,7 +214,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.BackColor = System.Drawing.SystemColors.Menu;
+            this.btnSubmit.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnSubmit.Location = new System.Drawing.Point(373, 1036);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
@@ -225,12 +225,12 @@
             // 
             // StudentName
             // 
-            this.StudentName.BackColor = System.Drawing.SystemColors.Menu;
+            this.StudentName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.StudentName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.StudentName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.StudentName.Location = new System.Drawing.Point(35, 464);
+            this.StudentName.Location = new System.Drawing.Point(35, 467);
             this.StudentName.Name = "StudentName";
-            this.StudentName.Size = new System.Drawing.Size(318, 27);
+            this.StudentName.Size = new System.Drawing.Size(318, 24);
             this.StudentName.TabIndex = 1;
             this.StudentName.Text = "";
             // 

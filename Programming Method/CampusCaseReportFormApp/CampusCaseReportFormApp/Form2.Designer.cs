@@ -69,7 +69,7 @@
             // 
             // txtStudentName
             // 
-            this.txtStudentName.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtStudentName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtStudentName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStudentName.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtStudentName.Location = new System.Drawing.Point(45, 260);
@@ -81,7 +81,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Menu;
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.richTextBox1.Location = new System.Drawing.Point(35, 553);
@@ -92,7 +92,7 @@
             // 
             // richTextBox3
             // 
-            this.richTextBox3.BackColor = System.Drawing.SystemColors.Menu;
+            this.richTextBox3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox3.ForeColor = System.Drawing.SystemColors.WindowText;
             this.richTextBox3.Location = new System.Drawing.Point(35, 621);
@@ -112,7 +112,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Menu;
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button1.Location = new System.Drawing.Point(377, 683);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 23);

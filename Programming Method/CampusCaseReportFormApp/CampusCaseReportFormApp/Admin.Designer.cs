@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelAdmin = new System.Windows.Forms.Label();
+            this.labelStep1 = new System.Windows.Forms.Label();
             this.btnFill1 = new System.Windows.Forms.Button();
             this.btnFill2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelStep2 = new System.Windows.Forms.Label();
             this.btnFill3 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelStep3 = new System.Windows.Forms.Label();
             this.btnFill4 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelStep4 = new System.Windows.Forms.Label();
             this.btnFill5 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnSubmit = new System.Windows.Forms.Button();
+            this.labelStep5 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnView2 = new System.Windows.Forms.Button();
@@ -49,25 +49,25 @@
             this.btnView5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // labelAdmin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Admin";
+            this.labelAdmin.AutoSize = true;
+            this.labelAdmin.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAdmin.Location = new System.Drawing.Point(22, 35);
+            this.labelAdmin.Name = "labelAdmin";
+            this.labelAdmin.Size = new System.Drawing.Size(75, 25);
+            this.labelAdmin.TabIndex = 0;
+            this.labelAdmin.Text = "Admin";
             // 
-            // label2
+            // labelStep1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Step 1";
+            this.labelStep1.AutoSize = true;
+            this.labelStep1.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStep1.Location = new System.Drawing.Point(22, 75);
+            this.labelStep1.Name = "labelStep1";
+            this.labelStep1.Size = new System.Drawing.Size(47, 18);
+            this.labelStep1.TabIndex = 1;
+            this.labelStep1.Text = "Step 1";
             // 
             // btnFill1
             // 
@@ -91,15 +91,15 @@
             this.btnFill2.UseVisualStyleBackColor = true;
             this.btnFill2.Click += new System.EventHandler(this.btnFill2_Click);
             // 
-            // label3
+            // labelStep2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 18);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Step 2";
+            this.labelStep2.AutoSize = true;
+            this.labelStep2.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStep2.Location = new System.Drawing.Point(22, 108);
+            this.labelStep2.Name = "labelStep2";
+            this.labelStep2.Size = new System.Drawing.Size(48, 18);
+            this.labelStep2.TabIndex = 3;
+            this.labelStep2.Text = "Step 2";
             // 
             // btnFill3
             // 
@@ -112,15 +112,15 @@
             this.btnFill3.UseVisualStyleBackColor = true;
             this.btnFill3.Click += new System.EventHandler(this.btnFill3_Click);
             // 
-            // label4
+            // labelStep3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 140);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 18);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Step 3";
+            this.labelStep3.AutoSize = true;
+            this.labelStep3.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStep3.Location = new System.Drawing.Point(22, 140);
+            this.labelStep3.Name = "labelStep3";
+            this.labelStep3.Size = new System.Drawing.Size(48, 18);
+            this.labelStep3.TabIndex = 5;
+            this.labelStep3.Text = "Step 3";
             // 
             // btnFill4
             // 
@@ -133,15 +133,15 @@
             this.btnFill4.UseVisualStyleBackColor = true;
             this.btnFill4.Click += new System.EventHandler(this.btnFill4_Click);
             // 
-            // label5
+            // labelStep4
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(22, 172);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 18);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Step 4";
+            this.labelStep4.AutoSize = true;
+            this.labelStep4.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStep4.Location = new System.Drawing.Point(22, 172);
+            this.labelStep4.Name = "labelStep4";
+            this.labelStep4.Size = new System.Drawing.Size(49, 18);
+            this.labelStep4.TabIndex = 7;
+            this.labelStep4.Text = "Step 4";
             // 
             // btnFill5
             // 
@@ -154,26 +154,26 @@
             this.btnFill5.UseVisualStyleBackColor = true;
             this.btnFill5.Click += new System.EventHandler(this.btnFill5_Click);
             // 
-            // label6
+            // labelStep5
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(22, 204);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 18);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Step 5";
+            this.labelStep5.AutoSize = true;
+            this.labelStep5.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStep5.Location = new System.Drawing.Point(22, 204);
+            this.labelStep5.Name = "labelStep5";
+            this.labelStep5.Size = new System.Drawing.Size(48, 18);
+            this.labelStep5.TabIndex = 9;
+            this.labelStep5.Text = "Step 5";
             // 
-            // btnSubmit
+            // btnSave
             // 
-            this.btnSubmit.Enabled = false;
-            this.btnSubmit.Location = new System.Drawing.Point(130, 244);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 11;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.btnSave.Enabled = false;
+            this.btnSave.Location = new System.Drawing.Point(130, 244);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnNew
             // 
@@ -257,18 +257,18 @@
             this.Controls.Add(this.btnView1);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnNew);
-            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnFill5);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labelStep5);
             this.Controls.Add(this.btnFill4);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelStep4);
             this.Controls.Add(this.btnFill3);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelStep3);
             this.Controls.Add(this.btnFill2);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelStep2);
             this.Controls.Add(this.btnFill1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelStep1);
+            this.Controls.Add(this.labelAdmin);
             this.Name = "Admin";
             this.Text = "Admin";
             this.ResumeLayout(false);
@@ -278,18 +278,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelAdmin;
+        private System.Windows.Forms.Label labelStep1;
         private System.Windows.Forms.Button btnFill1;
         private System.Windows.Forms.Button btnFill2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelStep2;
         private System.Windows.Forms.Button btnFill3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelStep3;
         private System.Windows.Forms.Button btnFill4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelStep4;
         private System.Windows.Forms.Button btnFill5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Label labelStep5;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnView2;

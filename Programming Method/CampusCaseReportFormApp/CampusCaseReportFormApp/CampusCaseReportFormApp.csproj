@@ -67,7 +67,6 @@
     <Compile Include="Form5.Designer.cs">
       <DependentUpon>Form5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Form1.cs" />
     <Compile Include="Util\Helper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
