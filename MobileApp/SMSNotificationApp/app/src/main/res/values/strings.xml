@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SMSNotificationApp</string>
+    <string name="message">Waiting For New Message !!!</string>
+</resources>
