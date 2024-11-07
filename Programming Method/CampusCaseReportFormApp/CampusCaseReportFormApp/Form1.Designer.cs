@@ -73,7 +73,7 @@
             this.StudentID.ForeColor = System.Drawing.SystemColors.WindowText;
             this.StudentID.Location = new System.Drawing.Point(357, 467);
             this.StudentID.Name = "StudentID";
-            this.StudentID.Size = new System.Drawing.Size(169, 27);
+            this.StudentID.Size = new System.Drawing.Size(169, 24);
             this.StudentID.TabIndex = 2;
             this.StudentID.Text = "";
             // 
@@ -104,7 +104,7 @@
             this.StudentEmail.ForeColor = System.Drawing.SystemColors.WindowText;
             this.StudentEmail.Location = new System.Drawing.Point(531, 467);
             this.StudentEmail.Name = "StudentEmail";
-            this.StudentEmail.Size = new System.Drawing.Size(251, 27);
+            this.StudentEmail.Size = new System.Drawing.Size(251, 24);
             this.StudentEmail.TabIndex = 3;
             this.StudentEmail.Text = "";
             // 
@@ -230,7 +230,7 @@
             this.StudentName.ForeColor = System.Drawing.SystemColors.WindowText;
             this.StudentName.Location = new System.Drawing.Point(35, 467);
             this.StudentName.Name = "StudentName";
-            this.StudentName.Size = new System.Drawing.Size(318, 27);
+            this.StudentName.Size = new System.Drawing.Size(318, 24);
             this.StudentName.TabIndex = 1;
             this.StudentName.Text = "";
             // 
