@@ -55,7 +55,7 @@ public class NewsFetcher {
 
                     // Convert response to String
                     String responseData = response.toString();
-                    parseArticles(responseData);  // Parse articles and populate newsList
+                    extractDataIntoList(responseData);  // Parse articles and populate newsList
 
                 } else {
                     Log.e("API_ERROR", "Response Code: " + responseCode + ", Message: " + urlConnection.getResponseMessage());
@@ -79,7 +79,7 @@ public class NewsFetcher {
     }
 
     // Parsing logic for the articles
-    private void parseArticles(String jsonResponse) {
+    private void extractDataIntoList(String jsonResponse) {
         try {
             JSONObject jsonObject = new JSONObject(jsonResponse);
             JSONArray articlesArray = jsonObject.getJSONArray("results");
