@@ -83,16 +83,20 @@ public class NewsFetcher {
         try {
             JSONObject jsonObject = new JSONObject(jsonResponse);
             JSONArray articlesArray = jsonObject.getJSONArray("results");
+            List<String> memo = new ArrayList<>();
 
             for (int i = 0; i < articlesArray.length(); i++) {
                 try {
                     JSONObject articleObject = articlesArray.getJSONObject(i);
                     String title = articleObject.getString("title");
+                    if (memo.contains(title.toLowerCase())) // prevent displaying duplicate news
+                        continue;
                     String publishedAt = articleObject.getString("pubDate");
                     String author = articleObject.getString("source_name");
                     String link = articleObject.getString("link");
                     String urlToImage = articleObject.optString("image_url", "");
                     newsList.add(new NewsModel(title, publishedAt, author, link, urlToImage));
+                    memo.add(title.toLowerCase());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -102,6 +106,7 @@ public class NewsFetcher {
         }
     }
 
+    // Use Callback to wait for retrieving API Response
     public List<NewsModel> getNewsList(String apiUrl) {
         Future<List<NewsModel>> future = executor.submit(fetchApiNews(apiUrl));  // Submit Callable task
         try {
