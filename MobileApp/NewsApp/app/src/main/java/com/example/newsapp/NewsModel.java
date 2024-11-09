@@ -4,17 +4,15 @@ public class NewsModel {
     private String urlToImage;
     private String title;
     private String author;
-    private String description;
     private String publishedAt;
-    private String url;
+    private String link;
 
-    public NewsModel(String title, String publishedAt, String author, String url, String urlToImage, String description) {
+    public NewsModel(String title, String publishedAt, String author, String link, String urlToImage) {
         this.title = title;
         this.publishedAt = publishedAt;
         this.author = author;
-        this.url = url;
+        this.link = link;
         this.urlToImage = urlToImage;
-        this.description = description;
     }
 
     public String getTitle() {
@@ -33,12 +31,12 @@ public class NewsModel {
         this.author = author;
     }
 
-    public String getUrl() {
-        return url;
+    public String getLink() {
+        return link;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getUrlToImage() {
@@ -57,11 +55,4 @@ public class NewsModel {
         this.publishedAt = publishedAt;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

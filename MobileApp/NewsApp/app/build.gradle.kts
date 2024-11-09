@@ -1,6 +1,4 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import java.util.Properties
-import java.io.FileInputStream
 
 plugins {
     alias(libs.plugins.android.application)
@@ -23,7 +21,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // Define the API_KEY as a BuildConfig field
-        buildConfigField("String", "API_KEY", properties.getProperty("API_KEY"))
+        buildConfigField("String", "ApiKey_thenewsapi", properties.getProperty("ApiKey_thenewsapi"))
 
     }
 
@@ -57,6 +55,9 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.android.volley:volley:1.2.1")
-    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.nostra13.universalimageloader:universal-image-loader:1.9.5")
     implementation("com.google.code.gson:gson:2.11.0")
+    implementation("com.squareup.picasso:picasso:2.71828")
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
 }
