@@ -7,8 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="50dp"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity" >
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/contentScreenSection"
@@ -34,6 +33,5 @@
         app:tabRippleColor="@null"
         app:tabIndicatorHeight="0dp"
         app:tabTextAppearance="@style/CustomTabText"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,6 @@
 package com.example.newsapp;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.util.List;
 
 public class NewsItemAdapter extends RecyclerView.Adapter<NewsItemAdapter.ViewHolder> {
@@ -38,22 +35,12 @@ public class NewsItemAdapter extends RecyclerView.Adapter<NewsItemAdapter.ViewHo
     public void onBindViewHolder(@NonNull NewsItemAdapter.ViewHolder holder, int position) {
         NewsModel targetNews = newsList.get(position);
         String url = targetNews.getUrlToImage();
+        // rendering image by using imageURL
         Glide.with(context)
                 .load(url)
                 .placeholder(R.drawable.loader) // optional placeholder
                 .error(R.drawable.error)       // optional error image
                 .into(holder.newsImg);
-//        Picasso.get()
-//                .load(targetNews.getUrlToImage())
-//                .placeholder(R.drawable.loader) // optional placeholder
-//                .error(R.drawable.error)       // optional error image
-//                .into(holder.newsImg);
-//        holder.newsImg.setImageDrawable(LoadImageFromWebOperations(targetNews.getUrlToImage()));
-//        WebView web = (WebView) (holder.newsImg);
-//        web.loadUrl(url);
-//        ImageLoader imageLoader = ImageLoader.getInstance();
-//        Bitmap bitmap = imageLoader.loadImageSync(url);
-//        holder.newsImg.setImageBitmap(bitmap);
         holder.newsTitle.setText(targetNews.getTitle());
         holder.newsAuthor.setText(targetNews.getAuthor());
         holder.newsPublishedTime.setText(targetNews.getPublishedAt());
@@ -79,15 +66,4 @@ public class NewsItemAdapter extends RecyclerView.Adapter<NewsItemAdapter.ViewHo
             newsPublishedTime = itemView.findViewById(R.id.newsPublishedTime);
         }
     }
-
-    public static Drawable LoadImageFromWebOperations(String url) {
-        try {
-            InputStream is = (InputStream) new URL(url).getContent();
-            Drawable d = Drawable.createFromStream(is, "src name");
-            return d;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
 }
