@@ -192,6 +192,7 @@
             this.btnView2.TabIndex = 15;
             this.btnView2.Text = "View";
             this.btnView2.UseVisualStyleBackColor = true;
+            this.btnView2.Click += new System.EventHandler(this.btnView2_Click);
             // 
             // btnView1
             // 
@@ -202,6 +203,7 @@
             this.btnView1.TabIndex = 14;
             this.btnView1.Text = "View";
             this.btnView1.UseVisualStyleBackColor = true;
+            this.btnView1.Click += new System.EventHandler(this.btnView1_Click);
             // 
             // btnView3
             // 
@@ -212,6 +214,7 @@
             this.btnView3.TabIndex = 16;
             this.btnView3.Text = "View";
             this.btnView3.UseVisualStyleBackColor = true;
+            this.btnView3.Click += new System.EventHandler(this.btnView3_Click);
             // 
             // btnView4
             // 
@@ -222,6 +225,7 @@
             this.btnView4.TabIndex = 17;
             this.btnView4.Text = "View";
             this.btnView4.UseVisualStyleBackColor = true;
+            this.btnView4.Click += new System.EventHandler(this.btnView4_Click);
             // 
             // btnView5
             // 
@@ -232,6 +236,7 @@
             this.btnView5.TabIndex = 18;
             this.btnView5.Text = "View";
             this.btnView5.UseVisualStyleBackColor = true;
+            this.btnView5.Click += new System.EventHandler(this.btnView5_Click);
             // 
             // Admin
             // 

@@ -1,4 +1,6 @@
-﻿namespace CampusCaseReportFormApp
+﻿using System.Windows.Forms;
+
+namespace CampusCaseReportFormApp
 {
     partial class Form1
     {
@@ -40,9 +42,9 @@
             this.ViolatedDescription = new System.Windows.Forms.RichTextBox();
             this.IsWritenStatementChecked = new System.Windows.Forms.CheckBox();
             this.IsSupportPersonChecked = new System.Windows.Forms.CheckBox();
-            this.Signature = new System.Windows.Forms.RichTextBox();
-            this.SignName = new System.Windows.Forms.RichTextBox();
-            this.SignDate = new System.Windows.Forms.DateTimePicker();
+            this.SignFacMem = new System.Windows.Forms.RichTextBox();
+            this.SignNameFacMem = new System.Windows.Forms.RichTextBox();
+            this.SignDateFacMem = new System.Windows.Forms.DateTimePicker();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.StudentName = new System.Windows.Forms.RichTextBox();
             this.imgHidden2 = new System.Windows.Forms.PictureBox();
@@ -91,9 +93,9 @@
             this.FacultyMemberName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.FacultyMemberName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FacultyMemberName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.FacultyMemberName.Location = new System.Drawing.Point(36, 514);
+            this.FacultyMemberName.Location = new System.Drawing.Point(35, 514);
             this.FacultyMemberName.Name = "FacultyMemberName";
-            this.FacultyMemberName.Size = new System.Drawing.Size(316, 24);
+            this.FacultyMemberName.Size = new System.Drawing.Size(317, 24);
             this.FacultyMemberName.TabIndex = 4;
             this.FacultyMemberName.Text = "";
             // 
@@ -135,7 +137,7 @@
             this.Assignment.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Assignment.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Assignment.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.Assignment.Location = new System.Drawing.Point(36, 560);
+            this.Assignment.Location = new System.Drawing.Point(35, 560);
             this.Assignment.Name = "Assignment";
             this.Assignment.Size = new System.Drawing.Size(201, 24);
             this.Assignment.TabIndex = 7;
@@ -157,9 +159,9 @@
             this.ViolatedDescription.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ViolatedDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ViolatedDescription.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.ViolatedDescription.Location = new System.Drawing.Point(36, 635);
+            this.ViolatedDescription.Location = new System.Drawing.Point(35, 635);
             this.ViolatedDescription.Name = "ViolatedDescription";
-            this.ViolatedDescription.Size = new System.Drawing.Size(746, 67);
+            this.ViolatedDescription.Size = new System.Drawing.Size(747, 67);
             this.ViolatedDescription.TabIndex = 10;
             this.ViolatedDescription.Text = "";
             // 
@@ -181,36 +183,36 @@
             this.IsSupportPersonChecked.TabIndex = 11;
             this.IsSupportPersonChecked.UseVisualStyleBackColor = true;
             // 
-            // Signature
+            // SignFacMem
             // 
-            this.Signature.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Signature.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Signature.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.Signature.Location = new System.Drawing.Point(40, 991);
-            this.Signature.Name = "Signature";
-            this.Signature.Size = new System.Drawing.Size(285, 33);
-            this.Signature.TabIndex = 13;
-            this.Signature.Text = "";
+            this.SignFacMem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignFacMem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SignFacMem.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.SignFacMem.Location = new System.Drawing.Point(36, 991);
+            this.SignFacMem.Name = "SignFacMem";
+            this.SignFacMem.Size = new System.Drawing.Size(290, 33);
+            this.SignFacMem.TabIndex = 13;
+            this.SignFacMem.Text = "";
             // 
-            // SignName
+            // SignNameFacMem
             // 
-            this.SignName.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.SignName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SignName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.SignName.Location = new System.Drawing.Point(335, 991);
-            this.SignName.Name = "SignName";
-            this.SignName.Size = new System.Drawing.Size(269, 33);
-            this.SignName.TabIndex = 14;
-            this.SignName.Text = "";
+            this.SignNameFacMem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignNameFacMem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SignNameFacMem.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.SignNameFacMem.Location = new System.Drawing.Point(331, 991);
+            this.SignNameFacMem.Name = "SignNameFacMem";
+            this.SignNameFacMem.Size = new System.Drawing.Size(273, 33);
+            this.SignNameFacMem.TabIndex = 14;
+            this.SignNameFacMem.Text = "";
             // 
-            // SignDate
+            // SignDateFacMem
             // 
-            this.SignDate.CustomFormat = "yyyy-MM-dd";
-            this.SignDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.SignDate.Location = new System.Drawing.Point(610, 1004);
-            this.SignDate.Name = "SignDate";
-            this.SignDate.Size = new System.Drawing.Size(172, 20);
-            this.SignDate.TabIndex = 15;
+            this.SignDateFacMem.CustomFormat = "yyyy-MM-dd";
+            this.SignDateFacMem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.SignDateFacMem.Location = new System.Drawing.Point(610, 1004);
+            this.SignDateFacMem.Name = "SignDateFacMem";
+            this.SignDateFacMem.Size = new System.Drawing.Size(172, 20);
+            this.SignDateFacMem.TabIndex = 15;
             // 
             // btnSubmit
             // 
@@ -228,9 +230,10 @@
             this.StudentName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.StudentName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.StudentName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.StudentName.Location = new System.Drawing.Point(36, 467);
+            this.StudentName.Location = new System.Drawing.Point(35, 467);
+            this.StudentName.Margin = new System.Windows.Forms.Padding(500);
             this.StudentName.Name = "StudentName";
-            this.StudentName.Size = new System.Drawing.Size(316, 24);
+            this.StudentName.Size = new System.Drawing.Size(317, 24);
             this.StudentName.TabIndex = 1;
             this.StudentName.Text = "";
             // 
@@ -279,9 +282,9 @@
             this.ClientSize = new System.Drawing.Size(834, 761);
             this.Controls.Add(this.imgHidden2);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.SignDate);
-            this.Controls.Add(this.SignName);
-            this.Controls.Add(this.Signature);
+            this.Controls.Add(this.SignDateFacMem);
+            this.Controls.Add(this.SignNameFacMem);
+            this.Controls.Add(this.SignFacMem);
             this.Controls.Add(this.IsWritenStatementChecked);
             this.Controls.Add(this.IsSupportPersonChecked);
             this.Controls.Add(this.imgHidden1);
@@ -327,9 +330,9 @@
         private System.Windows.Forms.RichTextBox ViolatedDescription;
         private System.Windows.Forms.CheckBox IsSupportPersonChecked;
         private System.Windows.Forms.CheckBox IsWritenStatementChecked;
-        private System.Windows.Forms.RichTextBox Signature;
-        private System.Windows.Forms.RichTextBox SignName;
-        private System.Windows.Forms.DateTimePicker SignDate;
+        private System.Windows.Forms.RichTextBox SignFacMem;
+        private System.Windows.Forms.RichTextBox SignNameFacMem;
+        private System.Windows.Forms.DateTimePicker SignDateFacMem;
         private System.Windows.Forms.Button btnSubmit;
     }
 }

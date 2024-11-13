@@ -82,6 +82,36 @@ namespace CampusCaseReportFormApp
             }
         }
 
+        private void btnView1_Click(object sender, EventArgs e)
+        {
+            int targetFormIndex = 0;
+            DisableFormUpdate(targetFormIndex);
+        }
+
+        private void btnView2_Click(object sender, EventArgs e)
+        {
+            int targetFormIndex = 1;
+            DisableFormUpdate(targetFormIndex);
+        }
+
+        private void btnView3_Click(object sender, EventArgs e)
+        {
+            int targetFormIndex = 2;
+            DisableFormUpdate(targetFormIndex);
+        }
+
+        private void btnView4_Click(object sender, EventArgs e)
+        {
+            int targetFormIndex = 3;
+            DisableFormUpdate(targetFormIndex);
+        }
+
+        private void btnView5_Click(object sender, EventArgs e)
+        {
+            int targetFormIndex = 4;
+            DisableFormUpdate(targetFormIndex);
+        }
+
         private bool CompletedForm(int targetFormIndex)
         {
             DialogResult result = formList[targetFormIndex].ShowDialog();
@@ -96,6 +126,18 @@ namespace CampusCaseReportFormApp
                 formList[targetFormIndex] = GetTargetForm(targetFormIndex);
 
             return false;
+        }
+
+        private void DisableFormUpdate(int targetFormIndex)
+        {
+            Dictionary<String, String> fieldNameByInputs = RetrieveInputsAsKeyValuePair(formList[targetFormIndex]);
+
+            foreach (KeyValuePair<String, String> input in fieldNameByInputs)
+                formList[targetFormIndex].Controls[input.Key].Enabled = false;
+
+            formList[targetFormIndex].Controls["btnSubmit"].Enabled = false;
+
+            formList[targetFormIndex].ShowDialog();
         }
 
         private void UpdateButtons(int targetFormIndex)
@@ -137,7 +179,7 @@ namespace CampusCaseReportFormApp
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                //saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 saveFileDialog.Filter = "txt files (*.txt)|*.txt";
                 saveFileDialog.FilterIndex = 2;
                 saveFileDialog.RestoreDirectory = true;
@@ -163,7 +205,7 @@ namespace CampusCaseReportFormApp
 
             RadioButton[] allRadioButton = GetAllRadioButton(targetForm);
             foreach (var txtBox in allRadioButton)
-                inputs.Add(txtBox.Name, txtBox.Text);
+                inputs.Add(txtBox.Name, txtBox.Checked.ToString());
 
             DateTimePicker[] allDateTimePicker = GetAllDateTimePicker(targetForm);
             foreach (var txtBox in allDateTimePicker)
@@ -255,18 +297,16 @@ namespace CampusCaseReportFormApp
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = GetFileInputsDir();
+                //openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 openFileDialog.Filter = "txt files (*.txt)|*.txt";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Form targetForm = null;
-
                     //Get the path of specified file
-                    string filePath = openFileDialog.FileName;
-                    string fileName = Path.GetFileName(filePath);
+                    targetPath = openFileDialog.FileName;
+                    fileName = Path.GetFileName(targetPath);
 
                     //Read the contents of the file into a stream
                     var fileStream = openFileDialog.OpenFile();
@@ -275,28 +315,33 @@ namespace CampusCaseReportFormApp
                     {
                         savedFormCount = 0;
                         string fileContent = reader.ReadToEnd();
+
                         Dictionary<string, string>[] savedFormList = JsonConvert.DeserializeObject<Dictionary<string, string>[]>("[" + fileContent + "]");
 
                         foreach (Dictionary<string, string> saveForm in savedFormList)
                         {
-                            Form targetForm = formList[savedFormCount] = GetTargetForm(savedFormCount);
-                            savedFormCount++;
+                            Form targetForm = formList[savedFormCount] = GetTargetForm(savedFormCount); // create new form instance
+
+                            // load all save inputs to form
                             foreach (KeyValuePair<string, string> saveInput in saveForm)
                             {
                                 if (targetForm.Controls[saveInput.Key] != null) // it equal to null when the key not match with any form's component's name
                                 {
                                     if (targetForm.Controls[saveInput.Key].GetType() == typeof(CheckBox)) // assign value differently if is checkBox
                                         ((CheckBox)targetForm.Controls[saveInput.Key]).Checked = Boolean.Parse(saveInput.Value);
+                                    else if (targetForm.Controls[saveInput.Key].GetType() == typeof(RadioButton))
+                                        ((RadioButton)targetForm.Controls[saveInput.Key]).Checked = Boolean.Parse(saveInput.Value);
                                     else
                                         targetForm.Controls[saveInput.Key].Text = saveInput.Value;
                                 }
                             }
+
+                            UpdateButtons(savedFormCount);
+                            savedFormCount++;
                         }
                     }
                     GenerateNewForm();
                     UpdateButtons(savedFormCount - 1);
-                    formList[0].ShowDialog();
-                    //btnSave.Enabled = true;
                 }
             }
         }
@@ -310,7 +355,7 @@ namespace CampusCaseReportFormApp
         // DONE -> CHECK IF FOLDER EXIST? -> CREATE IF FOLDER NOT EXISTED
         // DONE -> THE GET FILE NAME AND STORE GLOBALLY TO WRITE LATER.
 
-// VIEW BUTTON LOGIC
+// DONE -> VIEW BUTTON LOGIC
 // ALL THE RICHBOX TEXT SHOULD NOT FLOAT IF ONLY HAVE 1 LINE INPUTS
 // WRITE LOGIC TO RESET ALL THE ENABLE STATE OF BUTTON
 // WRITE LOGIC TO ENABLE AND FORM THAT NEED TO BE RESUME
@@ -319,3 +364,5 @@ namespace CampusCaseReportFormApp
     // -> REMOVE SAVE BUTTON
 
 // resizing the input field
+
+// ADDED LOGIC TO RESET ALL THE BUTTON WHEN CLICK NEW IF ALREADY CLICK LOAD
