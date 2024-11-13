@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,6 +15,9 @@ namespace CampusCaseReportFormApp
         Form[] formList = new Form[5];
         string[] formInputList = new string[5]; // storing each form's into the array
         int savedFormCount = 0;
+        string targetPath;
+        string fileName;
+        bool isPrevSavedFormUpdated = false;
 
         public Admin()
         {
@@ -26,49 +30,70 @@ namespace CampusCaseReportFormApp
         private void BtnFill1_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 0;
-            if (CompletedForm(formList, savedFormCount))
+            if (CompletedForm(targetFormIndex))
+            {
+                SaveFormInputsToList(targetFormIndex);
+                WriteFormToFile();
                 UpdateButtons(targetFormIndex);
+            }
         }
 
         private void BtnFill2_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 1;
-            if (CompletedForm(formList, savedFormCount))
+            if (CompletedForm(targetFormIndex))
+            {
+                SaveFormInputsToList(targetFormIndex);
+                WriteFormToFile();
                 UpdateButtons(targetFormIndex);
+            }
         }
 
         private void BtnFill3_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 2;
-            if (CompletedForm(formList, savedFormCount))
+            if (CompletedForm(targetFormIndex))
+            {
+                SaveFormInputsToList(targetFormIndex);
+                WriteFormToFile();
                 UpdateButtons(targetFormIndex);
+            }
         }
 
         private void BtnFill4_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 3;
-            if (CompletedForm(formList, savedFormCount))
+            if (CompletedForm(targetFormIndex))
+            {
+                SaveFormInputsToList(targetFormIndex);
+                WriteFormToFile();
                 UpdateButtons(targetFormIndex);
+            }
         }
 
         private void BtnFill5_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 4;
-            if (CompletedForm(formList, savedFormCount))
+            if (CompletedForm(targetFormIndex))
+            {
+                SaveFormInputsToList(targetFormIndex);
+                WriteFormToFile();
                 UpdateButtons(targetFormIndex);
+            }
         }
 
-        private bool CompletedForm(Form[] forms, int targetFormIndex)
+        private bool CompletedForm(int targetFormIndex)
         {
-            DialogResult result = forms[targetFormIndex].ShowDialog();
+            DialogResult result = formList[targetFormIndex].ShowDialog();
             if (result == DialogResult.OK)
             {
-                SaveFormInputsToList(forms[targetFormIndex]);
-                WriteFormToFile();
+                if (targetFormIndex < savedFormCount)
+                    isPrevSavedFormUpdated = true;
+
                 return true;
             }
             else if (result == DialogResult.Cancel) // only invoke when is cancel and not close dialog
-                forms[targetFormIndex] = GetTargetForm(targetFormIndex);
+                formList[targetFormIndex] = GetTargetForm(targetFormIndex);
 
             return false;
         }
@@ -83,17 +108,18 @@ namespace CampusCaseReportFormApp
                 btnViewList[targetFormIndex].Enabled = true;
                 if (targetFormIndex < btnFillList.Length)
                     btnFillList[targetFormIndex + 1].Enabled = true;
-                btnSave.Enabled = true;
+                //btnSave.Enabled = true;
             }
-            else
-                forms[targetFormIndex] = GetTargetForm(targetFormIndex);
         }
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
-            GenerateNewForm();
-            savedFormCount = 0;
-            UpdateButtons(savedFormCount - 1);
+            if (GetSaveFilePath())
+            {
+                GenerateNewForm();
+                savedFormCount = 0;
+                UpdateButtons(savedFormCount - 1);
+            }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -105,6 +131,26 @@ namespace CampusCaseReportFormApp
         {
             for (int i = savedFormCount; i < formList.Length; i++)
                     formList[i] = GetTargetForm(i);
+        }
+
+        private bool GetSaveFilePath()
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                saveFileDialog.Filter = "txt files (*.txt)|*.txt";
+                saveFileDialog.FilterIndex = 2;
+                saveFileDialog.RestoreDirectory = true;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    targetPath = saveFileDialog.FileName;
+                    fileName = Path.GetFileName(targetPath);
+                    return true;
+                }
+            }
+            return false;
         }
 
         private Dictionary<String, String> RetrieveInputsAsKeyValuePair(Form targetForm)
@@ -169,38 +215,30 @@ namespace CampusCaseReportFormApp
             }
         }
 
-        private void SaveFormInputsToList(Form targetForm)
+        private void SaveFormInputsToList(int targetFormIndex)
         {
-            Dictionary<String, String> fieldNameByInputs = RetrieveInputsAsKeyValuePair(targetForm);
+            Dictionary<String, String> fieldNameByInputs = RetrieveInputsAsKeyValuePair(formList[targetFormIndex]);
             var json = JsonConvert.SerializeObject(fieldNameByInputs);
-            formInputList[savedFormCount] = json;
+            formInputList[targetFormIndex] = json;
             savedFormCount++;
         }
 
         // Save input to file right away when user click submit on each form
         private void WriteFormToFile()
         {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            StreamWriter streamWriter = new StreamWriter(targetPath, append: !isPrevSavedFormUpdated && savedFormCount > 1);
+
+            if (savedFormCount > 1) // include comma when this is not the very first form's input set
+                streamWriter.Write(", ");
+
+            if (isPrevSavedFormUpdated) // re-write the whole form to txt file if any prev. saved form is edited
             {
-                saveFileDialog.InitialDirectory = GetFileInputsDir();
-                saveFileDialog.Filter = "txt files (*.txt)|*.txt";
-                saveFileDialog.FilterIndex = 2;
-                saveFileDialog.RestoreDirectory = true;
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    //Get the path of specified file
-                    string targetPath = saveFileDialog.FileName;
-
-                    StreamWriter streamWriter = new StreamWriter(targetPath, true);
-
-                    if (savedFormCount > 0) // include comma when this is not the very first form's input set
-                        streamWriter.Write(", ");
-
-                    streamWriter.Write(formInputList[savedFormCount - 1]);
-                    streamWriter.Close(); // need to close StreamWrter every time since we don't know when will user close the program
-                }
+                for (int i = 0; i < savedFormCount; i++)
+                    streamWriter.Write(formInputList[i]);
             }
+            else // only append new form to the bottom of the file (no need to rewrite the whole thing again)
+                streamWriter.Write(formInputList[savedFormCount - 1]);
+            streamWriter.Close(); // need to close StreamWrter every time since we don't know when will user close the program
         }
 
         private string GetFileInputsDir()
@@ -237,14 +275,12 @@ namespace CampusCaseReportFormApp
                     {
                         savedFormCount = 0;
                         string fileContent = reader.ReadToEnd();
-                        
                         Dictionary<string, string>[] savedFormList = JsonConvert.DeserializeObject<Dictionary<string, string>[]>("[" + fileContent + "]");
 
                         foreach (Dictionary<string, string> saveForm in savedFormList)
                         {
                             Form targetForm = formList[savedFormCount] = GetTargetForm(savedFormCount);
                             savedFormCount++;
-                            
                             foreach (KeyValuePair<string, string> saveInput in saveForm)
                             {
                                 if (targetForm.Controls[saveInput.Key] != null) // it equal to null when the key not match with any form's component's name
@@ -260,15 +296,26 @@ namespace CampusCaseReportFormApp
                     GenerateNewForm();
                     UpdateButtons(savedFormCount - 1);
                     formList[0].ShowDialog();
-                    btnSave.Enabled = true;
+                    //btnSave.Enabled = true;
                 }
             }
         }
     }
 }
 
+// ADDED BRACKET ADD FRONT AND REMOVE THE LAST BRACKET BEFORE ADD THE NEXT FORM AND CLOSE THE LAST BRACKET
+
+// DONE -> OPEN DIALOG WHEN CLICK "NEW" TO GET THE SAVE LOCATION, THEN WHEN SUBMIT EACH FORM, IT WILL WRITE TO THAT LOCATION:
+    // DONE -> OPEN DIALOG -> IDENTIFY THE FOLDER + FILE NAME
+        // DONE -> CHECK IF FOLDER EXIST? -> CREATE IF FOLDER NOT EXISTED
+        // DONE -> THE GET FILE NAME AND STORE GLOBALLY TO WRITE LATER.
+
+// VIEW BUTTON LOGIC
+// ALL THE RICHBOX TEXT SHOULD NOT FLOAT IF ONLY HAVE 1 LINE INPUTS
 // WRITE LOGIC TO RESET ALL THE ENABLE STATE OF BUTTON
 // WRITE LOGIC TO ENABLE AND FORM THAT NEED TO BE RESUME
     // -> GREY OUT ALL FILL BUTTON AND ENABLE ITS VIEW BUTTON FOR COMPLETED FORM
     // -> ENABLE FILL BUTTON ON THE NEXT INCOMPLETED FORM
     // -> REMOVE SAVE BUTTON
+
+// resizing the input field
