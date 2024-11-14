@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -7,21 +7,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="50dp"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity" >
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/contentScreenSection"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:minHeight="100dp"
+        app:layout_constraintHeight_percent="0.925"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#075E55"
-        app:tabIndicatorColor="#FFEB3B"
-        app:tabTextColor="#FFF"
-        app:tabSelectedTextColor="#FFEB3B"/>
+        android:paddingTop="5dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/blue"
+        app:tabRippleColor="@null"
+        app:tabIndicatorHeight="0dp"
+        app:tabTextAppearance="@style/CustomTabText"/>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/contentScreenSection"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

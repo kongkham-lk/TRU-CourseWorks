@@ -49,7 +49,6 @@
             this.rbtYes.Name = "rbtYes";
             this.rbtYes.Size = new System.Drawing.Size(43, 17);
             this.rbtYes.TabIndex = 1;
-            this.rbtYes.TabStop = true;
             this.rbtYes.Text = "Yes";
             this.rbtYes.UseVisualStyleBackColor = false;
             // 
@@ -61,7 +60,6 @@
             this.rbtNo.Name = "rbtNo";
             this.rbtNo.Size = new System.Drawing.Size(39, 17);
             this.rbtNo.TabIndex = 2;
-            this.rbtNo.TabStop = true;
             this.rbtNo.Text = "No";
             this.rbtNo.UseVisualStyleBackColor = false;
             // 
@@ -92,9 +90,9 @@
             this.SignStudent.BackColor = System.Drawing.SystemColors.ControlLight;
             this.SignStudent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SignStudent.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.SignStudent.Location = new System.Drawing.Point(38, 623);
+            this.SignStudent.Location = new System.Drawing.Point(38, 619);
             this.SignStudent.Name = "SignStudent";
-            this.SignStudent.Size = new System.Drawing.Size(569, 28);
+            this.SignStudent.Size = new System.Drawing.Size(569, 32);
             this.SignStudent.TabIndex = 4;
             this.SignStudent.Text = "";
             // 

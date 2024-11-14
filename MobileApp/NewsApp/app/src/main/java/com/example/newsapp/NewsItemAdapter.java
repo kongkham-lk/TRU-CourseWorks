@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class NewsItemAdapter extends RecyclerView.Adapter<NewsItemAdapter.ViewHolder> {
@@ -32,10 +34,16 @@ public class NewsItemAdapter extends RecyclerView.Adapter<NewsItemAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull NewsItemAdapter.ViewHolder holder, int position) {
         NewsModel targetNews = newsList.get(position);
-        holder.newsImg.setImageResource(targetNews.getImg());
+        String url = targetNews.getUrlToImage();
+        // rendering image by using imageURL
+        Glide.with(context)
+                .load(url)
+                .placeholder(R.drawable.loader) // optional placeholder
+                .error(R.drawable.error)       // optional error image
+                .into(holder.newsImg);
         holder.newsTitle.setText(targetNews.getTitle());
         holder.newsAuthor.setText(targetNews.getAuthor());
-        holder.newsPublishedTime.setText(targetNews.getPublishedTime());
+        holder.newsPublishedTime.setText(targetNews.getPublishedAt());
     }
 
     @Override

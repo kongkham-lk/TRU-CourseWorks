@@ -1,18 +1,18 @@
 package com.example.newsapp;
 
 public class NewsModel {
-    private int Img;
+    private String urlToImage;
     private String title;
     private String author;
-    private String publishedTime;
-    private String sourceLink;
+    private String publishedAt;
+    private String link;
 
-    public NewsModel(String title, String publishedTime, String author, String sourceLink, int Img) {
+    public NewsModel(String title, String publishedAt, String author, String link, String urlToImage) {
         this.title = title;
-        this.publishedTime = publishedTime;
+        this.publishedAt = publishedAt;
         this.author = author;
-        this.sourceLink = sourceLink;
-        this.Img = Img;
+        this.link = link;
+        this.urlToImage = urlToImage;
     }
 
     public String getTitle() {
@@ -31,27 +31,28 @@ public class NewsModel {
         this.author = author;
     }
 
-    public String getSourceLink() {
-        return sourceLink;
+    public String getLink() {
+        return link;
     }
 
-    public void setSourceLink(String sourceLink) {
-        this.sourceLink = sourceLink;
+    public void setLink(String link) {
+        this.link = link;
     }
 
-    public int getImg() {
-        return Img;
+    public String getUrlToImage() {
+        return urlToImage;
     }
 
-    public void setImg(int img) {
-        this.Img = img;
+    public void setUrlToImage(String urlToImage) {
+        this.urlToImage = urlToImage;
     }
 
-    public String getPublishedTime() {
-        return publishedTime;
+    public String getPublishedAt() {
+        return publishedAt;
     }
 
-    public void setPublishedTime(String publishedTime) {
-        this.publishedTime = publishedTime;
+    public void setPublishedAt(String publishedAt) {
+        this.publishedAt = publishedAt;
     }
+
 }

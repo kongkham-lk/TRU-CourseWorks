@@ -34,7 +34,7 @@
             this.SignNameDean = new System.Windows.Forms.RichTextBox();
             this.SignDean = new System.Windows.Forms.RichTextBox();
             this.Comments = new System.Windows.Forms.RichTextBox();
-            this.rbtNoExplanation = new System.Windows.Forms.RichTextBox();
+            this.ExplainNo = new System.Windows.Forms.RichTextBox();
             this.rbtNo = new System.Windows.Forms.RadioButton();
             this.rbtYes = new System.Windows.Forms.RadioButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -106,16 +106,16 @@
             this.Comments.TabIndex = 3;
             this.Comments.Text = "";
             // 
-            // rbtNoExplanation
+            // ExplainNo
             // 
-            this.rbtNoExplanation.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.rbtNoExplanation.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rbtNoExplanation.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.rbtNoExplanation.Location = new System.Drawing.Point(258, 376);
-            this.rbtNoExplanation.Name = "rbtNoExplanation";
-            this.rbtNoExplanation.Size = new System.Drawing.Size(526, 28);
-            this.rbtNoExplanation.TabIndex = 2;
-            this.rbtNoExplanation.Text = "";
+            this.ExplainNo.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ExplainNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ExplainNo.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.ExplainNo.Location = new System.Drawing.Point(258, 376);
+            this.ExplainNo.Name = "ExplainNo";
+            this.ExplainNo.Size = new System.Drawing.Size(526, 28);
+            this.ExplainNo.TabIndex = 2;
+            this.ExplainNo.Text = "";
             // 
             // rbtNo
             // 
@@ -125,9 +125,9 @@
             this.rbtNo.Name = "rbtNo";
             this.rbtNo.Size = new System.Drawing.Size(39, 17);
             this.rbtNo.TabIndex = 1;
-            this.rbtNo.TabStop = true;
             this.rbtNo.Text = "No";
             this.rbtNo.UseVisualStyleBackColor = false;
+            this.rbtNo.CheckedChanged += new System.EventHandler(this.rbtNo_CheckedChanged);
             // 
             // rbtYes
             // 
@@ -137,9 +137,9 @@
             this.rbtYes.Name = "rbtYes";
             this.rbtYes.Size = new System.Drawing.Size(43, 17);
             this.rbtYes.TabIndex = 0;
-            this.rbtYes.TabStop = true;
             this.rbtYes.Text = "Yes";
             this.rbtYes.UseVisualStyleBackColor = false;
+            this.rbtYes.CheckedChanged += new System.EventHandler(this.rbtYes_CheckedChanged);
             // 
             // pictureBox2
             // 
@@ -165,7 +165,7 @@
             this.ClientSize = new System.Drawing.Size(819, 600);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.Comments);
-            this.Controls.Add(this.rbtNoExplanation);
+            this.Controls.Add(this.ExplainNo);
             this.Controls.Add(this.rbtNo);
             this.Controls.Add(this.rbtYes);
             this.Controls.Add(this.SignDateDean);
@@ -192,7 +192,7 @@
         private System.Windows.Forms.RichTextBox SignNameDean;
         private System.Windows.Forms.RichTextBox SignDean;
         private System.Windows.Forms.RichTextBox Comments;
-        private System.Windows.Forms.RichTextBox rbtNoExplanation;
+        private System.Windows.Forms.RichTextBox ExplainNo;
         private System.Windows.Forms.RadioButton rbtNo;
         private System.Windows.Forms.RadioButton rbtYes;
         private System.Windows.Forms.PictureBox pictureBox2;
