@@ -17,29 +17,20 @@ namespace CampusCaseReportFormApp
             InitializeComponent();
         }
 
-        private void txtStudentName_TextChanged(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
+            //if (!Helper.checkIfTextBoxIsEmpty(new RichTextBox[] { 
+            //        txtStudentName, txtStudentID, txtStudentEmail, txtFacMemName, txtCourse, txtCourseContent, 
+            //    txtDepartment, txtTerm, txtDescription,txtSign, txtSignName 
+            //}) && Helper.checkIfAllCheckboxIsChecked(new CheckBox[] { checkBox3 , checkBox4}))
+            //{
 
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
+            this.DialogResult = Helper.ConfirmMessage();
             this.Close();
+
+            //}
+            //else
+            //    MessageBox.Show("Please fill up all the text field");
         }
     }
 }

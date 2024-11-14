@@ -30,12 +30,12 @@
         {
             this.rbtNo = new System.Windows.Forms.RadioButton();
             this.rbtYes = new System.Windows.Forms.RadioButton();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox12 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox11 = new System.Windows.Forms.RichTextBox();
+            this.ExplainNo = new System.Windows.Forms.RichTextBox();
+            this.Comments = new System.Windows.Forms.RichTextBox();
+            this.SignDateDeptChair = new System.Windows.Forms.DateTimePicker();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.SignNameDeptChair = new System.Windows.Forms.RichTextBox();
+            this.SignDeptChair = new System.Windows.Forms.RichTextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -50,9 +50,9 @@
             this.rbtNo.Name = "rbtNo";
             this.rbtNo.Size = new System.Drawing.Size(39, 17);
             this.rbtNo.TabIndex = 1;
-            this.rbtNo.TabStop = true;
             this.rbtNo.Text = "No";
             this.rbtNo.UseVisualStyleBackColor = false;
+            this.rbtNo.CheckedChanged += new System.EventHandler(this.rbtNo_CheckedChanged);
             // 
             // rbtYes
             // 
@@ -62,72 +62,73 @@
             this.rbtYes.Name = "rbtYes";
             this.rbtYes.Size = new System.Drawing.Size(43, 17);
             this.rbtYes.TabIndex = 0;
-            this.rbtYes.TabStop = true;
             this.rbtYes.Text = "Yes";
             this.rbtYes.UseVisualStyleBackColor = false;
+            this.rbtYes.CheckedChanged += new System.EventHandler(this.rbtYes_CheckedChanged);
             // 
-            // richTextBox1
+            // ExplainNo
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.richTextBox1.Location = new System.Drawing.Point(257, 293);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(526, 30);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.ExplainNo.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ExplainNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ExplainNo.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.ExplainNo.Location = new System.Drawing.Point(257, 295);
+            this.ExplainNo.Name = "ExplainNo";
+            this.ExplainNo.Size = new System.Drawing.Size(525, 28);
+            this.ExplainNo.TabIndex = 2;
+            this.ExplainNo.Text = "";
             // 
-            // richTextBox2
+            // Comments
             // 
-            this.richTextBox2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.richTextBox2.Location = new System.Drawing.Point(36, 344);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(747, 63);
-            this.richTextBox2.TabIndex = 3;
-            this.richTextBox2.Text = "";
+            this.Comments.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Comments.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Comments.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.Comments.Location = new System.Drawing.Point(37, 344);
+            this.Comments.Name = "Comments";
+            this.Comments.Size = new System.Drawing.Size(746, 62);
+            this.Comments.TabIndex = 3;
+            this.Comments.Text = "";
             // 
-            // dateTimePicker3
+            // SignDateDeptChair
             // 
-            this.dateTimePicker3.CustomFormat = "yyyy-MM-dd";
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(611, 454);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(173, 20);
-            this.dateTimePicker3.TabIndex = 6;
+            this.SignDateDeptChair.CustomFormat = "yyyy-MM-dd";
+            this.SignDateDeptChair.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.SignDateDeptChair.Location = new System.Drawing.Point(611, 454);
+            this.SignDateDeptChair.Name = "SignDateDeptChair";
+            this.SignDateDeptChair.Size = new System.Drawing.Size(173, 20);
+            this.SignDateDeptChair.TabIndex = 6;
             // 
-            // button1
+            // btnSubmit
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Location = new System.Drawing.Point(368, 487);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSubmit.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnSubmit.Location = new System.Drawing.Point(368, 487);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 7;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // richTextBox12
+            // SignNameDeptChair
             // 
-            this.richTextBox12.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.richTextBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox12.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.richTextBox12.Location = new System.Drawing.Point(277, 441);
-            this.richTextBox12.Name = "richTextBox12";
-            this.richTextBox12.Size = new System.Drawing.Size(328, 33);
-            this.richTextBox12.TabIndex = 5;
-            this.richTextBox12.Text = "";
+            this.SignNameDeptChair.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignNameDeptChair.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SignNameDeptChair.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.SignNameDeptChair.Location = new System.Drawing.Point(277, 443);
+            this.SignNameDeptChair.Name = "SignNameDeptChair";
+            this.SignNameDeptChair.Size = new System.Drawing.Size(328, 30);
+            this.SignNameDeptChair.TabIndex = 5;
+            this.SignNameDeptChair.Text = "";
             // 
-            // richTextBox11
+            // SignDeptChair
             // 
-            this.richTextBox11.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.richTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox11.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.richTextBox11.Location = new System.Drawing.Point(36, 441);
-            this.richTextBox11.Name = "richTextBox11";
-            this.richTextBox11.Size = new System.Drawing.Size(235, 33);
-            this.richTextBox11.TabIndex = 4;
-            this.richTextBox11.Text = "";
+            this.SignDeptChair.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignDeptChair.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SignDeptChair.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.SignDeptChair.Location = new System.Drawing.Point(37, 443);
+            this.SignDeptChair.Name = "SignDeptChair";
+            this.SignDeptChair.Size = new System.Drawing.Size(234, 30);
+            this.SignDeptChair.TabIndex = 4;
+            this.SignDeptChair.Text = "";
             // 
             // pictureBox2
             // 
@@ -152,12 +153,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(819, 518);
-            this.Controls.Add(this.dateTimePicker3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.richTextBox12);
-            this.Controls.Add(this.richTextBox11);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.SignDateDeptChair);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.SignNameDeptChair);
+            this.Controls.Add(this.SignDeptChair);
+            this.Controls.Add(this.Comments);
+            this.Controls.Add(this.ExplainNo);
             this.Controls.Add(this.rbtNo);
             this.Controls.Add(this.rbtYes);
             this.Controls.Add(this.pictureBox2);
@@ -177,11 +178,11 @@
         private System.Windows.Forms.RadioButton rbtNo;
         private System.Windows.Forms.RadioButton rbtYes;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox12;
-        private System.Windows.Forms.RichTextBox richTextBox11;
+        private System.Windows.Forms.RichTextBox ExplainNo;
+        private System.Windows.Forms.RichTextBox Comments;
+        private System.Windows.Forms.DateTimePicker SignDateDeptChair;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.RichTextBox SignNameDeptChair;
+        private System.Windows.Forms.RichTextBox SignDeptChair;
     }
 }

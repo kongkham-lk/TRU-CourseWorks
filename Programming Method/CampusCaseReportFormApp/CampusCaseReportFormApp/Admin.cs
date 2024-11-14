@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -9,111 +10,196 @@ namespace CampusCaseReportFormApp
 {
     public partial class Admin : Form
     {
-        Form[] forms = new Form[5];
-        //Form1 form1;
-        //Form2 form2;
-        //Form3 form3;
-        //Form4 form4;
-        //Form5 form5;
-        String[] formInputList = new String[5]; // storing each form's into the array
+        Button[] btnFillList = null;
+        Button[] btnViewList = null;
+        Form[] formList = new Form[5];
+        string[] formInputList = new string[5]; // storing each form's into the array
         int savedFormCount = 0;
+        string targetPath;
+        string fileName;
+        bool isPrevSavedFormUpdated = false;
 
         public Admin()
         {
             InitializeComponent();
+
+            btnFillList = new Button[] { btnFill1, btnFill2, btnFill3, btnFill4, btnFill5 };
+            btnViewList = new Button[] { btnView1, btnView2, btnView3, btnView4, btnView5 };
         }
 
-        private void btnFill1_Click(object sender, EventArgs e)
+        private void BtnFill1_Click(object sender, EventArgs e)
         {
-            // REFACTOR FUNCTION AND RETURN BOOL TO SET BUTTON
             int targetFormIndex = 0;
-            if (forms[targetFormIndex].ShowDialog() == DialogResult.OK)
+            if (CompletedForm(targetFormIndex))
             {
-                btnFill1.Enabled = false;
-                btnFill2.Enabled = true;
-                btnView1.Enabled = true;
-                btnSave.Enabled = true;
-                SaveFormInputsToList(forms[targetFormIndex]);
+                SaveFormInputsToList(targetFormIndex);
+                WriteFormToFile();
+                UpdateButtons(targetFormIndex);
             }
             else
                 forms[targetFormIndex] = GetTargetForm(targetFormIndex);
         }
 
-        private void btnFill2_Click(object sender, EventArgs e)
+        private void BtnFill2_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 1;
-            if (forms[targetFormIndex].ShowDialog() == DialogResult.OK)
+            if (CompletedForm(targetFormIndex))
             {
-                btnFill2.Enabled = false;
-                btnFill3.Enabled = true;
-                btnView2.Enabled = true;
-                btnSave.Enabled = true;
-                SaveFormInputsToList(forms[targetFormIndex]);
+                SaveFormInputsToList(targetFormIndex);
+                WriteFormToFile();
+                UpdateButtons(targetFormIndex);
             }
-            else
-                forms[targetFormIndex] = GetTargetForm(targetFormIndex);
         }
 
-        private void btnFill3_Click(object sender, EventArgs e)
+        private void BtnFill3_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 2;
-            if (forms[targetFormIndex].ShowDialog() == DialogResult.OK)
+            if (CompletedForm(targetFormIndex))
             {
-                btnFill3.Enabled = false;
-                btnFill4.Enabled = true;
-                btnView3.Enabled = true;
-                btnSave.Enabled = true;
-                SaveFormInputsToList(forms[targetFormIndex]);
+                SaveFormInputsToList(targetFormIndex);
+                WriteFormToFile();
+                UpdateButtons(targetFormIndex);
             }
-            else
-                forms[targetFormIndex] = GetTargetForm(targetFormIndex);
         }
 
-        private void btnFill4_Click(object sender, EventArgs e)
+        private void BtnFill4_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 3;
-            if (forms[targetFormIndex].ShowDialog() == DialogResult.OK)
+            if (CompletedForm(targetFormIndex))
             {
-                btnFill4.Enabled = false;
-                btnFill5.Enabled = true;
-                btnView4.Enabled = true;
-                btnSave.Enabled = true;
-                SaveFormInputsToList(forms[targetFormIndex]);
+                SaveFormInputsToList(targetFormIndex);
+                WriteFormToFile();
+                UpdateButtons(targetFormIndex);
             }
-            else
-                forms[targetFormIndex] = GetTargetForm(targetFormIndex);
         }
 
-        private void btnFill5_Click(object sender, EventArgs e)
+        private void BtnFill5_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 4;
-            if (forms[targetFormIndex].ShowDialog() == DialogResult.OK)
+            if (CompletedForm(targetFormIndex))
             {
-                btnFill5.Enabled = false;
-                btnView5.Enabled = true;
-                btnSave.Enabled = true;
-                SaveFormInputsToList(forms[targetFormIndex]);
+                SaveFormInputsToList(targetFormIndex);
+                WriteFormToFile();
+                UpdateButtons(targetFormIndex);
             }
-            else
-                forms[targetFormIndex] = GetTargetForm(targetFormIndex);
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
+        private void btnView1_Click(object sender, EventArgs e)
         {
-            createNewForm();
-            btnFill1.Enabled = true;
+            int targetFormIndex = 0;
+            DisableFormUpdate(targetFormIndex);
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnView2_Click(object sender, EventArgs e)
+        {
+            int targetFormIndex = 1;
+            DisableFormUpdate(targetFormIndex);
+        }
+
+        private void btnView3_Click(object sender, EventArgs e)
+        {
+            int targetFormIndex = 2;
+            DisableFormUpdate(targetFormIndex);
+        }
+
+        private void btnView4_Click(object sender, EventArgs e)
+        {
+            int targetFormIndex = 3;
+            DisableFormUpdate(targetFormIndex);
+        }
+
+        private void btnView5_Click(object sender, EventArgs e)
+        {
+            int targetFormIndex = 4;
+            DisableFormUpdate(targetFormIndex);
+        }
+
+        private bool CompletedForm(int targetFormIndex)
+        {
+            DialogResult result = formList[targetFormIndex].ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                if (targetFormIndex < savedFormCount)
+                    isPrevSavedFormUpdated = true;
+
+                return true;
+            }
+            else if (result == DialogResult.Cancel) // only invoke when is cancel and not close dialog
+                formList[targetFormIndex] = GetTargetForm(targetFormIndex);
+
+            return false;
+        }
+
+        private void DisableFormUpdate(int targetFormIndex)
+        {
+            Dictionary<String, String> fieldNameByInputs = RetrieveInputsAsKeyValuePair(formList[targetFormIndex]);
+
+            foreach (KeyValuePair<String, String> input in fieldNameByInputs)
+                formList[targetFormIndex].Controls[input.Key].Enabled = false;
+
+            formList[targetFormIndex].Controls["btnSubmit"].Enabled = false;
+
+            formList[targetFormIndex].ShowDialog();
+        }
+
+        private void ResetButtons()
+        {
+            // turn off all the btn
+            for (int i = 0; i < btnFillList.Length || i < btnViewList.Length; i++)
+            {
+                btnFillList[i].Enabled = false;
+                btnViewList[i].Enabled = false;
+            }
+            btnFillList[0].Enabled = true; // only turn on the step 1 btn
+        }
+
+        private void UpdateButtons(int targetFormIndex)
+        {
+            btnFillList[targetFormIndex].Enabled = false;
+            btnViewList[targetFormIndex].Enabled = true;
+            if (targetFormIndex < btnFillList.Length - 1)
+                btnFillList[targetFormIndex + 1].Enabled = true;
+        }
+
+        private void BtnNew_Click(object sender, EventArgs e)
+        {
+            if (GetSaveFilePath())
+            {
+                savedFormCount = 0; // reset savedFormCount, in case btnLoad is clicked earlier
+                GenerateNewForm(); // generate a new instance of each form
+                ResetButtons();
+            }
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             WriteFormToFile();
         }
 
-        private void createNewForm()
+        private void GenerateNewForm()
         {
-            forms = new Form[5];
-            for (int i = 0; i < forms.Length; i++)
-                forms[i] = GetTargetForm(i);
+            for (int i = savedFormCount; i < formList.Length; i++)
+                    formList[i] = GetTargetForm(i);
+        }
+
+        private bool GetSaveFilePath()
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                //saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                saveFileDialog.Filter = "txt files (*.txt)|*.txt";
+                saveFileDialog.FilterIndex = 2;
+                saveFileDialog.RestoreDirectory = true;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    targetPath = saveFileDialog.FileName;
+                    fileName = Path.GetFileName(targetPath);
+                    return true;
+                }
+            }
+            return false;
         }
 
         private Dictionary<String, String> RetrieveInputsAsKeyValuePair(Form targetForm)
@@ -126,7 +212,7 @@ namespace CampusCaseReportFormApp
 
             RadioButton[] allRadioButton = GetAllRadioButton(targetForm);
             foreach (var txtBox in allRadioButton)
-                inputs.Add(txtBox.Name, txtBox.Text);
+                inputs.Add(txtBox.Name, txtBox.Checked.ToString());
 
             DateTimePicker[] allDateTimePicker = GetAllDateTimePicker(targetForm);
             foreach (var txtBox in allDateTimePicker)
@@ -178,43 +264,30 @@ namespace CampusCaseReportFormApp
             }
         }
 
-        private void SaveFormInputsToList(Form targetForm)
+        private void SaveFormInputsToList(int targetFormIndex)
         {
-            Dictionary<String, String> fieldNameByInputs = RetrieveInputsAsKeyValuePair(targetForm);
+            Dictionary<String, String> fieldNameByInputs = RetrieveInputsAsKeyValuePair(formList[targetFormIndex]);
             var json = JsonConvert.SerializeObject(fieldNameByInputs);
-            formInputList[savedFormCount] = json;
+            formInputList[targetFormIndex] = json;
             savedFormCount++;
         }
 
+        // Save input to file right away when user click submit on each form
         private void WriteFormToFile()
         {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            StreamWriter streamWriter = new StreamWriter(targetPath, append: !isPrevSavedFormUpdated && savedFormCount > 1);
+
+            if (savedFormCount > 1) // include comma when this is not the very first form's input set
+                streamWriter.Write(", ");
+
+            if (isPrevSavedFormUpdated) // re-write the whole form to txt file if any prev. saved form is edited
             {
-                saveFileDialog.InitialDirectory = GetFileInputsDir();
-                saveFileDialog.Filter = "txt files (*.txt)|*.txt";
-                saveFileDialog.FilterIndex = 2;
-                saveFileDialog.RestoreDirectory = true;
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    //Get the path of specified file
-                    string targetPath = saveFileDialog.FileName;
-
-                    StreamWriter streamWriter = new StreamWriter(targetPath, false);
-                    streamWriter.Write("[\n");
-                    for (int i = 0; i < savedFormCount; i++)
-                    {
-                        if (formInputList[i] == null)
-                            break;
-                        else if (i > 0)
-                            streamWriter.Write(",\n");
-
-                        streamWriter.Write(formInputList[i]);
-                    }
-                    streamWriter.Write("]");
-                    streamWriter.Close();
-                }
+                for (int i = 0; i < savedFormCount; i++)
+                    streamWriter.Write(formInputList[i]);
             }
+            else // only append new form to the bottom of the file (no need to rewrite the whole thing again)
+                streamWriter.Write(formInputList[savedFormCount - 1]);
+            streamWriter.Close(); // need to close StreamWrter every time since we don't know when will user close the program
         }
 
         private string GetFileInputsDir()
@@ -227,11 +300,11 @@ namespace CampusCaseReportFormApp
             return directory;
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
+        private void BtnLoad_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = GetFileInputsDir();
+                //openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 openFileDialog.Filter = "txt files (*.txt)|*.txt";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
@@ -241,40 +314,51 @@ namespace CampusCaseReportFormApp
                     Form targetForm = new Form();
 
                     //Get the path of specified file
-                    string filePath = openFileDialog.FileName;
-                    string fileName = Path.GetFileName(filePath);
+                    targetPath = openFileDialog.FileName;
+                    fileName = Path.GetFileName(targetPath);
 
                     //Read the contents of the file into a stream
                     var fileStream = openFileDialog.OpenFile();
 
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
-                        int i = 0;
+                        savedFormCount = 0;
                         string fileContent = reader.ReadToEnd();
-                        
-                        Dictionary<string, string>[] savedFormList = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(fileContent);
+
+                        Dictionary<string, string>[] savedFormList = JsonConvert.DeserializeObject<Dictionary<string, string>[]>("[" + fileContent + "]");
 
                         foreach (Dictionary<string, string> saveForm in savedFormList)
                         {
-                            targetForm = GetTargetForm(i);
-                            i++;
-                            
-                            foreach (KeyValuePair<string, string> entry in saveForm)
+                            Form targetForm = formList[savedFormCount] = GetTargetForm(savedFormCount); // create new form instance
+
+                            // load all save inputs to form
+                            foreach (KeyValuePair<string, string> saveInput in saveForm)
                             {
-                                if (targetForm.Controls[entry.Key] != null) // it equal to null when the key not match with any form's component's name
+                                if (targetForm.Controls[saveInput.Key] != null) // it equal to null when the key not match with any form's component's name
                                 {
-                                    if (targetForm.Controls[entry.Key].GetType() == typeof(CheckBox)) // assign value differently if is checkBox
-                                        ((CheckBox)targetForm.Controls[entry.Key]).Checked = Boolean.Parse(entry.Value);
+                                    if (targetForm.Controls[saveInput.Key].GetType() == typeof(CheckBox)) // assign value differently if is checkBox
+                                        ((CheckBox)targetForm.Controls[saveInput.Key]).Checked = Boolean.Parse(saveInput.Value);
+                                    else if (targetForm.Controls[saveInput.Key].GetType() == typeof(RadioButton))
+                                        ((RadioButton)targetForm.Controls[saveInput.Key]).Checked = Boolean.Parse(saveInput.Value);
                                     else
-                                        targetForm.Controls[entry.Key].Text = entry.Value;
+                                        targetForm.Controls[saveInput.Key].Text = saveInput.Value;
                                 }
                             }
+
+                            UpdateButtons(savedFormCount);
+                            savedFormCount++;
                         }
                     }
-                    targetForm.ShowDialog();
-                    btnSave.Enabled = true;
+                    GenerateNewForm();
+                    UpdateButtons(savedFormCount - 1);
                 }
             }
         }
     }
 }
+
+// ADDED BRACKET ADD FRONT AND REMOVE THE LAST BRACKET BEFORE ADD THE NEXT FORM AND CLOSE THE LAST BRACKET
+
+// ADDED LOGIC TO CHECK ALL FIELD FOR SUBMIT BUTTON
+
+// ADDED LOGIC FOR SEARCH FEATURE (USING PYTHON)

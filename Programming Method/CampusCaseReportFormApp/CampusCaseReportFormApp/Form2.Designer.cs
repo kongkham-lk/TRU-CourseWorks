@@ -30,11 +30,11 @@
         {
             this.rbtYes = new System.Windows.Forms.RadioButton();
             this.rbtNo = new System.Windows.Forms.RadioButton();
-            this.txtStudentName = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.StudentName = new System.Windows.Forms.RichTextBox();
+            this.TRUEmail = new System.Windows.Forms.RichTextBox();
+            this.SignStudent = new System.Windows.Forms.RichTextBox();
+            this.SignDateStudent = new System.Windows.Forms.DateTimePicker();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -49,10 +49,8 @@
             this.rbtYes.Name = "rbtYes";
             this.rbtYes.Size = new System.Drawing.Size(43, 17);
             this.rbtYes.TabIndex = 1;
-            this.rbtYes.TabStop = true;
             this.rbtYes.Text = "Yes";
             this.rbtYes.UseVisualStyleBackColor = false;
-            this.rbtYes.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // rbtNo
             // 
@@ -62,64 +60,61 @@
             this.rbtNo.Name = "rbtNo";
             this.rbtNo.Size = new System.Drawing.Size(39, 17);
             this.rbtNo.TabIndex = 2;
-            this.rbtNo.TabStop = true;
             this.rbtNo.Text = "No";
             this.rbtNo.UseVisualStyleBackColor = false;
-            this.rbtNo.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // txtStudentName
+            // StudentName
             // 
-            this.txtStudentName.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtStudentName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtStudentName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtStudentName.Location = new System.Drawing.Point(45, 260);
-            this.txtStudentName.Name = "txtStudentName";
-            this.txtStudentName.Size = new System.Drawing.Size(314, 22);
-            this.txtStudentName.TabIndex = 0;
-            this.txtStudentName.Text = "";
-            this.txtStudentName.TextChanged += new System.EventHandler(this.txtStudentName_TextChanged);
+            this.StudentName.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.StudentName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.StudentName.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.StudentName.Location = new System.Drawing.Point(43, 264);
+            this.StudentName.Name = "StudentName";
+            this.StudentName.Size = new System.Drawing.Size(316, 18);
+            this.StudentName.TabIndex = 0;
+            this.StudentName.Text = "";
             // 
-            // richTextBox1
+            // TRUEmail
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.richTextBox1.Location = new System.Drawing.Point(35, 553);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(453, 30);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.TRUEmail.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.TRUEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TRUEmail.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.TRUEmail.Location = new System.Drawing.Point(38, 554);
+            this.TRUEmail.Name = "TRUEmail";
+            this.TRUEmail.Size = new System.Drawing.Size(448, 28);
+            this.TRUEmail.TabIndex = 3;
+            this.TRUEmail.Text = "";
             // 
-            // richTextBox3
+            // SignStudent
             // 
-            this.richTextBox3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.richTextBox3.Location = new System.Drawing.Point(35, 621);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(573, 30);
-            this.richTextBox3.TabIndex = 4;
-            this.richTextBox3.Text = "";
+            this.SignStudent.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignStudent.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SignStudent.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.SignStudent.Location = new System.Drawing.Point(38, 619);
+            this.SignStudent.Name = "SignStudent";
+            this.SignStudent.Size = new System.Drawing.Size(569, 32);
+            this.SignStudent.TabIndex = 4;
+            this.SignStudent.Text = "";
             // 
-            // dateTimePicker1
+            // SignDateStudent
             // 
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(612, 631);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(173, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.SignDateStudent.CustomFormat = "yyyy-MM-dd";
+            this.SignDateStudent.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.SignDateStudent.Location = new System.Drawing.Point(612, 631);
+            this.SignDateStudent.Name = "SignDateStudent";
+            this.SignDateStudent.Size = new System.Drawing.Size(173, 20);
+            this.SignDateStudent.TabIndex = 5;
             // 
-            // button1
+            // btnSubmit
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Location = new System.Drawing.Point(377, 683);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSubmit.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnSubmit.Location = new System.Drawing.Point(377, 683);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(72, 23);
+            this.btnSubmit.TabIndex = 6;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // pictureBox2
             // 
@@ -137,7 +132,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(813, 715);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form2
             // 
@@ -146,11 +140,11 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(814, 696);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.richTextBox3);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.txtStudentName);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.SignDateStudent);
+            this.Controls.Add(this.SignStudent);
+            this.Controls.Add(this.TRUEmail);
+            this.Controls.Add(this.StudentName);
             this.Controls.Add(this.rbtNo);
             this.Controls.Add(this.rbtYes);
             this.Controls.Add(this.pictureBox2);
@@ -170,10 +164,10 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.RadioButton rbtYes;
         private System.Windows.Forms.RadioButton rbtNo;
-        private System.Windows.Forms.RichTextBox txtStudentName;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox StudentName;
+        private System.Windows.Forms.RichTextBox TRUEmail;
+        private System.Windows.Forms.RichTextBox SignStudent;
+        private System.Windows.Forms.DateTimePicker SignDateStudent;
+        private System.Windows.Forms.Button btnSubmit;
     }
 }

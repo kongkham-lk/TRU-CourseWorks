@@ -28,56 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox12 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox11 = new System.Windows.Forms.RichTextBox();
+            this.SignDateFacMem = new System.Windows.Forms.DateTimePicker();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.SignNameFacMem = new System.Windows.Forms.RichTextBox();
+            this.SignFacMem = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // dateTimePicker3
+            // SignDateFacMem
             // 
-            this.dateTimePicker3.CustomFormat = "yyyy-MM-dd";
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(612, 296);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(173, 20);
-            this.dateTimePicker3.TabIndex = 2;
+            this.SignDateFacMem.CustomFormat = "yyyy-MM-dd";
+            this.SignDateFacMem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.SignDateFacMem.Location = new System.Drawing.Point(612, 296);
+            this.SignDateFacMem.Name = "SignDateFacMem";
+            this.SignDateFacMem.Size = new System.Drawing.Size(173, 20);
+            this.SignDateFacMem.TabIndex = 2;
             // 
-            // button1
+            // btnSubmit
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Location = new System.Drawing.Point(369, 328);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSubmit.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnSubmit.Location = new System.Drawing.Point(369, 328);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 3;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // richTextBox12
+            // SignNameFacMem
             // 
-            this.richTextBox12.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.richTextBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox12.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.richTextBox12.Location = new System.Drawing.Point(334, 283);
-            this.richTextBox12.Name = "richTextBox12";
-            this.richTextBox12.Size = new System.Drawing.Size(274, 33);
-            this.richTextBox12.TabIndex = 1;
-            this.richTextBox12.Text = "";
+            this.SignNameFacMem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignNameFacMem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SignNameFacMem.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.SignNameFacMem.Location = new System.Drawing.Point(334, 285);
+            this.SignNameFacMem.Name = "SignNameFacMem";
+            this.SignNameFacMem.Size = new System.Drawing.Size(272, 30);
+            this.SignNameFacMem.TabIndex = 1;
+            this.SignNameFacMem.Text = "";
             // 
-            // richTextBox11
+            // SignFacMem
             // 
-            this.richTextBox11.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.richTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox11.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.richTextBox11.Location = new System.Drawing.Point(38, 283);
-            this.richTextBox11.Name = "richTextBox11";
-            this.richTextBox11.Size = new System.Drawing.Size(290, 33);
-            this.richTextBox11.TabIndex = 0;
-            this.richTextBox11.Text = "";
+            this.SignFacMem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignFacMem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SignFacMem.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.SignFacMem.Location = new System.Drawing.Point(38, 285);
+            this.SignFacMem.Name = "SignFacMem";
+            this.SignFacMem.Size = new System.Drawing.Size(290, 30);
+            this.SignFacMem.TabIndex = 0;
+            this.SignFacMem.Text = "";
             // 
             // pictureBox1
             // 
@@ -103,10 +104,10 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(819, 360);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.dateTimePicker3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.richTextBox12);
-            this.Controls.Add(this.richTextBox11);
+            this.Controls.Add(this.SignDateFacMem);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.SignNameFacMem);
+            this.Controls.Add(this.SignFacMem);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form3";
             this.Text = "Form3";
@@ -118,10 +119,10 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox12;
-        private System.Windows.Forms.RichTextBox richTextBox11;
+        private System.Windows.Forms.DateTimePicker SignDateFacMem;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.RichTextBox SignNameFacMem;
+        private System.Windows.Forms.RichTextBox SignFacMem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
