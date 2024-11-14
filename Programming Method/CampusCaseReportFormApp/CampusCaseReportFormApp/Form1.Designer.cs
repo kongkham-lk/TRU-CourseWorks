@@ -64,7 +64,7 @@ namespace CampusCaseReportFormApp
             this.OSAUseOnly.ForeColor = System.Drawing.SystemColors.WindowText;
             this.OSAUseOnly.Location = new System.Drawing.Point(35, 43);
             this.OSAUseOnly.Name = "OSAUseOnly";
-            this.OSAUseOnly.Size = new System.Drawing.Size(746, 43);
+            this.OSAUseOnly.Size = new System.Drawing.Size(747, 43);
             this.OSAUseOnly.TabIndex = 0;
             this.OSAUseOnly.Text = "";
             // 

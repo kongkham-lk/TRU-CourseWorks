@@ -140,27 +140,32 @@ namespace CampusCaseReportFormApp
             formList[targetFormIndex].ShowDialog();
         }
 
+        private void ResetButtons()
+        {
+            // turn off all the btn
+            for (int i = 0; i < btnFillList.Length || i < btnViewList.Length; i++)
+            {
+                btnFillList[i].Enabled = false;
+                btnViewList[i].Enabled = false;
+            }
+            btnFillList[0].Enabled = true; // only turn on the step 1 btn
+        }
+
         private void UpdateButtons(int targetFormIndex)
         {
-            if (targetFormIndex < 0)
-                btnFillList[0].Enabled = true;
-            else
-            {
-                btnFillList[targetFormIndex].Enabled = false;
-                btnViewList[targetFormIndex].Enabled = true;
-                if (targetFormIndex < btnFillList.Length)
-                    btnFillList[targetFormIndex + 1].Enabled = true;
-                //btnSave.Enabled = true;
-            }
+            btnFillList[targetFormIndex].Enabled = false;
+            btnViewList[targetFormIndex].Enabled = true;
+            if (targetFormIndex < btnFillList.Length - 1)
+                btnFillList[targetFormIndex + 1].Enabled = true;
         }
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
             if (GetSaveFilePath())
             {
-                GenerateNewForm();
-                savedFormCount = 0;
-                UpdateButtons(savedFormCount - 1);
+                savedFormCount = 0; // reset savedFormCount, in case btnLoad is clicked earlier
+                GenerateNewForm(); // generate a new instance of each form
+                ResetButtons();
             }
         }
 
@@ -350,19 +355,6 @@ namespace CampusCaseReportFormApp
 
 // ADDED BRACKET ADD FRONT AND REMOVE THE LAST BRACKET BEFORE ADD THE NEXT FORM AND CLOSE THE LAST BRACKET
 
-// DONE -> OPEN DIALOG WHEN CLICK "NEW" TO GET THE SAVE LOCATION, THEN WHEN SUBMIT EACH FORM, IT WILL WRITE TO THAT LOCATION:
-    // DONE -> OPEN DIALOG -> IDENTIFY THE FOLDER + FILE NAME
-        // DONE -> CHECK IF FOLDER EXIST? -> CREATE IF FOLDER NOT EXISTED
-        // DONE -> THE GET FILE NAME AND STORE GLOBALLY TO WRITE LATER.
+// ADDED LOGIC TO CHECK ALL FIELD FOR SUBMIT BUTTON
 
-// DONE -> VIEW BUTTON LOGIC
-// ALL THE RICHBOX TEXT SHOULD NOT FLOAT IF ONLY HAVE 1 LINE INPUTS
-// WRITE LOGIC TO RESET ALL THE ENABLE STATE OF BUTTON
-// WRITE LOGIC TO ENABLE AND FORM THAT NEED TO BE RESUME
-    // -> GREY OUT ALL FILL BUTTON AND ENABLE ITS VIEW BUTTON FOR COMPLETED FORM
-    // -> ENABLE FILL BUTTON ON THE NEXT INCOMPLETED FORM
-    // -> REMOVE SAVE BUTTON
-
-// resizing the input field
-
-// ADDED LOGIC TO RESET ALL THE BUTTON WHEN CLICK NEW IF ALREADY CLICK LOAD
+// ADDED LOGIC FOR SEARCH FEATURE (USING PYTHON)

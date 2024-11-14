@@ -32,5 +32,16 @@ namespace CampusCaseReportFormApp
             //else
             //    MessageBox.Show("Please fill up all the text field");
         }
+
+        private void rbtYes_CheckedChanged(object sender, EventArgs e)
+        {
+            ExplainNo.Enabled = false;
+            ExplainNo.Text = "";
+        }
+
+        private void rbtNo_CheckedChanged(object sender, EventArgs e)
+        {
+            ExplainNo.Enabled = true;
+        }
     }
 }
