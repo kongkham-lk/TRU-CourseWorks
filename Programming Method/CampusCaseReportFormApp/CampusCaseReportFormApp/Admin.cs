@@ -36,8 +36,6 @@ namespace CampusCaseReportFormApp
                 WriteFormToFile();
                 UpdateButtons(targetFormIndex);
             }
-            else
-                forms[targetFormIndex] = GetTargetForm(targetFormIndex);
         }
 
         private void BtnFill2_Click(object sender, EventArgs e)
@@ -311,8 +309,6 @@ namespace CampusCaseReportFormApp
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    Form targetForm = new Form();
-
                     //Get the path of specified file
                     targetPath = openFileDialog.FileName;
                     fileName = Path.GetFileName(targetPath);
