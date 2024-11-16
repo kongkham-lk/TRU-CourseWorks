@@ -73,9 +73,29 @@ namespace CampusCaseReportFormApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap form02 {
+        internal static System.Drawing.Bitmap form02_00 {
             get {
-                object obj = ResourceManager.GetObject("form02", resourceCulture);
+                object obj = ResourceManager.GetObject("form02-00", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap form02_01 {
+            get {
+                object obj = ResourceManager.GetObject("form02-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap form02_02 {
+            get {
+                object obj = ResourceManager.GetObject("form02-02", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +123,59 @@ namespace CampusCaseReportFormApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap form04_00 {
+            get {
+                object obj = ResourceManager.GetObject("form04-00", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap form04_01 {
+            get {
+                object obj = ResourceManager.GetObject("form04-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap form05 {
             get {
                 object obj = ResourceManager.GetObject("form05", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap form05_00 {
+            get {
+                object obj = ResourceManager.GetObject("form05-00", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap form05_01 {
+            get {
+                object obj = ResourceManager.GetObject("form05-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap searchBox {
+            get {
+                object obj = ResourceManager.GetObject("searchBox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

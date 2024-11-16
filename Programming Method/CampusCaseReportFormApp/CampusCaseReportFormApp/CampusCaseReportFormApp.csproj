@@ -67,6 +67,11 @@
     <Compile Include="Form5.Designer.cs">
       <DependentUpon>Form5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Util\Helper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -108,14 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -134,16 +134,23 @@
     <None Include="Resources\form01.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\form02.png" />
+    <None Include="Resources\form02 - 00.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\form03.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\form04.png" />
+    <None Include="Resources\form04 - 00.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\form05.png" />
+    <None Include="Resources\form05 - 00.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\form05 - 01.png" />
+    <None Include="Resources\form04 - 01.png" />
+    <None Include="Resources\searchBox.png" />
+    <None Include="Resources\form02 - 01.png" />
+    <Content Include="Resources\form02 - 02.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
