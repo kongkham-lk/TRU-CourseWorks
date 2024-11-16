@@ -43,5 +43,16 @@ namespace CampusCaseReportFormApp
         {
             ExplainNo.Enabled = true;
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Helper.SearchText(searchText.Text);
+
+            // 1. implement logic to highlight text
+            // 2. update UI to show result count + update field
+            // find out how to: 
+                // 1. highlight individual text of a richbox text
+                // 2. reset text color
+        }
     }
 }
