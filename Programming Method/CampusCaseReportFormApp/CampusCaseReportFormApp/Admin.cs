@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Pipes;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -18,6 +17,8 @@ namespace CampusCaseReportFormApp
         string targetPath;
         string fileName;
         bool isPrevSavedFormUpdated = false;
+
+        public static Dictionary<String, String>[] formInputKeyByValue { get; set; } = new Dictionary<String, String>[5];
 
         public Admin()
         {
@@ -82,31 +83,31 @@ namespace CampusCaseReportFormApp
             }
         }
 
-        private void btnView1_Click(object sender, EventArgs e)
+        private void BtnView1_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 0;
             DisableFormUpdate(targetFormIndex);
         }
 
-        private void btnView2_Click(object sender, EventArgs e)
+        private void BtnView2_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 1;
             DisableFormUpdate(targetFormIndex);
         }
 
-        private void btnView3_Click(object sender, EventArgs e)
+        private void BtnView3_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 2;
             DisableFormUpdate(targetFormIndex);
         }
 
-        private void btnView4_Click(object sender, EventArgs e)
+        private void BtnView4_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 3;
             DisableFormUpdate(targetFormIndex);
         }
 
-        private void btnView5_Click(object sender, EventArgs e)
+        private void BtnView5_Click(object sender, EventArgs e)
         {
             int targetFormIndex = 4;
             DisableFormUpdate(targetFormIndex);
@@ -130,7 +131,7 @@ namespace CampusCaseReportFormApp
 
         private void DisableFormUpdate(int targetFormIndex)
         {
-            Dictionary<String, String> fieldNameByInputs = RetrieveInputsAsKeyValuePair(formList[targetFormIndex]);
+            Dictionary<String, String> fieldNameByInputs = RetrieveInputsAsKeyValuePair(targetFormIndex);
 
             foreach (KeyValuePair<String, String> input in fieldNameByInputs)
                 formList[targetFormIndex].Controls[input.Key].Enabled = false;
@@ -182,9 +183,9 @@ namespace CampusCaseReportFormApp
 
         private bool GetSaveFilePath()
         {
+            // this code is modify from - https://www.c-sharpcorner.com/uploadfile/mahesh/savefiledialog-in-C-Sharp/
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                //saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 saveFileDialog.Filter = "txt files (*.txt)|*.txt";
                 saveFileDialog.FilterIndex = 2;
                 saveFileDialog.RestoreDirectory = true;
@@ -200,47 +201,51 @@ namespace CampusCaseReportFormApp
             return false;
         }
 
-        private Dictionary<String, String> RetrieveInputsAsKeyValuePair(Form targetForm)
+        private Dictionary<String, String> RetrieveInputsAsKeyValuePair(int targetFormIndex)
         {
             Dictionary<String, String> inputs = new Dictionary<string, string>();
 
-            RichTextBox[] allRichTextBox = GetAllRichTxtBox(targetForm);
+            RichTextBox[] allRichTextBox = GetAllRichTxtBox(targetFormIndex);
             foreach (var txtBox in allRichTextBox)
                 inputs.Add(txtBox.Name, txtBox.Text);
 
-            RadioButton[] allRadioButton = GetAllRadioButton(targetForm);
-            foreach (var txtBox in allRadioButton)
-                inputs.Add(txtBox.Name, txtBox.Checked.ToString());
+            RadioButton[] allRadioButton = GetAllRadioButton(targetFormIndex);
+            foreach (var radioBtn in allRadioButton)
+                inputs.Add(radioBtn.Name, radioBtn.Checked.ToString());
 
-            DateTimePicker[] allDateTimePicker = GetAllDateTimePicker(targetForm);
-            foreach (var txtBox in allDateTimePicker)
-                inputs.Add(txtBox.Name, txtBox.Text);
+            DateTimePicker[] allDateTimePicker = GetAllDateTimePicker(targetFormIndex);
+            foreach (var dateTimePicker in allDateTimePicker)
+                inputs.Add(dateTimePicker.Name, dateTimePicker.Text);
 
-            CheckBox[] allCheckBox = GetAllCheckBox(targetForm);
+            CheckBox[] allCheckBox = GetAllCheckBox(targetFormIndex);
             foreach (var checkBox in allCheckBox)
                 inputs.Add(checkBox.Name, checkBox.Checked.ToString());
 
             return inputs;
         }
 
-        private RichTextBox[] GetAllRichTxtBox(Form targetForm)
+        private RichTextBox[] GetAllRichTxtBox(int targetFormIndex)
         {
-            return targetForm.Controls.OfType<RichTextBox>().ToArray();
+            // this code is modify from - https://stackoverflow.com/questions/42005544/get-all-textboxes-of-an-form-with-their-name-in-ascending-order
+            return formList[targetFormIndex].Controls.OfType<RichTextBox>().ToArray();
         }
 
-        private DateTimePicker[] GetAllDateTimePicker(Form targetForm)
+        private DateTimePicker[] GetAllDateTimePicker(int targetFormIndex)
         {
-            return targetForm.Controls.OfType<DateTimePicker>().ToArray();
+            // this code is modify from - https://stackoverflow.com/questions/42005544/get-all-textboxes-of-an-form-with-their-name-in-ascending-order
+            return formList[targetFormIndex].Controls.OfType<DateTimePicker>().ToArray();
         }
 
-        private RadioButton[] GetAllRadioButton(Form targetForm)
+        private RadioButton[] GetAllRadioButton(int targetFormIndex)
         {
-            return targetForm.Controls.OfType<RadioButton>().ToArray();
+            // this code is modify from - https://stackoverflow.com/questions/42005544/get-all-textboxes-of-an-form-with-their-name-in-ascending-order
+            return formList[targetFormIndex].Controls.OfType<RadioButton>().ToArray();
         }
 
-        private CheckBox[] GetAllCheckBox(Form targetForm)
+        private CheckBox[] GetAllCheckBox(int targetFormIndex)
         {
-            return targetForm.Controls.OfType<CheckBox>().ToArray();
+            // this code is modify from - https://stackoverflow.com/questions/42005544/get-all-textboxes-of-an-form-with-their-name-in-ascending-order
+            return formList[targetFormIndex].Controls.OfType<CheckBox>().ToArray();
         }
 
         private Form GetTargetForm(int targetForm)
@@ -264,8 +269,10 @@ namespace CampusCaseReportFormApp
 
         private void SaveFormInputsToList(int targetFormIndex)
         {
-            Dictionary<String, String> fieldNameByInputs = RetrieveInputsAsKeyValuePair(formList[targetFormIndex]);
-            var json = JsonConvert.SerializeObject(fieldNameByInputs);
+            formInputKeyByValue[targetFormIndex] = RetrieveInputsAsKeyValuePair(targetFormIndex);
+
+            // this code is modify from - https://stackoverflow.com/questions/6201529/how-do-i-turn-a-c-sharp-object-into-a-json-string-in-net
+            var json = JsonConvert.SerializeObject(formInputKeyByValue[targetFormIndex]);
             formInputList[targetFormIndex] = json;
             savedFormCount++;
         }
@@ -273,6 +280,7 @@ namespace CampusCaseReportFormApp
         // Save input to file right away when user click submit on each form
         private void WriteFormToFile()
         {
+            // this code is modify from - https://stackoverflow.com/questions/7306214/append-lines-to-a-file-using-a-streamwriter
             StreamWriter streamWriter = new StreamWriter(targetPath, append: !isPrevSavedFormUpdated && savedFormCount > 1);
 
             if (savedFormCount > 1) // include comma when this is not the very first form's input set
@@ -288,21 +296,11 @@ namespace CampusCaseReportFormApp
             streamWriter.Close(); // need to close StreamWrter every time since we don't know when will user close the program
         }
 
-        private string GetFileInputsDir()
-        {
-            string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\FormInputs\\";
-
-            if (!Directory.Exists(directory))
-                Directory.CreateDirectory(directory);
-
-            return directory;
-        }
-
         private void BtnLoad_Click(object sender, EventArgs e)
         {
+            // this code is modify from - https://www.c-sharpcorner.com/UploadFile/mahesh/openfiledialog-in-C-Sharp/ 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                //openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 openFileDialog.Filter = "txt files (*.txt)|*.txt";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
@@ -321,13 +319,15 @@ namespace CampusCaseReportFormApp
                         savedFormCount = 0;
                         string fileContent = reader.ReadToEnd();
 
-                        Dictionary<string, string>[] savedFormList = JsonConvert.DeserializeObject<Dictionary<string, string>[]>("[" + fileContent + "]");
+                        // this code is modify from - https://stackoverflow.com/questions/6201529/how-do-i-turn-a-c-sharp-object-into-a-json-string-in-net
+                        formInputKeyByValue = JsonConvert.DeserializeObject<Dictionary<string, string>[]>("[" + fileContent + "]");
 
-                        foreach (Dictionary<string, string> saveForm in savedFormList)
+                        foreach (Dictionary<string, string> saveForm in formInputKeyByValue)
                         {
                             Form targetForm = formList[savedFormCount] = GetTargetForm(savedFormCount); // create new form instance
 
                             // load all save inputs to form
+                            // this code is modify from - https://stackoverflow.com/questions/141088/how-to-iterate-over-a-dictionary
                             foreach (KeyValuePair<string, string> saveInput in saveForm)
                             {
                                 if (targetForm.Controls[saveInput.Key] != null) // it equal to null when the key not match with any form's component's name
@@ -346,7 +346,6 @@ namespace CampusCaseReportFormApp
                         }
                     }
                     GenerateNewForm();
-                    UpdateButtons(savedFormCount - 1);
                 }
             }
         }
@@ -356,5 +355,15 @@ namespace CampusCaseReportFormApp
 // ADDED BRACKET ADD FRONT AND REMOVE THE LAST BRACKET BEFORE ADD THE NEXT FORM AND CLOSE THE LAST BRACKET
 
 // ADDED LOGIC TO CHECK ALL FIELD FOR SUBMIT BUTTON
+    // stage 4, 5:
+        // additional prop
+            // bool isSearch,
+            // string[][] targetSearchField
+        // Search function that invoke function of helper class
+    // helper class function -> to run python script and return targetSearchField
+    // Admin class: (figure out how to highligh text in richbox text)
+        // after return dislog okay in stage 4, 5 -> check if isSearch? yes, highlight word
 
 // ADDED LOGIC FOR SEARCH FEATURE (USING PYTHON)
+
+//

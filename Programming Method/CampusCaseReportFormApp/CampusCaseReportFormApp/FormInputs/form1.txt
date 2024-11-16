@@ -1,1 +1,0 @@
-{"SignName":"SIGN NAME","Signature":"SIGN","ViolatedDescription":"DESC VIO","Department":"DEP","Term":"TERM","Assignment":"ASSM","Course":"COURSE","StudentEmail":"STU EMAIL","FacultyMemberName":"FAC MEM","StudentID":"STU ID","StudentName":"STU NAME","OSAUseOnly":"OSA","SignDate":"2024-11-05","Date":"2024-11-05","IsWritenStatementChecked":"True","IsSupportPersonChecked":"True"}
