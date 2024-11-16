@@ -3,8 +3,8 @@ import java.util.Stack;
 
 public class BinaryArrayTree {
 
-    Integer[] nodeList;
-    private final static int DEFAULT_CAPACITY = 10;
+    private Integer[] nodeList;
+    private final static int DEFAULT_CAPACITY = 16;
 
     public BinaryArrayTree() {
         nodeList = new Integer[DEFAULT_CAPACITY];
@@ -22,6 +22,7 @@ public class BinaryArrayTree {
 
     public void insert(int item) {
         int curr = 0; // root node
+        int level = 0;
 
         // for the very first added item
         if (nodeList[curr] == null)
@@ -34,9 +35,13 @@ public class BinaryArrayTree {
                 else
                     curr = 2 * curr + 2;
 
+                level++;
+
                 // expand the size of nodeList
-                if (curr >= nodeList.length)
-                    nodeList = Arrays.copyOf(nodeList, curr * 2);
+                if (curr >= nodeList.length) {
+                    int newSize = (int) Math.pow(curr, level);
+                    nodeList = Arrays.copyOf(nodeList, newSize);
+                }
             }
         }
 
