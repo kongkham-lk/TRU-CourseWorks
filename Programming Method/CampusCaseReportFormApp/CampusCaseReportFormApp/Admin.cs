@@ -284,7 +284,7 @@ namespace CampusCaseReportFormApp
             StreamWriter streamWriter = new StreamWriter(targetPath, append: !isPrevSavedFormUpdated && savedFormCount > 1);
 
             if (savedFormCount > 1) // include comma when this is not the very first form's input set
-                streamWriter.Write(", ");
+                streamWriter.Write("\n, ");
 
             if (isPrevSavedFormUpdated) // re-write the whole form to txt file if any prev. saved form is edited
             {
@@ -307,6 +307,8 @@ namespace CampusCaseReportFormApp
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    ResetButtons();
+
                     //Get the path of specified file
                     targetPath = openFileDialog.FileName;
                     fileName = Path.GetFileName(targetPath);
@@ -317,13 +319,15 @@ namespace CampusCaseReportFormApp
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
                         savedFormCount = 0;
+                        GenerateNewForm();
                         string fileContent = reader.ReadToEnd();
 
                         // this code is modify from - https://stackoverflow.com/questions/6201529/how-do-i-turn-a-c-sharp-object-into-a-json-string-in-net
-                        formInputKeyByValue = JsonConvert.DeserializeObject<Dictionary<string, string>[]>("[" + fileContent + "]");
+                        Dictionary<string, string>[] saveFormList = JsonConvert.DeserializeObject<Dictionary<string, string>[]>("[" + fileContent + "]");
 
-                        foreach (Dictionary<string, string> saveForm in formInputKeyByValue)
+                        foreach (Dictionary<string, string> saveForm in saveFormList)
                         {
+                            formInputKeyByValue[savedFormCount] = saveForm;
                             Form targetForm = formList[savedFormCount] = GetTargetForm(savedFormCount); // create new form instance
 
                             // load all save inputs to form
@@ -345,7 +349,6 @@ namespace CampusCaseReportFormApp
                             savedFormCount++;
                         }
                     }
-                    GenerateNewForm();
                 }
             }
         }
