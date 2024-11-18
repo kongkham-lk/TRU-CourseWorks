@@ -22,13 +22,21 @@ namespace CampusCaseReportFormApp
                 return DialogResult.Cancel;
         }
 
-        public static string[][] SearchText(string targetText)
+        public static void SearchText(Form targetForm, ref string[][] targetSearchFieldNameList, ref Label[] displaySearchResultList)
         {
-            string[][] targetField = GetTargetFormField(targetText);
-            return null;
+            targetSearchFieldNameList = Helper.GetTargetFormField(targetForm.Controls["searchText"].Text);
+
+            if (targetSearchFieldNameList != null)
+            {
+                for (int i = 0; i < targetSearchFieldNameList.Length; i++)
+                    displaySearchResultList[i].Text = targetSearchFieldNameList[i].Length.ToString();
+
+                for (int i = targetSearchFieldNameList.Length; i < displaySearchResultList.Length; i++) // set the rest of the stage's result to 0, in case earlier seach updated
+                    displaySearchResultList[i].Text = "0";
+            }
         }
 
-        private static string[][] GetTargetFormField(string targetText)
+        public static string[][] GetTargetFormField(string targetText)
         {
             string error = "";
             string output = " ";

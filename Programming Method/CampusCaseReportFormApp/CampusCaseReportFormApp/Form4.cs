@@ -12,9 +12,13 @@ namespace CampusCaseReportFormApp
 {
     public partial class Form4 : Form
     {
+        public Label[] displaySearchResultList { get; set; }
+        public string[][] targetSearchFieldNameList { get; set; }
+
         public Form4()
         {
             InitializeComponent();
+            displaySearchResultList = new Label[] { resultF1, resultF2, resultF3, resultF4, resultF5 };
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -46,13 +50,16 @@ namespace CampusCaseReportFormApp
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Helper.SearchText(searchText.Text);
+            // Assign to local variables before passing them as ref
+            string[][] targetSearchFieldNameListLocal = targetSearchFieldNameList;
+            Label[] displaySearchResultListLocal = displaySearchResultList;
 
-            // 1. implement logic to highlight text
-            // 2. update UI to show result count + update field
-            // find out how to: 
-                // 1. highlight individual text of a richbox text
-                // 2. reset text color
+            // Pass local variables as ref
+            Helper.SearchText(this, ref targetSearchFieldNameListLocal, ref displaySearchResultListLocal);
+
+            // After the method, reassign the updated local variables back to the properties
+            targetSearchFieldNameList = targetSearchFieldNameListLocal;
+            displaySearchResultList = displaySearchResultListLocal;
         }
     }
 }
