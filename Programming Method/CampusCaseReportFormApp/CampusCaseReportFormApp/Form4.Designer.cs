@@ -58,11 +58,11 @@
             // 
             // rbtNo
             // 
-            this.rbtNo.AutoSize = true;
-            this.rbtNo.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbtNo.Location = new System.Drawing.Point(203, 301);
+            this.rbtNo.BackColor = System.Drawing.Color.Transparent;
+            this.rbtNo.Location = new System.Drawing.Point(200, 300);
             this.rbtNo.Name = "rbtNo";
-            this.rbtNo.Size = new System.Drawing.Size(39, 17);
+            this.rbtNo.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
+            this.rbtNo.Size = new System.Drawing.Size(50, 19);
             this.rbtNo.TabIndex = 1;
             this.rbtNo.Text = "No";
             this.rbtNo.UseVisualStyleBackColor = false;
@@ -70,11 +70,11 @@
             // 
             // rbtYes
             // 
-            this.rbtYes.AutoSize = true;
-            this.rbtYes.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbtYes.Location = new System.Drawing.Point(203, 278);
+            this.rbtYes.BackColor = System.Drawing.Color.Transparent;
+            this.rbtYes.Location = new System.Drawing.Point(200, 277);
             this.rbtYes.Name = "rbtYes";
-            this.rbtYes.Size = new System.Drawing.Size(43, 17);
+            this.rbtYes.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
+            this.rbtYes.Size = new System.Drawing.Size(50, 19);
             this.rbtYes.TabIndex = 0;
             this.rbtYes.Text = "Yes";
             this.rbtYes.UseVisualStyleBackColor = false;
@@ -82,7 +82,7 @@
             // 
             // ExplainNo
             // 
-            this.ExplainNo.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ExplainNo.BackColor = System.Drawing.Color.Gainsboro;
             this.ExplainNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ExplainNo.ForeColor = System.Drawing.SystemColors.WindowText;
             this.ExplainNo.Location = new System.Drawing.Point(257, 291);
@@ -93,7 +93,7 @@
             // 
             // Comments
             // 
-            this.Comments.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Comments.BackColor = System.Drawing.Color.Gainsboro;
             this.Comments.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Comments.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Comments.Location = new System.Drawing.Point(37, 345);
@@ -109,59 +109,59 @@
             this.SignDateDeptChair.Location = new System.Drawing.Point(611, 556);
             this.SignDateDeptChair.Name = "SignDateDeptChair";
             this.SignDateDeptChair.Size = new System.Drawing.Size(172, 20);
-            this.SignDateDeptChair.TabIndex = 6;
+            this.SignDateDeptChair.TabIndex = 8;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnSubmit.Location = new System.Drawing.Point(368, 589);
+            this.btnSubmit.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnSubmit.Location = new System.Drawing.Point(370, 590);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 7;
+            this.btnSubmit.TabIndex = 9;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // SignNameDeptChair
             // 
-            this.SignNameDeptChair.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignNameDeptChair.BackColor = System.Drawing.Color.Gainsboro;
             this.SignNameDeptChair.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SignNameDeptChair.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.SignNameDeptChair.Location = new System.Drawing.Point(277, 543);
+            this.SignNameDeptChair.Location = new System.Drawing.Point(277, 545);
             this.SignNameDeptChair.Name = "SignNameDeptChair";
             this.SignNameDeptChair.Size = new System.Drawing.Size(328, 33);
-            this.SignNameDeptChair.TabIndex = 5;
+            this.SignNameDeptChair.TabIndex = 7;
             this.SignNameDeptChair.Text = "";
             // 
             // SignDeptChair
             // 
-            this.SignDeptChair.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignDeptChair.BackColor = System.Drawing.Color.Gainsboro;
             this.SignDeptChair.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SignDeptChair.ForeColor = System.Drawing.SystemColors.WindowText;
             this.SignDeptChair.Location = new System.Drawing.Point(37, 543);
             this.SignDeptChair.Name = "SignDeptChair";
             this.SignDeptChair.Size = new System.Drawing.Size(234, 33);
-            this.SignDeptChair.TabIndex = 4;
+            this.SignDeptChair.TabIndex = 6;
             this.SignDeptChair.Text = "";
             // 
             // searchText
             // 
-            this.searchText.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.searchText.BackColor = System.Drawing.Color.Gainsboro;
             this.searchText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchText.ForeColor = System.Drawing.SystemColors.WindowText;
             this.searchText.Location = new System.Drawing.Point(37, 428);
             this.searchText.Name = "searchText";
             this.searchText.Size = new System.Drawing.Size(527, 43);
-            this.searchText.TabIndex = 39;
+            this.searchText.TabIndex = 4;
             this.searchText.Text = "";
             // 
             // btnSearch
             // 
-            this.btnSearch.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnSearch.Location = new System.Drawing.Point(368, 481);
+            this.btnSearch.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnSearch.Location = new System.Drawing.Point(370, 485);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 40;
+            this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);

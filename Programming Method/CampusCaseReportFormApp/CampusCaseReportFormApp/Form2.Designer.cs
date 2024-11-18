@@ -47,93 +47,95 @@
             // rbtYes
             // 
             this.rbtYes.AutoSize = true;
-            this.rbtYes.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbtYes.Location = new System.Drawing.Point(274, 618);
+            this.rbtYes.BackColor = System.Drawing.Color.Transparent;
+            this.rbtYes.Location = new System.Drawing.Point(275, 610);
             this.rbtYes.Name = "rbtYes";
-            this.rbtYes.Size = new System.Drawing.Size(43, 17);
-            this.rbtYes.TabIndex = 1;
+            this.rbtYes.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
+            this.rbtYes.Size = new System.Drawing.Size(49, 19);
+            this.rbtYes.TabIndex = 2;
             this.rbtYes.Text = "Yes";
             this.rbtYes.UseVisualStyleBackColor = false;
             // 
             // rbtNo
             // 
             this.rbtNo.AutoSize = true;
-            this.rbtNo.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbtNo.Location = new System.Drawing.Point(336, 618);
+            this.rbtNo.BackColor = System.Drawing.Color.Transparent;
+            this.rbtNo.Location = new System.Drawing.Point(335, 610);
             this.rbtNo.Name = "rbtNo";
-            this.rbtNo.Size = new System.Drawing.Size(39, 17);
-            this.rbtNo.TabIndex = 2;
+            this.rbtNo.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
+            this.rbtNo.Size = new System.Drawing.Size(45, 19);
+            this.rbtNo.TabIndex = 3;
             this.rbtNo.Text = "No";
             this.rbtNo.UseVisualStyleBackColor = false;
             // 
             // StudentName
             // 
-            this.StudentName.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.StudentName.BackColor = System.Drawing.Color.Gainsboro;
             this.StudentName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.StudentName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.StudentName.Location = new System.Drawing.Point(39, 264);
+            this.StudentName.Location = new System.Drawing.Point(43, 256);
             this.StudentName.Name = "StudentName";
-            this.StudentName.Size = new System.Drawing.Size(316, 18);
+            this.StudentName.Size = new System.Drawing.Size(314, 18);
             this.StudentName.TabIndex = 0;
             this.StudentName.Text = "";
             // 
             // TRUEmail
             // 
-            this.TRUEmail.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.TRUEmail.BackColor = System.Drawing.Color.Gainsboro;
             this.TRUEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TRUEmail.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.TRUEmail.Location = new System.Drawing.Point(34, 672);
+            this.TRUEmail.Location = new System.Drawing.Point(37, 664);
             this.TRUEmail.Name = "TRUEmail";
             this.TRUEmail.Size = new System.Drawing.Size(448, 28);
-            this.TRUEmail.TabIndex = 3;
+            this.TRUEmail.TabIndex = 4;
             this.TRUEmail.Text = "";
             // 
             // SignStudent
             // 
-            this.SignStudent.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignStudent.BackColor = System.Drawing.Color.Gainsboro;
             this.SignStudent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SignStudent.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.SignStudent.Location = new System.Drawing.Point(34, 737);
+            this.SignStudent.Location = new System.Drawing.Point(37, 729);
             this.SignStudent.Name = "SignStudent";
             this.SignStudent.Size = new System.Drawing.Size(568, 32);
-            this.SignStudent.TabIndex = 4;
+            this.SignStudent.TabIndex = 5;
             this.SignStudent.Text = "";
             // 
             // SignDateStudent
             // 
             this.SignDateStudent.CustomFormat = "yyyy-MM-dd";
             this.SignDateStudent.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.SignDateStudent.Location = new System.Drawing.Point(609, 749);
+            this.SignDateStudent.Location = new System.Drawing.Point(612, 741);
             this.SignDateStudent.Name = "SignDateStudent";
             this.SignDateStudent.Size = new System.Drawing.Size(171, 20);
-            this.SignDateStudent.TabIndex = 5;
+            this.SignDateStudent.TabIndex = 6;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnSubmit.Location = new System.Drawing.Point(373, 801);
+            this.btnSubmit.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnSubmit.Location = new System.Drawing.Point(370, 795);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(72, 23);
-            this.btnSubmit.TabIndex = 6;
+            this.btnSubmit.TabIndex = 7;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // StudentComment
             // 
-            this.StudentComment.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.StudentComment.BackColor = System.Drawing.Color.Gainsboro;
             this.StudentComment.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.StudentComment.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.StudentComment.Location = new System.Drawing.Point(34, 473);
+            this.StudentComment.Location = new System.Drawing.Point(37, 465);
             this.StudentComment.Name = "StudentComment";
             this.StudentComment.Size = new System.Drawing.Size(746, 83);
-            this.StudentComment.TabIndex = 9;
+            this.StudentComment.TabIndex = 1;
             this.StudentComment.Text = "";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::CampusCaseReportFormApp.Properties.Resources.form02_01;
-            this.pictureBox3.Location = new System.Drawing.Point(-2, 445);
+            this.pictureBox3.Location = new System.Drawing.Point(1, 437);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(808, 118);
             this.pictureBox3.TabIndex = 8;
@@ -142,16 +144,16 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::CampusCaseReportFormApp.Properties.Resources.form02_02;
-            this.pictureBox2.Location = new System.Drawing.Point(-4, 562);
+            this.pictureBox2.Location = new System.Drawing.Point(-1, 554);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(810, 270);
+            this.pictureBox2.Size = new System.Drawing.Size(810, 273);
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CampusCaseReportFormApp.Properties.Resources.form02_00;
-            this.pictureBox1.Location = new System.Drawing.Point(-4, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(810, 715);
             this.pictureBox1.TabIndex = 1;
@@ -163,7 +165,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(824, 761);
+            this.ClientSize = new System.Drawing.Size(814, 761);
             this.Controls.Add(this.StudentComment);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.btnSubmit);

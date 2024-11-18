@@ -47,8 +47,8 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnSubmit.Location = new System.Drawing.Point(368, 332);
+            this.btnSubmit.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnSubmit.Location = new System.Drawing.Point(370, 335);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 3;
@@ -58,7 +58,7 @@
             // 
             // SignNameFacMem
             // 
-            this.SignNameFacMem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignNameFacMem.BackColor = System.Drawing.Color.Gainsboro;
             this.SignNameFacMem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SignNameFacMem.ForeColor = System.Drawing.SystemColors.WindowText;
             this.SignNameFacMem.Location = new System.Drawing.Point(333, 289);
@@ -69,7 +69,7 @@
             // 
             // SignFacMem
             // 
-            this.SignFacMem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SignFacMem.BackColor = System.Drawing.Color.Gainsboro;
             this.SignFacMem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SignFacMem.ForeColor = System.Drawing.SystemColors.WindowText;
             this.SignFacMem.Location = new System.Drawing.Point(36, 289);
@@ -83,7 +83,7 @@
             this.pictureBox1.Image = global::CampusCaseReportFormApp.Properties.Resources.form03;
             this.pictureBox1.Location = new System.Drawing.Point(-1, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(819, 362);
+            this.pictureBox1.Size = new System.Drawing.Size(819, 370);
             this.pictureBox1.TabIndex = 35;
             this.pictureBox1.TabStop = false;
             // 
@@ -92,7 +92,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(814, 364);
+            this.ClientSize = new System.Drawing.Size(814, 371);
             this.Controls.Add(this.SignDateFacMem);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.SignNameFacMem);
