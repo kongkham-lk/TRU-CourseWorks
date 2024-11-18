@@ -57,7 +57,7 @@ namespace CampusCaseReportFormApp
                 output = process.StandardOutput.ReadLine();
             }
 
-            if (output.Any())
+            if (output != null && output.Any())
                 return JsonConvert.DeserializeObject<string[][]>(output);
             else
                 return null;

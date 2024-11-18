@@ -13,11 +13,12 @@ result = []
 
 # Iterate through each dictionary in the list
 for form in formInputKeyByValueList:
-    targetField = []
-    for key, val in form.items():  # Ensure you're iterating over key-value pairs in the dictionary
-        if targetSearchText in val:
-            targetField.append(key)
-    result.append(targetField)
+    if (form):
+        targetField = []
+        for key, val in form.items():  # Ensure you're iterating over key-value pairs in the dictionary
+            if targetSearchText in val:
+                targetField.append(key)
+        result.append(targetField)
 
 # Print the result, which will be captured by the C# program
 print(json.dumps(result))
