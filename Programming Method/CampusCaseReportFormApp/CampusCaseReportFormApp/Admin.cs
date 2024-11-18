@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace CampusCaseReportFormApp
@@ -19,6 +21,8 @@ namespace CampusCaseReportFormApp
         bool isPrevSavedFormUpdated = false;
 
         public static Dictionary<String, String>[] formInputKeyByValue { get; set; } = new Dictionary<String, String>[5];
+
+        List<RichTextBox> prevHighlightTextBoxList = new List<RichTextBox>();
 
         public Admin()
         {
@@ -69,6 +73,7 @@ namespace CampusCaseReportFormApp
                 SaveFormInputsToList(targetFormIndex);
                 WriteFormToFile();
                 UpdateButtons(targetFormIndex);
+                HighlightSearchForm();
             }
         }
 
@@ -137,6 +142,9 @@ namespace CampusCaseReportFormApp
                 formList[targetFormIndex].Controls[input.Key].Enabled = false;
 
             formList[targetFormIndex].Controls["btnSubmit"].Enabled = false;
+
+            if (targetFormIndex > 2)
+                formList[targetFormIndex].Controls["btnSearch"].Enabled = false;
 
             formList[targetFormIndex].ShowDialog();
         }
@@ -220,6 +228,23 @@ namespace CampusCaseReportFormApp
             CheckBox[] allCheckBox = GetAllCheckBox(targetFormIndex);
             foreach (var checkBox in allCheckBox)
                 inputs.Add(checkBox.Name, checkBox.Checked.ToString());
+
+            if (targetFormIndex >= 3)
+            {
+                switch (targetFormIndex)
+                {
+                    case 3:
+                        Label[] resultSearchList = ((Form4)formList[3]).displaySearchResultList;
+                        foreach (var label in resultSearchList)
+                            inputs.Add(label.Name, label.Text);
+                        break;
+                    case 4:
+                        resultSearchList = ((Form5)formList[4]).displaySearchResultList;
+                        foreach (var label in resultSearchList)
+                            inputs.Add(label.Name, label.Text);
+                        break;
+                }
+            }
 
             return inputs;
         }
@@ -352,21 +377,68 @@ namespace CampusCaseReportFormApp
                 }
             }
         }
+
+        private void HighlightSearchForm()
+        {
+            if (prevHighlightTextBoxList.Any())
+                foreach (RichTextBox prevHightlight in prevHighlightTextBoxList)
+                    ClearHighlight(prevHightlight);
+
+            string[] searchTextList = new string[2] { formList[3].Controls["searchText"].Text, formList[4].Controls["searchText"].Text };
+
+            if (searchTextList[0].Any())
+            {
+                string[][] targetSearchFieldList = ((Form4)formList[3]).targetSearchFieldNameList;
+                GetAllTargetSearchField(targetSearchFieldList);
+            }
+
+            if (searchTextList[1].Any())
+            {
+                string[][] targetSearchFieldList = ((Form5)formList[4]).targetSearchFieldNameList;
+                GetAllTargetSearchField(targetSearchFieldList);
+            }
+
+            foreach (RichTextBox targetTxtBox in prevHighlightTextBoxList)
+                HighlightSearechText(targetTxtBox, searchTextList);
+        }
+
+        private void GetAllTargetSearchField(string[][] targetSearchField)
+        {
+            if (targetSearchField != null && targetSearchField.Any())
+            {
+                for (int i = 0; i < targetSearchField.Length; i++)
+                {
+                    foreach (string targetFieldName in targetSearchField[i])
+                    {
+                        RichTextBox targetField = (RichTextBox)formList[i].Controls[targetFieldName];
+                        prevHighlightTextBoxList.Add(targetField);
+                    }
+                }
+            }
+        }
+
+        // this code is modify from - https://stackoverflow.com/questions/63747334/highlight-text-in-a-richtextbox-control
+        private void HighlightSearechText(RichTextBox rtb, string[] phrases)
+        {
+            ClearHighlight(rtb);
+            string pattern = string.Join("|", phrases.Select(phr => Regex.Escape(phr)));
+
+            var matches = Regex.Matches(rtb.Text, pattern, RegexOptions.IgnoreCase);
+            foreach (Match m in matches)
+            {
+                rtb.Select(m.Index, m.Length);
+                rtb.SelectionBackColor = Color.Yellow;
+            }
+        }
+
+        // this code is modify from - https://stackoverflow.com/questions/63747334/highlight-text-in-a-richtextbox-control
+        private void ClearHighlight(RichTextBox rtb)
+        {
+            int selStart = rtb.SelectionStart;
+            rtb.SelectAll();
+            rtb.SelectionBackColor = rtb.BackColor;
+            rtb.SelectionStart = selStart;
+            rtb.SelectionLength = 0;
+        }
     }
 }
-
-// ADDED BRACKET ADD FRONT AND REMOVE THE LAST BRACKET BEFORE ADD THE NEXT FORM AND CLOSE THE LAST BRACKET
-
-// ADDED LOGIC TO CHECK ALL FIELD FOR SUBMIT BUTTON
-    // stage 4, 5:
-        // additional prop
-            // bool isSearch,
-            // string[][] targetSearchField
-        // Search function that invoke function of helper class
-    // helper class function -> to run python script and return targetSearchField
-    // Admin class: (figure out how to highligh text in richbox text)
-        // after return dislog okay in stage 4, 5 -> check if isSearch? yes, highlight word
-
-// ADDED LOGIC FOR SEARCH FEATURE (USING PYTHON)
-
-//
