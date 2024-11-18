@@ -56,7 +56,7 @@ namespace CampusCaseReportFormApp
             string error = "";
             string output = " ";
 
-            // this code is modify in - https://stackoverflow.com/questions/816566/how-do-you-get-the-current-project-directory-from-c-sharp-code-when-creating-a-c
+            // this code is modify from - https://stackoverflow.com/questions/816566/how-do-you-get-the-current-project-directory-from-c-sharp-code-when-creating-a-c
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
             string targetScript = projectDirectory + "\\" + "SearchFeature.py";
 
@@ -67,11 +67,11 @@ namespace CampusCaseReportFormApp
             pstartinfo.RedirectStandardOutput = true;
             pstartinfo.RedirectStandardError = true;
             string allSaveForm = JsonConvert.SerializeObject(Admin.formInputKeyByValue);
-            allSaveForm = "\"" + allSaveForm.Replace("\"", "\\\"") + "\""; // this code is modify in - https://chatgpt.com/
+            allSaveForm = "\"" + allSaveForm.Replace("\"", "\\\"") + "\""; // this code is modify from - https://chatgpt.com/
 
             // set file name and pass in argument
-            pstartinfo.FileName = @"C:\Program Files\Python37\python.exe";
-            pstartinfo.Arguments = $"\"{targetScript}\" {allSaveForm} {(targetText == "" ? "\" \"" : targetText)} "; // this code is modify in - https://chatgpt.com/
+            pstartinfo.FileName = GetPythonExePath();
+            pstartinfo.Arguments = $"\"{targetScript}\" {allSaveForm} {(targetText == "" ? "\" \"" : targetText)} "; // this code is modify from - https://chatgpt.com/
 
             // execute the process
             using (Process process = Process.Start(pstartinfo))
@@ -84,6 +84,33 @@ namespace CampusCaseReportFormApp
                 return JsonConvert.DeserializeObject<string[][]>(output);
             else
                 return null;
+        }
+
+        // get relative path of Python execution file
+        // this code is modify from - https://stackoverflow.com/questions/41920032/automatically-find-the-path-of-the-python-executable
+        private static string GetPythonExePath()
+        {
+            var entries = Environment.GetEnvironmentVariable("path").Split(';');
+            string python_location = null;
+
+            foreach (string entry in entries)
+            {
+                if (entry.ToLower().Contains("python"))
+                {
+                    var breadcrumbs = entry.Split('\\');
+                    foreach (string breadcrumb in breadcrumbs)
+                    {
+                        if (breadcrumb.ToLower().Contains("python"))
+                        {
+                            python_location += breadcrumb + '\\';
+                            break;
+                        }
+                        python_location += breadcrumb + '\\';
+                    }
+                    break;
+                }
+            }
+            return python_location + "python.exe";
         }
     }
 }
