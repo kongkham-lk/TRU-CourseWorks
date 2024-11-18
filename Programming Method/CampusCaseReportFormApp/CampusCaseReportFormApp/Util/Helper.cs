@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -96,6 +97,58 @@ namespace CampusCaseReportFormApp
                 }
             }
             return python_location + "python.exe";
+        }
+
+        public static bool CheckIfFormComplete(Form targetForm)
+        {
+            // this code is modify from - https://stackoverflow.com/questions/6016456/set-system-drawing-color-values
+            Color errorColor = Color.FromArgb(255, 192, 192);
+            bool isComplete = true;
+
+            var targetCBs = targetForm.Controls.OfType<CheckBox>().ToArray();
+            if (targetCBs != null && targetCBs.Any())
+                foreach (var rbt in targetCBs)
+                {
+                    if (!rbt.Checked)
+                    {
+                        rbt.BackColor = errorColor;
+                        isComplete = false;
+                    }
+                    else
+                        rbt.BackColor = Color.Transparent;
+                }
+
+            var targetRBs = targetForm.Controls.OfType<RadioButton>().ToArray();
+            if (targetRBs != null && targetRBs.Any())
+            {
+                Color targetColor = Color.Transparent;
+
+                int checkedRbsCount = targetRBs.Count(rb => rb.Checked);
+                if (checkedRbsCount == 0 || checkedRbsCount > 1)
+                {
+                    targetColor = errorColor;
+                    isComplete = false; // return false if none of the radio button is selected
+                }
+
+                foreach (var rb in targetRBs)
+                    rb.BackColor = targetColor;
+            }
+
+            var targetRTBs = targetForm.Controls.OfType<RichTextBox>().ToArray();
+            if (targetRTBs != null && targetRTBs.Any())
+                foreach (var rbt in targetRTBs)
+                {
+                    if (!rbt.Name.ToLower().Contains("search") && !rbt.Text.Any() && rbt.Enabled)
+                    {
+                        rbt.BackColor = errorColor;
+                        isComplete = false;
+                    }
+                    else
+                        rbt.BackColor = Color.Gainsboro;
+                }
+
+            MessageBox.Show("Cannot Submit, Please Complete This Step!");
+            return isComplete;
         }
     }
 }

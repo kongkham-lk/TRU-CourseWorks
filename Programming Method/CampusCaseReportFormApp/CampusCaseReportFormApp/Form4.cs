@@ -23,18 +23,11 @@ namespace CampusCaseReportFormApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            //if (!Helper.checkIfTextBoxIsEmpty(new RichTextBox[] { 
-            //        txtStudentName, txtStudentID, txtStudentEmail, txtFacMemName, txtCourse, txtCourseContent, 
-            //    txtDepartment, txtTerm, txtDescription,txtSign, txtSignName 
-            //}) && Helper.checkIfAllCheckboxIsChecked(new CheckBox[] { checkBox3 , checkBox4}))
-            //{
-
-            this.DialogResult = Helper.ConfirmMessage();
-            this.Close();
-
-            //}
-            //else
-            //    MessageBox.Show("Please fill up all the text field");
+            if (Helper.CheckIfFormComplete(this))
+            {
+                this.DialogResult = Helper.ConfirmMessage();
+                this.Close();
+            }
         }
 
         private void rbtYes_CheckedChanged(object sender, EventArgs e)
