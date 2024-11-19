@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="appTitle">Trending</string>
+    <string name="movieTitle">MovieTitle</string>
+    <string name="showTime">Show Time</string>
+    <string name="movieCoverDescription">Movie Cover</string>
+    <string-array name="movieTitleList">
+        <item>Red One</item>
+        <item>A Real Pain</item>
+        <item>Wicked</item>
+        <item>Gladiator II</item>
+        <item>Moana 2</item>
+        <item>Heretic</item>
+        <item>Venom: The Last Dance</item>
+        <item>The Wild Robot</item>
+        <item>The Best Christmas Pageant Ever</item>
+        <item>Overlord: The Sacred Kingdom</item>
+    </string-array>
+    <string-array name="showTimeList">
+        <item>November 15, 2024</item>
+        <item>November 8, 2024</item>
+        <item>November 22, 2024</item>
+        <item>November 22, 2024</item>
+        <item>November 27, 2024</item>
+        <item>November 8, 2024</item>
+        <item>October 25, 2024</item>
+        <item>September 27, 2024</item>
+        <item>November 8, 2024</item>
+        <item>November 8, 2024</item>
+    </string-array>
+</resources>
