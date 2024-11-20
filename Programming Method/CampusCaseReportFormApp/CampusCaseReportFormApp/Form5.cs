@@ -12,8 +12,9 @@ namespace CampusCaseReportFormApp
 {
     public partial class Form5 : Form
     {
+        List<RichTextBox> prevHighlightTextBoxList = new List<RichTextBox>();
+        string[][] targetSearchFieldNameList;
         public Label[] displaySearchResultList { get; set; }
-        public string[][] targetSearchFieldNameList { get; set; }
 
         public Form5()
         {
@@ -44,15 +45,15 @@ namespace CampusCaseReportFormApp
         private void btnSearch_Click(object sender, EventArgs e)
         {
             // Assign to local variables before passing them as ref
-            string[][] targetSearchFieldNameListLocal = targetSearchFieldNameList;
             Label[] displaySearchResultListLocal = displaySearchResultList;
 
             // Pass local variables as ref
-            Helper.SearchText(this, ref targetSearchFieldNameListLocal, ref displaySearchResultListLocal);
+            Helper.SearchText(this, ref targetSearchFieldNameList, ref displaySearchResultListLocal);
 
             // After the method, reassign the updated local variables back to the properties
-            targetSearchFieldNameList = targetSearchFieldNameListLocal;
             displaySearchResultList = displaySearchResultListLocal;
+
+            Helper.HighlightTextBoxInForms(ref prevHighlightTextBoxList, targetSearchFieldNameList, searchText.Text);
         }
     }
 }

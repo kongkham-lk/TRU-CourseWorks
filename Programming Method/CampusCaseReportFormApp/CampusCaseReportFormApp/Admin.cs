@@ -13,13 +13,13 @@ namespace CampusCaseReportFormApp
     {
         Button[] btnFillList = null;
         Button[] btnViewList = null;
-        Form[] formList = new Form[5];
         string[] formInputList = new string[5]; // storing each form's into the array
         int savedFormCount = 0;
         string targetPath;
         string fileName;
         bool isPrevSavedFormUpdated = false;
 
+        public static Form[] formList { get; set; } = new Form[5];
         public static Dictionary<String, String>[] formInputKeyByValue { get; set; } = new Dictionary<String, String>[5];
 
         List<RichTextBox> prevHighlightTextBoxList = new List<RichTextBox>();
@@ -73,7 +73,7 @@ namespace CampusCaseReportFormApp
                 SaveFormInputsToList(targetFormIndex);
                 WriteFormToFile();
                 UpdateButtons(targetFormIndex);
-                HighlightSearchForm();
+                //HighlightSearchForm();
             }
         }
 
@@ -376,69 +376,6 @@ namespace CampusCaseReportFormApp
                     }
                 }
             }
-        }
-
-        private void HighlightSearchForm()
-        {
-            if (prevHighlightTextBoxList.Any())
-                foreach (RichTextBox prevHightlight in prevHighlightTextBoxList)
-                    ClearHighlight(prevHightlight);
-
-            string[] searchTextList = new string[2] { formList[3].Controls["searchText"].Text, formList[4].Controls["searchText"].Text };
-
-            if (searchTextList[0].Any())
-            {
-                string[][] targetSearchFieldList = ((Form4)formList[3]).targetSearchFieldNameList;
-                GetAllTargetSearchField(targetSearchFieldList);
-            }
-
-            if (searchTextList[1].Any())
-            {
-                string[][] targetSearchFieldList = ((Form5)formList[4]).targetSearchFieldNameList;
-                GetAllTargetSearchField(targetSearchFieldList);
-            }
-
-            foreach (RichTextBox targetTxtBox in prevHighlightTextBoxList)
-                HighlightSearechText(targetTxtBox, searchTextList);
-        }
-
-        private void GetAllTargetSearchField(string[][] targetSearchField)
-        {
-            if (targetSearchField != null && targetSearchField.Any())
-            {
-                for (int i = 0; i < targetSearchField.Length; i++)
-                {
-                    foreach (string targetFieldName in targetSearchField[i])
-                    {
-                        RichTextBox targetField = (RichTextBox)formList[i].Controls[targetFieldName];
-                        prevHighlightTextBoxList.Add(targetField);
-                    }
-                }
-            }
-        }
-
-        // this code is modify from - https://stackoverflow.com/questions/63747334/highlight-text-in-a-richtextbox-control
-        private void HighlightSearechText(RichTextBox rtb, string[] phrases)
-        {
-            ClearHighlight(rtb);
-            string pattern = string.Join("|", phrases.Select(phr => Regex.Escape(phr)));
-
-            var matches = Regex.Matches(rtb.Text, pattern, RegexOptions.IgnoreCase);
-            foreach (Match m in matches)
-            {
-                rtb.Select(m.Index, m.Length);
-                rtb.SelectionBackColor = Color.Yellow;
-            }
-        }
-
-        // this code is modify from - https://stackoverflow.com/questions/63747334/highlight-text-in-a-richtextbox-control
-        private void ClearHighlight(RichTextBox rtb)
-        {
-            int selStart = rtb.SelectionStart;
-            rtb.SelectAll();
-            rtb.SelectionBackColor = rtb.BackColor;
-            rtb.SelectionStart = selStart;
-            rtb.SelectionLength = 0;
         }
     }
 }
