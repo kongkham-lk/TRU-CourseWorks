@@ -22,7 +22,7 @@ namespace CampusCaseReportFormApp
         public static Form[] formList { get; set; } = new Form[5];
         public static Dictionary<String, String>[] formInputKeyByValue { get; set; } = new Dictionary<String, String>[5];
 
-        List<RichTextBox> prevHighlightTextBoxList = new List<RichTextBox>();
+        public static List<RichTextBox> prevHighlightTextBoxList = new List<RichTextBox>();
 
         public Admin()
         {
@@ -31,6 +31,8 @@ namespace CampusCaseReportFormApp
             btnFillList = new Button[] { btnFill1, btnFill2, btnFill3, btnFill4, btnFill5 };
             btnViewList = new Button[] { btnView1, btnView2, btnView3, btnView4, btnView5 };
         }
+
+        #region Window Form Component
 
         private void BtnFill1_Click(object sender, EventArgs e)
         {
@@ -118,6 +120,83 @@ namespace CampusCaseReportFormApp
             DisableFormUpdate(targetFormIndex);
         }
 
+        private void BtnNew_Click(object sender, EventArgs e)
+        {
+            if (GetSaveFilePath())
+            {
+                savedFormCount = 0; // reset savedFormCount, in case btnLoad is clicked earlier
+                GenerateNewForm(); // generate a new instance of each form
+                ResetButtons();
+            }
+        }
+
+        private void BtnLoad_Click(object sender, EventArgs e)
+        {
+            // this code is modify from - https://www.c-sharpcorner.com/UploadFile/mahesh/openfiledialog-in-C-Sharp/ 
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "txt files (*.txt)|*.txt";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ResetButtons();
+
+                    //Get the path of specified file
+                    targetPath = openFileDialog.FileName;
+                    fileName = Path.GetFileName(targetPath);
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        savedFormCount = 0;
+                        GenerateNewForm();
+                        string fileContent = reader.ReadToEnd();
+
+                        // this code is modify from - https://stackoverflow.com/questions/6201529/how-do-i-turn-a-c-sharp-object-into-a-json-string-in-net
+                        Dictionary<string, string>[] saveFormList = JsonConvert.DeserializeObject<Dictionary<string, string>[]>("[" + fileContent + "]");
+
+                        foreach (Dictionary<string, string> saveForm in saveFormList)
+                        {
+                            formInputKeyByValue[savedFormCount] = saveForm;
+                            Form targetForm = formList[savedFormCount] = GetTargetForm(savedFormCount); // create new form instance
+
+                            // load all save inputs to form
+                            // this code is modify from - https://stackoverflow.com/questions/141088/how-to-iterate-over-a-dictionary
+                            foreach (KeyValuePair<string, string> saveInput in saveForm)
+                            {
+                                if (targetForm.Controls[saveInput.Key] != null) // it equal to null when the key not match with any form's component's name
+                                {
+                                    if (targetForm.Controls[saveInput.Key].GetType() == typeof(CheckBox)) // assign value differently if is checkBox
+                                        ((CheckBox)targetForm.Controls[saveInput.Key]).Checked = Boolean.Parse(saveInput.Value);
+                                    else if (targetForm.Controls[saveInput.Key].GetType() == typeof(RadioButton))
+                                        ((RadioButton)targetForm.Controls[saveInput.Key]).Checked = Boolean.Parse(saveInput.Value);
+                                    else
+                                        targetForm.Controls[saveInput.Key].Text = saveInput.Value;
+                                }
+                            }
+
+                            UpdateButtons(savedFormCount);
+                            savedFormCount++;
+                        }
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+        #region Manipulate Form Functions
+
+        private void GenerateNewForm()
+        {
+            for (int i = savedFormCount; i < formList.Length; i++)
+                formList[i] = GetTargetForm(i);
+        }
+
         private bool CompletedForm(int targetFormIndex)
         {
             DialogResult result = formList[targetFormIndex].ShowDialog();
@@ -149,6 +228,10 @@ namespace CampusCaseReportFormApp
             formList[targetFormIndex].ShowDialog();
         }
 
+        #endregion
+
+        #region Update Button Functions
+
         private void ResetButtons()
         {
             // turn off all the btn
@@ -168,26 +251,9 @@ namespace CampusCaseReportFormApp
                 btnFillList[targetFormIndex + 1].Enabled = true;
         }
 
-        private void BtnNew_Click(object sender, EventArgs e)
-        {
-            if (GetSaveFilePath())
-            {
-                savedFormCount = 0; // reset savedFormCount, in case btnLoad is clicked earlier
-                GenerateNewForm(); // generate a new instance of each form
-                ResetButtons();
-            }
-        }
+        #endregion
 
-        private void BtnSave_Click(object sender, EventArgs e)
-        {
-            WriteFormToFile();
-        }
-
-        private void GenerateNewForm()
-        {
-            for (int i = savedFormCount; i < formList.Length; i++)
-                    formList[i] = GetTargetForm(i);
-        }
+        #region Saved and Retrieved Data Functions
 
         private bool GetSaveFilePath()
         {
@@ -321,61 +387,6 @@ namespace CampusCaseReportFormApp
             streamWriter.Close(); // need to close StreamWrter every time since we don't know when will user close the program
         }
 
-        private void BtnLoad_Click(object sender, EventArgs e)
-        {
-            // this code is modify from - https://www.c-sharpcorner.com/UploadFile/mahesh/openfiledialog-in-C-Sharp/ 
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Filter = "txt files (*.txt)|*.txt";
-                openFileDialog.FilterIndex = 2;
-                openFileDialog.RestoreDirectory = true;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    ResetButtons();
-
-                    //Get the path of specified file
-                    targetPath = openFileDialog.FileName;
-                    fileName = Path.GetFileName(targetPath);
-
-                    //Read the contents of the file into a stream
-                    var fileStream = openFileDialog.OpenFile();
-
-                    using (StreamReader reader = new StreamReader(fileStream))
-                    {
-                        savedFormCount = 0;
-                        GenerateNewForm();
-                        string fileContent = reader.ReadToEnd();
-
-                        // this code is modify from - https://stackoverflow.com/questions/6201529/how-do-i-turn-a-c-sharp-object-into-a-json-string-in-net
-                        Dictionary<string, string>[] saveFormList = JsonConvert.DeserializeObject<Dictionary<string, string>[]>("[" + fileContent + "]");
-
-                        foreach (Dictionary<string, string> saveForm in saveFormList)
-                        {
-                            formInputKeyByValue[savedFormCount] = saveForm;
-                            Form targetForm = formList[savedFormCount] = GetTargetForm(savedFormCount); // create new form instance
-
-                            // load all save inputs to form
-                            // this code is modify from - https://stackoverflow.com/questions/141088/how-to-iterate-over-a-dictionary
-                            foreach (KeyValuePair<string, string> saveInput in saveForm)
-                            {
-                                if (targetForm.Controls[saveInput.Key] != null) // it equal to null when the key not match with any form's component's name
-                                {
-                                    if (targetForm.Controls[saveInput.Key].GetType() == typeof(CheckBox)) // assign value differently if is checkBox
-                                        ((CheckBox)targetForm.Controls[saveInput.Key]).Checked = Boolean.Parse(saveInput.Value);
-                                    else if (targetForm.Controls[saveInput.Key].GetType() == typeof(RadioButton))
-                                        ((RadioButton)targetForm.Controls[saveInput.Key]).Checked = Boolean.Parse(saveInput.Value);
-                                    else
-                                        targetForm.Controls[saveInput.Key].Text = saveInput.Value;
-                                }
-                            }
-
-                            UpdateButtons(savedFormCount);
-                            savedFormCount++;
-                        }
-                    }
-                }
-            }
-        }
+        #endregion
     }
 }

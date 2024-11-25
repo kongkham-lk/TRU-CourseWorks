@@ -146,6 +146,8 @@
     <None Include="Resources\form05 - 00.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Thompson_Rivers_University_Logo.png" />
+    <None Include="Resources\TRU_background.jpg" />
     <None Include="Resources\form05 - 01.png" />
     <None Include="Resources\form04 - 01.png" />
     <None Include="Resources\searchBox.png" />

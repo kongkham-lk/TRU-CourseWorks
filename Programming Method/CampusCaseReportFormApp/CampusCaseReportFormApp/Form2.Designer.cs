@@ -77,7 +77,7 @@
             this.StudentName.Name = "StudentName";
             this.StudentName.Size = new System.Drawing.Size(314, 18);
             this.StudentName.TabIndex = 0;
-            this.StudentName.Text = "";
+            this.StudentName.Text = "fdasfdasfdasf";
             // 
             // TRUEmail
             // 
@@ -165,7 +165,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(814, 761);
+            this.ClientSize = new System.Drawing.Size(824, 761);
             this.Controls.Add(this.StudentComment);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.btnSubmit);

@@ -5,9 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CampusCaseReportFormApp
@@ -40,11 +38,11 @@ namespace CampusCaseReportFormApp
             pstartinfo.RedirectStandardOutput = true;
             pstartinfo.RedirectStandardError = true;
             string allSaveForm = JsonConvert.SerializeObject(Admin.formInputKeyByValue);
-            allSaveForm = "\"" + allSaveForm.Replace("\"", "\\\"") + "\""; // this code is modify from - https://chatgpt.com/
+            allSaveForm = allSaveForm.Replace("\"", "\\\""); // this code is modify from - https://stackoverflow.com/questions/5216272/replace-string-with-another-in-java
 
             // set file name and pass in argument
             pstartinfo.FileName = GetPythonExePath();
-            pstartinfo.Arguments = $"\"{targetScript}\" {allSaveForm} {(targetText == "" ? "\" \"" : targetText)} "; // this code is modify from - https://chatgpt.com/
+            pstartinfo.Arguments = $"\"{targetScript}\" \"{allSaveForm}\" \"{(targetText == "" ? " " : targetText)}\""; // this code is modify from - https://stackoverflow.com/questions/50413721/pass-multiple-arguments-from-c-sharp-to-python
 
             // execute the process
             using (Process process = Process.Start(pstartinfo))
@@ -88,7 +86,7 @@ namespace CampusCaseReportFormApp
 
         public static void SearchText(Form targetForm, ref string[][] targetSearchFieldNameList, ref Label[] displaySearchResultList)
         {
-            targetSearchFieldNameList = Helper.GetTargetFormField(targetForm.Controls["searchText"].Text);
+            targetSearchFieldNameList = GetTargetFormField(targetForm.Controls["searchText"].Text);
 
             if (targetSearchFieldNameList != null)
             {
@@ -154,27 +152,29 @@ namespace CampusCaseReportFormApp
             return isComplete;
         }
 
-        public static void HighlightTextBoxInForms(ref List<RichTextBox> prevHighlightTextBoxList, string[][] targetSearchFieldList, string searchText)
+        public static void HighlightTextBoxInForms(string[][] targetSearchFieldList, string searchText)
         {
-            ResetHighlightTextBoxInForms(ref prevHighlightTextBoxList);
+            ResetHighlightTextBoxInForms();
 
             Form[] formList = Admin.formList;
-            GetAllTargetSearchField(prevHighlightTextBoxList, formList, targetSearchFieldList);
+            GetAllTargetSearchField(formList, targetSearchFieldList);
 
-            foreach (RichTextBox targetTxtBox in prevHighlightTextBoxList)
+            foreach (RichTextBox targetTxtBox in Admin.prevHighlightTextBoxList)
                 HighlightTextInTextBox(targetTxtBox, searchText);
         }
 
-        public static void ResetHighlightTextBoxInForms(ref List<RichTextBox> prevHighlightTextBoxList)
+        public static void ResetHighlightTextBoxInForms()
         {
-            if (prevHighlightTextBoxList.Any())
-                foreach (RichTextBox prevHightlight in prevHighlightTextBoxList)
+            if (Admin.prevHighlightTextBoxList.Any())
+            {
+                foreach (RichTextBox prevHightlight in Admin.prevHighlightTextBoxList)
                     ClearHighlightTextInTextBox(prevHightlight);
 
-            prevHighlightTextBoxList = new List<RichTextBox>(); // reset previous save search field
+                Admin.prevHighlightTextBoxList = new List<RichTextBox>(); // reset previous save search field
+            }
         }
 
-        private static void GetAllTargetSearchField(List<RichTextBox> prevHighlightTextBoxList, Form[] formList, string[][] targetSearchField)
+        private static void GetAllTargetSearchField(Form[] formList, string[][] targetSearchField)
         {
             if (targetSearchField != null && targetSearchField.Any())
             {
@@ -183,7 +183,7 @@ namespace CampusCaseReportFormApp
                     foreach (string targetFieldName in targetSearchField[i])
                     {
                         RichTextBox targetField = (RichTextBox)formList[i].Controls[targetFieldName];
-                        prevHighlightTextBoxList.Add(targetField);
+                        Admin.prevHighlightTextBoxList.Add(targetField);
                     }
                 }
             }
@@ -192,9 +192,6 @@ namespace CampusCaseReportFormApp
         // this code is modify from - https://stackoverflow.com/questions/63747334/highlight-text-in-a-richtextbox-control
         private static void HighlightTextInTextBox(RichTextBox rtb, string searchTextt)
         {
-            //ClearHighlight(rtb);
-            //string pattern = string.Join("|", phrases.Select(phr => Regex.Escape(phr)));
-
             var matches = Regex.Matches(rtb.Text, searchTextt, RegexOptions.IgnoreCase);
             foreach (Match m in matches)
             {

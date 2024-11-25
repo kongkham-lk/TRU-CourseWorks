@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.btnView5 = new System.Windows.Forms.Button();
             this.btnView4 = new System.Windows.Forms.Button();
             this.btnView3 = new System.Windows.Forms.Button();
@@ -46,12 +47,17 @@
             this.btnFill1 = new System.Windows.Forms.Button();
             this.labelStep1 = new System.Windows.Forms.Label();
             this.labelAdmin = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnView5
             // 
             this.btnView5.Enabled = false;
-            this.btnView5.Location = new System.Drawing.Point(303, 283);
+            this.btnView5.Location = new System.Drawing.Point(406, 366);
             this.btnView5.Name = "btnView5";
             this.btnView5.Size = new System.Drawing.Size(75, 23);
             this.btnView5.TabIndex = 36;
@@ -62,7 +68,7 @@
             // btnView4
             // 
             this.btnView4.Enabled = false;
-            this.btnView4.Location = new System.Drawing.Point(303, 250);
+            this.btnView4.Location = new System.Drawing.Point(406, 333);
             this.btnView4.Name = "btnView4";
             this.btnView4.Size = new System.Drawing.Size(75, 23);
             this.btnView4.TabIndex = 35;
@@ -73,7 +79,7 @@
             // btnView3
             // 
             this.btnView3.Enabled = false;
-            this.btnView3.Location = new System.Drawing.Point(303, 219);
+            this.btnView3.Location = new System.Drawing.Point(406, 302);
             this.btnView3.Name = "btnView3";
             this.btnView3.Size = new System.Drawing.Size(75, 23);
             this.btnView3.TabIndex = 34;
@@ -84,7 +90,7 @@
             // btnView2
             // 
             this.btnView2.Enabled = false;
-            this.btnView2.Location = new System.Drawing.Point(303, 186);
+            this.btnView2.Location = new System.Drawing.Point(406, 269);
             this.btnView2.Name = "btnView2";
             this.btnView2.Size = new System.Drawing.Size(75, 23);
             this.btnView2.TabIndex = 33;
@@ -95,7 +101,7 @@
             // btnView1
             // 
             this.btnView1.Enabled = false;
-            this.btnView1.Location = new System.Drawing.Point(303, 153);
+            this.btnView1.Location = new System.Drawing.Point(406, 236);
             this.btnView1.Name = "btnView1";
             this.btnView1.Size = new System.Drawing.Size(75, 23);
             this.btnView1.TabIndex = 32;
@@ -105,7 +111,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(303, 115);
+            this.btnLoad.Location = new System.Drawing.Point(406, 198);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 31;
@@ -115,7 +121,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(213, 116);
+            this.btnNew.Location = new System.Drawing.Point(316, 199);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 30;
@@ -126,7 +132,7 @@
             // btnFill5
             // 
             this.btnFill5.Enabled = false;
-            this.btnFill5.Location = new System.Drawing.Point(213, 283);
+            this.btnFill5.Location = new System.Drawing.Point(316, 366);
             this.btnFill5.Name = "btnFill5";
             this.btnFill5.Size = new System.Drawing.Size(75, 23);
             this.btnFill5.TabIndex = 29;
@@ -138,7 +144,7 @@
             // 
             this.labelStep5.AutoSize = true;
             this.labelStep5.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStep5.Location = new System.Drawing.Point(105, 283);
+            this.labelStep5.Location = new System.Drawing.Point(208, 366);
             this.labelStep5.Name = "labelStep5";
             this.labelStep5.Size = new System.Drawing.Size(48, 18);
             this.labelStep5.TabIndex = 28;
@@ -147,7 +153,7 @@
             // btnFill4
             // 
             this.btnFill4.Enabled = false;
-            this.btnFill4.Location = new System.Drawing.Point(213, 251);
+            this.btnFill4.Location = new System.Drawing.Point(316, 334);
             this.btnFill4.Name = "btnFill4";
             this.btnFill4.Size = new System.Drawing.Size(75, 23);
             this.btnFill4.TabIndex = 27;
@@ -159,7 +165,7 @@
             // 
             this.labelStep4.AutoSize = true;
             this.labelStep4.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStep4.Location = new System.Drawing.Point(105, 251);
+            this.labelStep4.Location = new System.Drawing.Point(208, 334);
             this.labelStep4.Name = "labelStep4";
             this.labelStep4.Size = new System.Drawing.Size(49, 18);
             this.labelStep4.TabIndex = 26;
@@ -168,7 +174,7 @@
             // btnFill3
             // 
             this.btnFill3.Enabled = false;
-            this.btnFill3.Location = new System.Drawing.Point(213, 219);
+            this.btnFill3.Location = new System.Drawing.Point(316, 302);
             this.btnFill3.Name = "btnFill3";
             this.btnFill3.Size = new System.Drawing.Size(75, 23);
             this.btnFill3.TabIndex = 25;
@@ -180,7 +186,7 @@
             // 
             this.labelStep3.AutoSize = true;
             this.labelStep3.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStep3.Location = new System.Drawing.Point(105, 219);
+            this.labelStep3.Location = new System.Drawing.Point(208, 302);
             this.labelStep3.Name = "labelStep3";
             this.labelStep3.Size = new System.Drawing.Size(48, 18);
             this.labelStep3.TabIndex = 24;
@@ -189,7 +195,7 @@
             // btnFill2
             // 
             this.btnFill2.Enabled = false;
-            this.btnFill2.Location = new System.Drawing.Point(213, 187);
+            this.btnFill2.Location = new System.Drawing.Point(316, 270);
             this.btnFill2.Name = "btnFill2";
             this.btnFill2.Size = new System.Drawing.Size(75, 23);
             this.btnFill2.TabIndex = 23;
@@ -201,7 +207,7 @@
             // 
             this.labelStep2.AutoSize = true;
             this.labelStep2.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStep2.Location = new System.Drawing.Point(105, 187);
+            this.labelStep2.Location = new System.Drawing.Point(208, 270);
             this.labelStep2.Name = "labelStep2";
             this.labelStep2.Size = new System.Drawing.Size(48, 18);
             this.labelStep2.TabIndex = 22;
@@ -210,7 +216,7 @@
             // btnFill1
             // 
             this.btnFill1.Enabled = false;
-            this.btnFill1.Location = new System.Drawing.Point(213, 154);
+            this.btnFill1.Location = new System.Drawing.Point(316, 237);
             this.btnFill1.Name = "btnFill1";
             this.btnFill1.Size = new System.Drawing.Size(75, 23);
             this.btnFill1.TabIndex = 21;
@@ -222,7 +228,7 @@
             // 
             this.labelStep1.AutoSize = true;
             this.labelStep1.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStep1.Location = new System.Drawing.Point(105, 154);
+            this.labelStep1.Location = new System.Drawing.Point(208, 237);
             this.labelStep1.Name = "labelStep1";
             this.labelStep1.Size = new System.Drawing.Size(47, 18);
             this.labelStep1.TabIndex = 20;
@@ -231,19 +237,50 @@
             // labelAdmin
             // 
             this.labelAdmin.AutoSize = true;
+            this.labelAdmin.BackColor = System.Drawing.Color.Transparent;
             this.labelAdmin.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAdmin.Location = new System.Drawing.Point(105, 114);
+            this.labelAdmin.Location = new System.Drawing.Point(208, 197);
             this.labelAdmin.Name = "labelAdmin";
             this.labelAdmin.Size = new System.Drawing.Size(75, 25);
             this.labelAdmin.TabIndex = 19;
             this.labelAdmin.Text = "Admin";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Location = new System.Drawing.Point(130, 74);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(436, 341);
+            this.richTextBox1.TabIndex = 39;
+            this.richTextBox1.Text = "";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(240, 99);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(216, 80);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::CampusCaseReportFormApp.Properties.Resources.TRU_background;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(706, 482);
+            this.pictureBox2.TabIndex = 38;
+            this.pictureBox2.TabStop = false;
             // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(484, 421);
+            this.ClientSize = new System.Drawing.Size(700, 482);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnView5);
             this.Controls.Add(this.btnView4);
             this.Controls.Add(this.btnView3);
@@ -262,8 +299,12 @@
             this.Controls.Add(this.btnFill1);
             this.Controls.Add(this.labelStep1);
             this.Controls.Add(this.labelAdmin);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.pictureBox2);
             this.Name = "Admin";
             this.Text = "Admin";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,5 +330,8 @@
         private System.Windows.Forms.Button btnFill1;
         private System.Windows.Forms.Label labelStep1;
         private System.Windows.Forms.Label labelAdmin;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

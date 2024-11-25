@@ -12,7 +12,6 @@ namespace CampusCaseReportFormApp
 {
     public partial class Form5 : Form
     {
-        List<RichTextBox> prevHighlightTextBoxList = new List<RichTextBox>();
         string[][] targetSearchFieldNameList;
         public Label[] displaySearchResultList { get; set; }
 
@@ -53,7 +52,7 @@ namespace CampusCaseReportFormApp
             // After the method, reassign the updated local variables back to the properties
             displaySearchResultList = displaySearchResultListLocal;
 
-            Helper.HighlightTextBoxInForms(ref prevHighlightTextBoxList, targetSearchFieldNameList, searchText.Text);
+            Helper.HighlightTextBoxInForms(targetSearchFieldNameList, searchText.Text);
         }
     }
 }

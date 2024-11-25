@@ -247,7 +247,7 @@ namespace CampusCaseReportFormApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(814, 761);
+            this.ClientSize = new System.Drawing.Size(824, 761);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.SignDateFacMem);
             this.Controls.Add(this.SignNameFacMem);
